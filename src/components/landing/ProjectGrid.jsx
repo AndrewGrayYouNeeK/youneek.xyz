@@ -8,7 +8,7 @@ const PROJECTS = [
     subtitle: 'The one that started it all',
     description: 'Full-stack autonomous system with real-time data pipelines and zero-downtime deployments.',
     stack: ['React', 'Node.js', 'Redis', 'Docker'],
-    image: '/__generating__/img_82894ce4a0fe.png',
+    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/7220020bc_generated_62ef8eda.png',
     link: '#'
   },
   {
@@ -17,7 +17,7 @@ const PROJECTS = [
     subtitle: 'Automating the impossible',
     description: 'High-throughput webhook processing engine handling 10M+ events/day without breaking a sweat.',
     stack: ['Go', 'Kafka', 'PostgreSQL', 'K8s'],
-    image: '/__generating__/img_117be98e47ba.png',
+    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/b6c1ccf7a_generated_9a99b9a8.png',
     link: '#'
   },
   {
@@ -26,7 +26,7 @@ const PROJECTS = [
     subtitle: 'AI that thinks different',
     description: 'Custom ML pipeline with transformer-based models for predictive analytics at scale.',
     stack: ['Python', 'PyTorch', 'CUDA', 'FastAPI'],
-    image: '/__generating__/img_b2b81b65bbf2.png',
+    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2400b20af_generated_24c3bba4.png',
     link: '#'
   },
   {
@@ -35,7 +35,7 @@ const PROJECTS = [
     subtitle: 'Unbreakable by design',
     description: 'End-to-end encrypted storage system with zero-knowledge architecture and quantum-safe crypto.',
     stack: ['Rust', 'WebAssembly', 'libsodium', 'IPFS'],
-    image: '/__generating__/img_a3b8dc168387.png',
+    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/a573e335b_generated_0733585f.png',
     link: '#'
   },
   {
@@ -44,7 +44,7 @@ const PROJECTS = [
     subtitle: 'Infrastructure on steroids',
     description: 'Multi-cloud orchestration platform with auto-scaling, cost optimization, and chaos engineering.',
     stack: ['Terraform', 'AWS', 'GCP', 'Pulumi'],
-    image: '/__generating__/img_2ed9de396c34.png',
+    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/139d7ddcb_generated_3cc52c4c.png',
     link: '#'
   },
   {
@@ -53,7 +53,7 @@ const PROJECTS = [
     subtitle: 'The ultimate CLI',
     description: 'Brutalist terminal emulator with AI-powered autocomplete and cross-platform SSH tunneling.',
     stack: ['Zig', 'Vulkan', 'gRPC', 'Lua'],
-    image: '/__generating__/img_a49ec3b9cd73.png',
+    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/dd96dafcd_generated_dc211d43.png',
     link: '#'
   }
 ];

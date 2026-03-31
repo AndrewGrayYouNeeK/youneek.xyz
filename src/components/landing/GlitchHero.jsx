@@ -64,7 +64,7 @@ export default function GlitchHero() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mt-8 font-mono text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto"
         >
-          Unique shit I built—no excuses
+          YouNeeK shit I built—no excuses
         </motion.p>
 
         {/* Decorative line */}

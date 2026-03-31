@@ -10,7 +10,7 @@ export default function CyberFooter() {
             <p className="font-mono text-sm text-muted-foreground">
               Built by{' '}
               <span className="text-primary font-bold neon-text">
-                [YOUR_NAME]
+                Andrew Gray
               </span>
               {' '}|{' '}
               <span className="text-foreground/60">

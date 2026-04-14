@@ -6,6 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Landing from './pages/Landing';
+import { Analytics } from '@vercel/analytics/react';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -50,6 +51,7 @@ function App() {
           <AuthenticatedApp />
         </Router>
         <Toaster />
+        <Analytics />
       </QueryClientProvider>
     </AuthProvider>
   )

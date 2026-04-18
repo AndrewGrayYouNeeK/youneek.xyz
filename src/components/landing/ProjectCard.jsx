@@ -1,17 +1,20 @@
 import { useState } from 'react';
 
-const NEON_COLORS = [
-  'hsl(180, 100%, 50%)',   // cyan
-  'hsl(300, 100%, 50%)',   // magenta
-  'hsl(120, 100%, 50%)',   // green
-  'hsl(50, 100%, 50%)',    // yellow
-  'hsl(270, 100%, 60%)',   // purple
-  'hsl(0, 100%, 55%)',     // red
-];
+const NEON_COLORS = {
+  cyan: 'hsl(180, 100%, 50%)',
+  magenta: 'hsl(300, 100%, 50%)',
+  green: 'hsl(120, 100%, 50%)',
+  yellow: 'hsl(50, 100%, 50%)',
+  purple: 'hsl(270, 100%, 60%)',
+  red: 'hsl(0, 100%, 55%)',
+};
+
+const NEON_FALLBACK = ['cyan', 'magenta', 'green', 'yellow', 'purple', 'red'];
 
 export default function ProjectCard({ project, index }) {
   const [isHovered, setIsHovered] = useState(false);
-  const neonColor = NEON_COLORS[index % NEON_COLORS.length];
+  const accent = project.accent || NEON_FALLBACK[index % NEON_FALLBACK.length];
+  const neonColor = NEON_COLORS[accent] || NEON_COLORS.cyan;
 
   return (
     <div
@@ -30,10 +33,23 @@ export default function ProjectCard({ project, index }) {
             borderColor: isHovered ? neonColor.replace(')', ' / 0.6)') : undefined
           }}
         >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+          {/* Neon gradient artwork (replaces external image) */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `
+                radial-gradient(circle at 20% 20%, ${neonColor.replace(')', ' / 0.45)')} 0%, transparent 55%),
+                radial-gradient(circle at 80% 70%, ${neonColor.replace(')', ' / 0.25)')} 0%, transparent 60%),
+                linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 10%, 4%) 100%)
+              `,
+            }}
+          />
+          <div
+            className="absolute inset-0 opacity-30 mix-blend-overlay"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)'
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-5">

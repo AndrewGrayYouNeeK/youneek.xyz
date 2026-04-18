@@ -3,22 +3,22 @@ import ProjectCard from './ProjectCard';
 
 const PROJECTS = [
   {
-    title: 'Project Alpha',
+    title: '3I-Atlas',
     tag: '// 001',
     subtitle: 'The one that started it all',
-    description: 'Full-stack autonomous system with real-time data pipelines and zero-downtime deployments.',
-    stack: ['React', 'Node.js', 'Redis', 'Docker'],
-    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/7220020bc_generated_62ef8eda.png',
-    link: '#'
+    description: 'Browser-based space exploration game inspired by the interstellar comet 3I/ATLAS — the spark that kicked off everything on YouNeeK.',
+    stack: ['JavaScript', 'HTML5 Canvas', 'Web Audio'],
+    accent: 'cyan',
+    link: 'https://github.com/AndrewGrayYouNeeK/3i-atlas-the-game'
   },
   {
     title: 'Webhook Slayer',
     tag: '// 002',
     subtitle: 'Automating the impossible',
-    description: 'High-throughput webhook processing engine handling 10M+ events/day without breaking a sweat.',
+    description: 'High-throughput webhook processing engine designed to chew through millions of events without flinching.',
     stack: ['Go', 'Kafka', 'PostgreSQL', 'K8s'],
-    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/b6c1ccf7a_generated_9a99b9a8.png',
-    link: '#'
+    accent: 'magenta',
+    link: 'https://github.com/AndrewGrayYouNeeK/We-hook-slayer'
   },
   {
     title: 'Neural Forge',
@@ -26,8 +26,8 @@ const PROJECTS = [
     subtitle: 'AI that thinks different',
     description: 'Custom ML pipeline with transformer-based models for predictive analytics at scale.',
     stack: ['Python', 'PyTorch', 'CUDA', 'FastAPI'],
-    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2400b20af_generated_24c3bba4.png',
-    link: '#'
+    accent: 'green',
+    link: 'https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge'
   },
   {
     title: 'CryptVault',
@@ -35,17 +35,17 @@ const PROJECTS = [
     subtitle: 'Unbreakable by design',
     description: 'End-to-end encrypted storage system with zero-knowledge architecture and quantum-safe crypto.',
     stack: ['Rust', 'WebAssembly', 'libsodium', 'IPFS'],
-    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/a573e335b_generated_0733585f.png',
-    link: '#'
+    accent: 'yellow',
+    link: 'https://github.com/AndrewGrayYouNeeK/CryptoVault'
   },
   {
     title: 'CloudRipper',
     tag: '// 005',
     subtitle: 'Infrastructure on steroids',
-    description: 'Multi-cloud orchestration platform with auto-scaling, cost optimization, and chaos engineering.',
-    stack: ['Terraform', 'AWS', 'GCP', 'Pulumi'],
-    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/139d7ddcb_generated_3cc52c4c.png',
-    link: '#'
+    description: 'Multi-cloud orchestration platform with auto-scaling, cost optimization, and chaos engineering baked in.',
+    stack: ['Terraform', 'Pulumi', 'AWS', 'GCP'],
+    accent: 'purple',
+    link: 'https://github.com/AndrewGrayYouNeeK/Cloudripper'
   },
   {
     title: 'DeathTerminal',
@@ -53,8 +53,8 @@ const PROJECTS = [
     subtitle: 'The ultimate CLI',
     description: 'Brutalist terminal emulator with AI-powered autocomplete and cross-platform SSH tunneling.',
     stack: ['Zig', 'Vulkan', 'gRPC', 'Lua'],
-    image: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/dd96dafcd_generated_dc211d43.png',
-    link: '#'
+    accent: 'red',
+    link: 'https://github.com/AndrewGrayYouNeeK/Death-terminal-'
   }
 ];
 

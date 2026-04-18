@@ -25,7 +25,7 @@ export default function CyberFooter() {
           {/* Right - Social icons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/AndrewGrayYouNeeK"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 border border-border/30 rounded-lg hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_hsl(180,100%,50%,0.2)]"

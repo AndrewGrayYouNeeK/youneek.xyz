@@ -69,7 +69,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/736534353_pgaLRg9bNEKoOW5HLzS34_rPjz7OY2.png',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/199b7b49b_IMG_09791.jpg',
     link: ''
   },
   {
@@ -79,7 +79,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/5c6886145_J-pkVgoLigDTfwK1sZ0Qt_3RwWpqbD.png',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/736534353_pgaLRg9bNEKoOW5HLzS34_rPjz7OY2.png',
     link: ''
   },
   {
@@ -89,6 +89,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/5c6886145_J-pkVgoLigDTfwK1sZ0Qt_3RwWpqbD.png',
     link: ''
   },
   {

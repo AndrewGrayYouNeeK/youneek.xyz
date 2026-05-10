@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { X } from 'lucide-react';
 
 export default function GlitchHero() {
   const [loaded, setLoaded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 100);
@@ -75,6 +77,17 @@ export default function GlitchHero() {
           className="mt-10 h-px w-64 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent"
         />
 
+        {/* Launch Button */}
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={loaded ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          onClick={() => setShowModal(true)}
+          className="mt-10 px-8 py-3 border border-primary/50 text-primary font-mono text-sm hover:border-primary hover:shadow-[0_0_20px_hsl(180,100%,50%,0.3)] transition-all duration-300"
+        >
+          {'>'} LAUNCH LIVE DEMO
+        </motion.button>
+
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -92,6 +105,30 @@ export default function GlitchHero() {
           </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="relative w-full max-w-4xl"
+          >
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute -top-12 right-0 text-primary hover:text-primary/50 transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img
+              src="https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/6064bf83a_generated_image.png"
+              alt="Portfolio Website Preview"
+              className="w-full rounded-lg border border-primary/30 shadow-[0_0_30px_hsl(180,100%,50%,0.2)]"
+            />
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }

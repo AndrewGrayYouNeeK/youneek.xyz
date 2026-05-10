@@ -59,7 +59,7 @@ const PROJECTS = [
     description: 'Brutalist terminal emulator with AI-powered autocomplete and cross-platform SSH tunneling.',
     stack: ['Zig', 'Vulkan', 'gRPC', 'Lua'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/dd96dafcd_generated_dc211d43.png',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/199b7b49b_IMG_09791.jpg',
     link: 'https://github.com/AndrewGrayYouNeeK/Death-terminal-'
   },
   {

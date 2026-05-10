@@ -69,7 +69,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/199b7b49b_IMG_09791.jpg',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/effcfc961_generated_image.png',
     link: ''
   },
   {
@@ -79,7 +79,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/736534353_pgaLRg9bNEKoOW5HLzS34_rPjz7OY2.png',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/7b4358086_generated_image.png',
     link: ''
   },
   {
@@ -89,7 +89,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/5c6886145_J-pkVgoLigDTfwK1sZ0Qt_3RwWpqbD.png',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/73f00fed2_generated_image.png',
     link: ''
   },
   {
@@ -99,7 +99,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/0b82bdbf5_IMG_0982.png',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/6f255a904_generated_image.png',
     link: ''
   },
   {
@@ -109,7 +109,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/77596be9d_qCbdgn_vJbb83a5wdAws2_rrFaNTNX.png',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/488b89050_generated_image.png',
     link: ''
   }
 ];

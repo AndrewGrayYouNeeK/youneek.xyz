@@ -28,6 +28,7 @@ const PROJECTS = [
     description: 'Custom ML pipeline with transformer-based models for predictive analytics at scale.',
     stack: ['Python', 'PyTorch', 'CUDA', 'FastAPI'],
     accent: 'green',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2400b20af_generated_24c3bba4.png',
     link: 'https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge'
   },
   {

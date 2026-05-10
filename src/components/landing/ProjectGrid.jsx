@@ -99,6 +99,7 @@ const PROJECTS = [
     description: '',
     stack: [],
     accent: 'cyan',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/0b82bdbf5_IMG_0982.png',
     link: ''
   },
   {

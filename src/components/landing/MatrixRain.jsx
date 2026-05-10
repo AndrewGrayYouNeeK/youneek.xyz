@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF';
+const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ▓▒░█';
 
 export default function MatrixRain() {
   const containerRef = useRef(null);
@@ -35,5 +35,5 @@ export default function MatrixRain() {
     };
   }, []);
 
-  return <div ref={containerRef} className="fixed inset-0 overflow-hidden pointer-events-none z-0" />;
+  return <div ref={containerRef} className="fixed inset-0 overflow-hidden pointer-events-none z-1" />;
 }

@@ -48,6 +48,7 @@ const PROJECTS = [
     description: 'Multi-cloud orchestration platform with auto-scaling, cost optimization, and chaos engineering baked in.',
     stack: ['Terraform', 'Pulumi', 'AWS', 'GCP'],
     accent: 'purple',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/139d7ddcb_generated_3cc52c4c.png',
     link: 'https://github.com/AndrewGrayYouNeeK/Cloudripper'
   },
   {

@@ -184,11 +184,11 @@
 .matrix-char {
   position: fixed;
   font-family: 'Share Tech Mono', monospace;
-  color: hsl(120 100% 50% / 0.15);
+  color: hsl(120 100% 50% / 0.6);
   font-size: 14px;
   animation: matrixFall linear infinite;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   user-select: none;
 }
 

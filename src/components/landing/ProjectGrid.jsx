@@ -3,13 +3,13 @@ import ProjectCard from './ProjectCard';
 
 const PROJECTS = [
   {
-    title: '3I-Atlas',
+    title: 'Project Alpha',
     tag: '// 001',
     subtitle: 'The one that started it all',
-    description: 'Browser-based space exploration game inspired by the interstellar comet 3I/ATLAS — the spark that kicked off everything on YouNeeK.',
-    stack: ['JavaScript', 'HTML5 Canvas', 'Web Audio'],
+    description: 'Full-stack autonomous system with real-time data pipelines and zero-downtime deployments.',
+    stack: ['React', 'Node.js', 'Redis', 'Docker'],
     accent: 'cyan',
-    link: 'https://github.com/AndrewGrayYouNeeK/3i-atlas-the-game'
+    link: 'https://github.com/AndrewGrayYouNeeK/project-alpha'
   },
   {
     title: 'Webhook Slayer',

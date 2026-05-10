@@ -9,6 +9,7 @@ const PROJECTS = [
     description: 'Full-stack autonomous system with real-time data pipelines and zero-downtime deployments.',
     stack: ['React', 'Node.js', 'Redis', 'Docker'],
     accent: 'cyan',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/7220020bc_generated_62ef8eda.png',
     link: 'https://github.com/AndrewGrayYouNeeK/project-alpha'
   },
   {

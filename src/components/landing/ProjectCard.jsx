@@ -33,17 +33,25 @@ export default function ProjectCard({ project, index }) {
             borderColor: isHovered ? neonColor.replace(')', ' / 0.6)') : undefined
           }}
         >
-          {/* Neon gradient artwork (replaces external image) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `
-                radial-gradient(circle at 20% 20%, ${neonColor.replace(')', ' / 0.45)')} 0%, transparent 55%),
-                radial-gradient(circle at 80% 70%, ${neonColor.replace(')', ' / 0.25)')} 0%, transparent 60%),
-                linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 10%, 4%) 100%)
-              `,
-            }}
-          />
+          {/* Image or neon gradient artwork */}
+          {project.imageUrl ? (
+            <img
+              src={project.imageUrl}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+                  radial-gradient(circle at 20% 20%, ${neonColor.replace(')', ' / 0.45)')} 0%, transparent 55%),
+                  radial-gradient(circle at 80% 70%, ${neonColor.replace(')', ' / 0.25)')} 0%, transparent 60%),
+                  linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 10%, 4%) 100%)
+                `,
+              }}
+            />
+          )}
           <div
             className="absolute inset-0 opacity-30 mix-blend-overlay"
             style={{

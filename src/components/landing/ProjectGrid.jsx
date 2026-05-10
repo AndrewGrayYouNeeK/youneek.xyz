@@ -56,6 +56,42 @@ const PROJECTS = [
     stack: ['Zig', 'Vulkan', 'gRPC', 'Lua'],
     accent: 'red',
     link: 'https://github.com/AndrewGrayYouNeeK/Death-terminal-'
+  },
+  {
+    title: '',
+    tag: '// 007',
+    subtitle: '',
+    description: '',
+    stack: [],
+    accent: 'cyan',
+    link: ''
+  },
+  {
+    title: '',
+    tag: '// 008',
+    subtitle: '',
+    description: '',
+    stack: [],
+    accent: 'cyan',
+    link: ''
+  },
+  {
+    title: '',
+    tag: '// 009',
+    subtitle: '',
+    description: '',
+    stack: [],
+    accent: 'cyan',
+    link: ''
+  },
+  {
+    title: '',
+    tag: '// 010',
+    subtitle: '',
+    description: '',
+    stack: [],
+    accent: 'cyan',
+    link: ''
   }
 ];
 

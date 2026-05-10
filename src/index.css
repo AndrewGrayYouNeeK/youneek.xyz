@@ -184,7 +184,7 @@
 .matrix-char {
   position: fixed;
   font-family: 'Share Tech Mono', monospace;
-  color: hsl(120 100% 50% / 0.6);
+  color: hsl(120 100% 50% / 0.3);
   font-size: 14px;
   animation: matrixFall linear infinite;
   pointer-events: none;

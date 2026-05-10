@@ -96,6 +96,16 @@ const PROJECTS = [
     accent: 'cyan',
     imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2400b20af_generated_24c3bba4.png',
     link: ''
+  },
+  {
+    title: '',
+    tag: '// 011',
+    subtitle: '',
+    description: '',
+    stack: [],
+    accent: 'cyan',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/b6c1ccf7a_generated_9a99b9a8.png',
+    link: ''
   }
 ];
 

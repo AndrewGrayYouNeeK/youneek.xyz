@@ -39,6 +39,7 @@ const PROJECTS = [
     description: 'End-to-end encrypted storage system with zero-knowledge architecture and quantum-safe crypto.',
     stack: ['Rust', 'WebAssembly', 'libsodium', 'IPFS'],
     accent: 'yellow',
+    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/a573e335b_generated_0733585f.png',
     link: 'https://github.com/AndrewGrayYouNeeK/CryptoVault'
   },
   {

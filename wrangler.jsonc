@@ -1,0 +1,13 @@
+{
+  "name": "youneek-xyz",
+  "compatibility_date": "2026-08-27",
+  "preview_urls": true,
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    { "pattern": "youneek.xyz", "custom_domain": true },
+    { "pattern": "www.youneek.xyz", "custom_domain": true }
+  ]
+}

@@ -121,11 +121,14 @@ export default function GlitchHero() {
             >
               <X className="w-8 h-8" />
             </button>
-            <img
-              src="https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/6064bf83a_generated_image.png"
-              alt="Portfolio Website Preview"
-              className="w-full rounded-lg border border-primary/30 shadow-[0_0_30px_hsl(180,100%,50%,0.2)]"
-            />
+            <div className="w-full aspect-video rounded-lg border border-primary/30 bg-background shadow-[0_0_30px_hsl(180,100%,50%,0.2)] flex flex-col items-center justify-center gap-4 p-8">
+              <p className="glitch-text neon-text font-heading text-4xl sm:text-6xl font-black tracking-tight text-primary">
+                YouNeeK.xyz
+              </p>
+              <p className="font-mono text-sm text-muted-foreground">
+                Live site preview — this page, running locally
+              </p>
+            </div>
           </motion.div>
         </div>
       )}

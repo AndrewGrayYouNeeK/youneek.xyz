@@ -10,7 +10,6 @@ const PROJECTS = [
     description: 'Simple task tracker with add, delete, and mark complete functionality. Great starter project.',
     stack: ['React', 'Local Storage'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/51765f1b1_generated_image.png',
     link: ''
   },
   {
@@ -20,7 +19,6 @@ const PROJECTS = [
     description: 'Full-featured calculator with advanced operations and expression parsing.',
     stack: ['React', 'JavaScript'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/c58d29a8d_generated_image.png',
     link: ''
   },
   {
@@ -30,7 +28,6 @@ const PROJECTS = [
     description: 'Fetch and display weather data with real-time updates and location services.',
     stack: ['React', 'Axios', 'Weather API', 'Geolocation'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/44155550a_generated_image.png',
     link: ''
   },
 
@@ -42,7 +39,6 @@ const PROJECTS = [
     description: 'Rich text note taking with search, categories, and cloud synchronization.',
     stack: ['React', 'Firebase', 'Quill', 'Node.js'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/038bc7b43_generated_image.png',
     link: ''
   },
   {
@@ -52,7 +48,6 @@ const PROJECTS = [
     description: 'Track daily habits with streaks, analytics, and motivational insights.',
     stack: ['React', 'Chart.js', 'MongoDB', 'Express'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/fbb7970ea_generated_image.png',
     link: ''
   },
   {
@@ -62,7 +57,6 @@ const PROJECTS = [
     description: 'Puzzle game with AI solver, level generation, and leaderboards.',
     stack: ['Phaser', 'React', 'Node.js', 'Algorithms'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/51765f1b1_generated_image.png',
     link: ''
   },
 
@@ -74,7 +68,6 @@ const PROJECTS = [
     description: 'Encrypted password vault with two-factor authentication and breach monitoring.',
     stack: ['Rust', 'SQLite', 'Crypto', 'React'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/15d876223_generated_image.png',
     link: ''
   },
   {
@@ -84,7 +77,6 @@ const PROJECTS = [
     description: 'Distributed file storage with versioning, sharing, and S3 integration.',
     stack: ['AWS S3', 'Node.js', 'React', 'PostgreSQL'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/0e3abd5dc_generated_image.png',
     link: ''
   },
   {
@@ -94,7 +86,6 @@ const PROJECTS = [
     description: 'Instant messaging with video calls, encryption, and offline support.',
     stack: ['Socket.io', 'React', 'Node.js', 'MongoDB'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/830ee747f_generated_image.png',
     link: ''
   },
   {
@@ -104,7 +95,6 @@ const PROJECTS = [
     description: 'Real-time data visualization with drill-down analytics and custom widgets.',
     stack: ['React', 'D3.js', 'ClickHouse', 'WebSocket'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/44155550a_generated_image.png',
     link: ''
   },
 
@@ -116,7 +106,6 @@ const PROJECTS = [
     description: 'User profiles, feed algorithms, notifications, and real-time presence tracking.',
     stack: ['React', 'Node.js', 'GraphQL', 'PostgreSQL'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/f47d1b9df_generated_image.png',
     link: ''
   },
   {
@@ -126,7 +115,6 @@ const PROJECTS = [
     description: 'Full shopping experience with payment processing, inventory, and analytics.',
     stack: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/106148635_generated_image.png',
     link: ''
   },
   {
@@ -136,7 +124,6 @@ const PROJECTS = [
     description: 'Adaptive bitrate streaming with CDN delivery and real-time transcoding.',
     stack: ['FFmpeg', 'HLS', 'React', 'Node.js'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/65c675c28_generated_image.png',
     link: ''
   },
   {
@@ -146,7 +133,6 @@ const PROJECTS = [
     description: 'SMTP/IMAP server with spam filtering, encryption, and high availability.',
     stack: ['Go', 'IMAP', 'SMTP', 'Postgres'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/c58d29a8d_generated_image.png',
     link: ''
   },
   {
@@ -156,7 +142,6 @@ const PROJECTS = [
     description: 'Full blockchain implementation with consensus, smart contracts, and mining.',
     stack: ['Rust', 'Solidity', 'Crypto', 'Networking'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/038bc7b43_generated_image.png',
     link: ''
   },
 
@@ -168,7 +153,6 @@ const PROJECTS = [
     description: 'High-throughput webhook processing engine designed to chew through millions of events without flinching.',
     stack: ['Go', 'Kafka', 'PostgreSQL', 'K8s'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/b6c1ccf7a_generated_9a99b9a8.png',
     link: 'https://github.com/AndrewGrayYouNeeK/We-hook-slayer'
   },
   {
@@ -178,7 +162,6 @@ const PROJECTS = [
     description: 'Deploy and serve ML models with batching, versioning, and auto-scaling.',
     stack: ['TensorFlow', 'FastAPI', 'Docker', 'Kubernetes'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/aa248777f_generated_image.png',
     link: ''
   },
   {
@@ -188,7 +171,6 @@ const PROJECTS = [
     description: 'High-performance cache layer with LRU eviction and consistent hashing.',
     stack: ['Rust', 'Redis', 'memcached', 'C++'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/379adf1aa_generated_image.png',
     link: ''
   },
   {
@@ -198,7 +180,6 @@ const PROJECTS = [
     description: 'Distributed database with ACID transactions, replication, and sharding.',
     stack: ['Raft', 'RocksDB', 'Rust', 'Networking'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/0e3abd5dc_generated_image.png',
     link: ''
   },
   {
@@ -208,7 +189,6 @@ const PROJECTS = [
     description: 'Advanced compiler optimizations with vectorization and parallelization.',
     stack: ['LLVM', 'Rust', 'Assembly', 'GCC'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/830ee747f_generated_image.png',
     link: ''
   },
   {
@@ -218,7 +198,6 @@ const PROJECTS = [
     description: 'Microkernel OS with memory management, scheduling, and device drivers.',
     stack: ['Assembly', 'C', 'x86', 'Bootloaders'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/65c675c28_generated_image.png',
     link: ''
   },
 
@@ -230,7 +209,6 @@ const PROJECTS = [
     description: 'Custom ML pipeline with transformer-based models for predictive analytics at scale.',
     stack: ['Python', 'PyTorch', 'CUDA', 'FastAPI'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2400b20af_generated_24c3bba4.png',
     link: 'https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge'
   },
   {
@@ -240,7 +218,6 @@ const PROJECTS = [
     description: 'Large language model with transformer architecture and fine-tuning support.',
     stack: ['PyTorch', 'Transformers', 'CUDA', 'Distributed Training'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/106148635_generated_image.png',
     link: ''
   },
   {
@@ -250,7 +227,6 @@ const PROJECTS = [
     description: 'Real-time perception, planning, and control for autonomous vehicles.',
     stack: ['TensorFlow', 'ROS', 'CUDA', 'C++'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/81947afee_generated_image.png',
     link: ''
   },
   {
@@ -260,7 +236,6 @@ const PROJECTS = [
     description: 'Real-time 3D renderer with ray tracing, global illumination, and physics.',
     stack: ['Vulkan', 'C++', 'Raytracing', 'Physics Engine'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/f47d1b9df_generated_image.png',
     link: ''
   },
   {
@@ -270,7 +245,6 @@ const PROJECTS = [
     description: 'Mobile AR platform with real-time object tracking and rendering.',
     stack: ['ARKit', 'Unity', 'Swift', 'Metal'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/fbb7970ea_generated_image.png',
     link: ''
   },
 
@@ -282,7 +256,6 @@ const PROJECTS = [
     description: 'End-to-end encrypted storage system with zero-knowledge architecture and quantum-safe crypto.',
     stack: ['Rust', 'WebAssembly', 'libsodium', 'IPFS'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/a573e335b_generated_0733585f.png',
     link: 'https://github.com/AndrewGrayYouNeeK/CryptoVault'
   },
   {
@@ -292,7 +265,6 @@ const PROJECTS = [
     description: 'Quantum circuit simulation with Shor and Grover algorithm implementations.',
     stack: ['Qiskit', 'Python', 'Q#', 'Julia'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/82e5da787_generated_image.png',
     link: ''
   },
   {
@@ -302,7 +274,6 @@ const PROJECTS = [
     description: 'Machine learning on quantum computers with variational circuits.',
     stack: ['Qiskit', 'PyTorch', 'Quantum Hardware', 'Optimization'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/aa248777f_generated_image.png',
     link: ''
   },
   {
@@ -312,7 +283,6 @@ const PROJECTS = [
     description: 'Accurate orbital simulation with N-body physics and trajectory optimization.',
     stack: ['Python', 'Numpy', 'CUDA', 'Unity'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/ffbf4966a_generated_image.png',
     link: ''
   },
   {
@@ -322,7 +292,6 @@ const PROJECTS = [
     description: 'Nuclear fusion reactor simulation with plasma confinement and energy output.',
     stack: ['C++', 'CUDA', 'OpenFOAM', 'MATLAB'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/68cfd96ad_generated_image.png',
     link: ''
   },
   {
@@ -332,7 +301,6 @@ const PROJECTS = [
     description: 'Artificial life simulation with evolution, mutation, and natural selection.',
     stack: ['Rust', 'WASM', 'WebGL', 'Genetic Algorithms'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/cb949cd46_generated_image.png',
     link: ''
   },
 
@@ -344,7 +312,6 @@ const PROJECTS = [
     description: 'Multi-cloud orchestration platform with auto-scaling, cost optimization, and chaos engineering baked in.',
     stack: ['Terraform', 'Pulumi', 'AWS', 'GCP'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/139d7ddcb_generated_3cc52c4c.png',
     link: 'https://github.com/AndrewGrayYouNeeK/Cloudripper'
   },
   {
@@ -354,7 +321,6 @@ const PROJECTS = [
     description: 'Brutalist terminal emulator with AI-powered autocomplete and cross-platform SSH tunneling.',
     stack: ['Zig', 'Vulkan', 'gRPC', 'Lua'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/dd96dafcd_generated_dc211d43.png',
     link: 'https://github.com/AndrewGrayYouNeeK/Death-terminal-'
   },
   {
@@ -364,7 +330,6 @@ const PROJECTS = [
     description: 'Language agnostic compiler with IR optimization and cross-platform targeting.',
     stack: ['LLVM', 'Rust', 'Compiler Design', 'AST'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/c5bda856d_generated_image.png',
     link: ''
   },
   {
@@ -374,7 +339,6 @@ const PROJECTS = [
     description: 'Artificial General Intelligence with self-improvement loops and meta-learning.',
     stack: ['TensorFlow', 'PyTorch', 'Transformers', 'Reinforcement Learning'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/5b4cd1819_generated_image.png',
     link: ''
   },
   {
@@ -384,7 +348,6 @@ const PROJECTS = [
     description: 'Time manipulation engine with causality preservation and timeline branching.',
     stack: ['Rust', 'Graph DB', 'Event Sourcing', 'CRDT'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/93ff55d29_generated_image.png',
     link: ''
   },
   {
@@ -394,7 +357,6 @@ const PROJECTS = [
     description: 'All-seeing architecture with perfect state awareness and infinite recursion handling.',
     stack: ['Advanced Topology', 'Category Theory', 'Proof Assistants'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2078df88f_generated_image.png',
     link: ''
   },
   {
@@ -404,7 +366,6 @@ const PROJECTS = [
     description: 'Full universe simulation engine with quantum mechanics and relativity.',
     stack: ['GPU Computing', 'Physics Engine', 'Visualization'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/656431b44_generated_image.png',
     link: ''
   },
   {
@@ -414,7 +375,6 @@ const PROJECTS = [
     description: 'Base layer of existence with axiom encoding and paradox resolution.',
     stack: ['Theoretical Physics', 'Quantum Logic', 'Metaphysics'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/5eda35880_generated_image.png',
     link: ''
   },
   {
@@ -424,7 +384,6 @@ const PROJECTS = [
     description: 'Quantum teleportation protocol with Bell state preparation and measurement.',
     stack: ['Qiskit', 'Cirq', 'Quantum Hardware', 'Python'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2fc420b6b_generated_image.png',
     link: ''
   },
   {
@@ -434,7 +393,6 @@ const PROJECTS = [
     description: 'Atomic-scale computation simulation with molecular dynamics.',
     stack: ['LAMMPS', 'GROMACS', 'Simulation', 'Molecular Design'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/379adf1aa_generated_image.png',
     link: ''
   },
   {
@@ -444,7 +402,6 @@ const PROJECTS = [
     description: 'Holographic projection with volumetric rendering and gesture recognition.',
     stack: ['Spatial Computing', 'Computer Vision', 'Physics'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/81947afee_generated_image.png',
     link: ''
   },
   {
@@ -454,7 +411,6 @@ const PROJECTS = [
     description: 'Cross-dimensional communication protocol with manifold folding.',
     stack: ['Differential Geometry', 'Topology', 'Quantum Field Theory'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/ffbf4966a_generated_image.png',
     link: ''
   },
   {
@@ -464,7 +420,6 @@ const PROJECTS = [
     description: 'Fundamental reality rendering with axiom constraints and paradox resolution.',
     stack: ['Mathematical Physics', 'Set Theory', 'Logic'],
     accent: 'yellow',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/82e5da787_generated_image.png',
     link: ''
   },
   {
@@ -474,7 +429,6 @@ const PROJECTS = [
     description: 'Branching timeline management with coherence preservation.',
     stack: ['Category Theory', 'Sheaf Theory', 'Quantum Logic'],
     accent: 'purple',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/cb949cd46_generated_image.png',
     link: ''
   },
   {
@@ -484,7 +438,6 @@ const PROJECTS = [
     description: 'Self-aware AGI with qualia simulation and phenomenal consciousness.',
     stack: ['Philosophy of Mind', 'Neuroscience', 'Advanced AI'],
     accent: 'red',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/68cfd96ad_generated_image.png',
     link: ''
   },
   {
@@ -494,7 +447,6 @@ const PROJECTS = [
     description: 'Operating system for the universe itself with omniscient scheduler.',
     stack: ['Theoretical Everything', 'Metaphysics', 'Divinity'],
     accent: 'cyan',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/5b4cd1819_generated_image.png',
     link: ''
   },
   {
@@ -504,7 +456,6 @@ const PROJECTS = [
     description: 'Computing platform with infinite resources and transcendent capabilities.',
     stack: ['Beyond Computation', 'Infinite Recursion', 'Eternity'],
     accent: 'magenta',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/2fc420b6b_generated_image.png',
     link: ''
   },
   {
@@ -514,7 +465,6 @@ const PROJECTS = [
     description: 'System that knows and can do absolutely everything—literally.',
     stack: ['Infinity', 'Beyond Math', 'Pure Thought'],
     accent: 'green',
-    imageUrl: 'https://media.base44.com/images/public/69cb4667d7f7b2e5946e6981/5eda35880_generated_image.png',
     link: ''
   }
 ];

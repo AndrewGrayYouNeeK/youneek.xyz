@@ -94,7 +94,7 @@ export default function ProjectCard({ project, index }) {
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
+              {(project.stack || []).map((tech) => (
                 <span
                   key={tech}
                   className="font-mono text-xs px-2 py-1 rounded border"
@@ -109,15 +109,27 @@ export default function ProjectCard({ project, index }) {
               ))}
             </div>
           </div>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-sm mt-4 inline-flex items-center gap-2 hover-glitch transition-colors"
-            style={{ color: neonColor }}
-          >
-            VIEW PROJECT →
-          </a>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
+              style={{ color: neonColor }}
+            >
+              GITHUB →
+            </a>
+            {project.demoUrl ? (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors text-accent"
+              >
+                LIVE DEMO →
+              </a>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>

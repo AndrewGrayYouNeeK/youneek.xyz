@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc -p ./jsconfig.json",
     "preview": "vite preview",
+    "sync:repos": "node scripts/sync-repos.mjs",
     "deploy": "npm run build && npx wrangler deploy"
   },
   "dependencies": {

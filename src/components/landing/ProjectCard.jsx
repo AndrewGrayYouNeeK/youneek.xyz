@@ -55,14 +55,22 @@ export default function ProjectCard({ project, index }) {
           ) : (
             <TvStatic label="NO SIGNAL" />
           )}
+          {!project.imageUrl && !project.demoUrl ? null : (
+            <div
+              className="absolute inset-0 opacity-30 mix-blend-overlay"
+              style={{
+                backgroundImage:
+                  'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)'
+              }}
+            />
+          )}
           <div
-            className="absolute inset-0 opacity-30 mix-blend-overlay"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)'
-            }}
+            className={
+              !project.imageUrl && !project.demoUrl
+                ? 'absolute inset-0 bg-gradient-to-t from-background/90 via-background/25 to-transparent'
+                : 'absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent'
+            }
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-5">
             <span
               className="font-mono text-xs tracking-widest mb-2 block"

@@ -54,12 +54,12 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
       const img = sctx.createImageData(w, h);
       const d = img.data;
       for (let i = 0; i < d.length; i += 4) {
-        // High-contrast analog snow (mostly black/white with some mid gray)
+        // Bright analog snow — dense white flecks like a dead TV channel
         const r = Math.random();
-        const v = r > 0.55 ? 255 : r > 0.12 ? ((r * 180) | 0) : 0;
+        const v = r > 0.42 ? 255 : r > 0.22 ? (140 + ((r * 100) | 0)) : ((r * 70) | 0);
         d[i] = v;
         d[i + 1] = v;
-        d[i + 2] = v + (r > 0.97 ? 18 : 0);
+        d[i + 2] = Math.min(255, v + (r > 0.9 ? 24 : 0));
         d[i + 3] = 255;
       }
       sctx.putImageData(img, 0, 0);
@@ -87,8 +87,8 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
         }
       }
 
-      // Fine CRT scanlines
-      ctx.fillStyle = 'rgba(0,0,0,0.28)';
+      // Fine CRT scanlines (light so snow stays bright)
+      ctx.fillStyle = 'rgba(0,0,0,0.16)';
       for (let y = 0; y < h; y += 2) {
         ctx.fillRect(0, y, w, 1);
       }
@@ -109,7 +109,7 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
       ctx.fillStyle = 'rgba(255,255,255,0.55)';
       ctx.fillRect(0, roll, w, 1.5);
 
-      flicker = 0.88 + Math.random() * 0.14;
+      flicker = 0.94 + Math.random() * 0.06;
       ctx.fillStyle = `rgba(0,0,0,${1 - flicker})`;
       ctx.fillRect(0, 0, w, h);
 
@@ -145,7 +145,7 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,0.62) 100%)',
+            'radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%)',
         }}
       />
     </div>

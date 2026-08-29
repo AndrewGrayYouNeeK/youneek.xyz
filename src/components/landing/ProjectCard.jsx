@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import TvStatic from './TvStatic';
 
 const NEON_COLORS = {
   cyan: 'hsl(180, 100%, 50%)',
@@ -33,14 +34,14 @@ export default function ProjectCard({ project, index }) {
             borderColor: isHovered ? neonColor.replace(')', ' / 0.6)') : undefined
           }}
         >
-          {/* Image or neon gradient artwork */}
+          {/* Image, live glow, or TV static when nothing to preview */}
           {project.imageUrl ? (
             <img
               src={project.imageUrl}
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
-          ) : (
+          ) : project.demoUrl ? (
             <div
               className="absolute inset-0"
               style={{
@@ -51,15 +52,25 @@ export default function ProjectCard({ project, index }) {
                 `,
               }}
             />
+          ) : (
+            <TvStatic label="NO SIGNAL" />
+          )}
+          {!project.imageUrl && !project.demoUrl ? null : (
+            <div
+              className="absolute inset-0 opacity-30 mix-blend-overlay"
+              style={{
+                backgroundImage:
+                  'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)'
+              }}
+            />
           )}
           <div
-            className="absolute inset-0 opacity-30 mix-blend-overlay"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)'
-            }}
+            className={
+              !project.imageUrl && !project.demoUrl
+                ? 'absolute inset-0 bg-gradient-to-t from-background/90 via-background/25 to-transparent'
+                : 'absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent'
+            }
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-5">
             <span
               className="font-mono text-xs tracking-widest mb-2 block"

@@ -2,6 +2,7 @@
 /**
  * Refresh src/data/repos.js from the GitHub API.
  * Requires GITHUB_TOKEN (or GH_TOKEN) with public_repo / Contents read.
+ * Scrubs legacy generator branding/URLs from descriptions and demos.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,16 +29,27 @@ function titleize(name) {
   return name.trim().replace(/^[-_]+|[-_]+$/g, '').replace(/[-_]+/g, ' ');
 }
 
+function scrubDescription(text, name) {
+  let cleaned = String(text || '');
+  cleaned = cleaned.replace(/\s*base44\s*app\s*:\s*/gi, '');
+  cleaned = cleaned.replace(/\bbase44\b/gi, '');
+  cleaned = cleaned.replace(/\s{2,}/g, ' ').replace(/^[\s\-–—:|]+|[\s\-–—:|]+$/g, '');
+  return cleaned || `Project by Andrew Gray — ${name}`;
+}
+
 function fixUrl(u) {
   if (!u) return '';
   let cleaned = String(u).replace(/\\+/g, '/').trim();
-  cleaned = cleaned.replace(/^https?:\/+(https?:\/+)*/i, (m) => {
-    return m.toLowerCase().includes('https') ? 'https://' : 'http://';
-  });
+  cleaned = cleaned.replace(/^(https?:\/)+/i, (m) =>
+    m.toLowerCase().includes('https') ? 'https://' : 'http://'
+  );
   if (!/^https?:\/\//i.test(cleaned)) {
     cleaned = `https://${cleaned.replace(/^\/+/, '')}`;
   }
-  return cleaned.replace(/^(https?:\/)\/+/i, '$1/');
+  cleaned = cleaned.replace(/^(https?:\/)\/+/i, '$1/');
+  // Never surface legacy generator hosts as live demos
+  if (/base44\.(app|com)/i.test(cleaned)) return '';
+  return cleaned;
 }
 
 const res = await fetch(
@@ -73,7 +85,7 @@ for (const repo of repos) {
     repoName: repo.name,
     tag: `// ${String(i).padStart(3, '0')}`,
     subtitle: lang === 'Code' ? 'Repository' : lang,
-    description: (repo.description || `GitHub project by Andrew Gray — ${repo.name}`).slice(0, 220),
+    description: scrubDescription(repo.description, repo.name),
     stack,
     accent,
     link: repo.html_url,
@@ -86,11 +98,12 @@ for (const repo of repos) {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const target = path.join(root, 'src/data/repos.js');
 const body = `// Auto-sourced from github.com/AndrewGrayYouNeeK — regenerate with node scripts/sync-repos.mjs
+
 export const REPOS = ${JSON.stringify(out, null, 2)};
 
 function demoScore(r) {
   const u = r.demoUrl || '';
-  if (!u || u.includes('base44.app')) return -1;
+  if (!u) return -1;
   let s = u.includes('vercel.app') ? 1 : 10;
   if (r.repoName === 'youneek.xyz') s -= 5;
   if (r.stars) s += Math.min(r.stars, 3);
@@ -98,10 +111,16 @@ function demoScore(r) {
 }
 
 export const LIVE_DEMOS = REPOS
-  .filter((r) => r.demoUrl && !r.demoUrl.includes('base44.app'))
+  .filter((r) => r.demoUrl)
   .slice()
   .sort((a, b) => demoScore(b) - demoScore(a));
 `;
 fs.mkdirSync(path.dirname(target), { recursive: true });
 fs.writeFileSync(target, body);
 console.log(`Wrote ${out.length} repos to ${target}`);
+const dirty = out.filter((r) => /base44/i.test(JSON.stringify(r)));
+if (dirty.length) {
+  console.error('Legacy branding still present in:', dirty.map((r) => r.repoName));
+  process.exit(1);
+}
+console.log('Legacy branding scrub OK');

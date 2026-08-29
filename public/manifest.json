@@ -1,0 +1,8 @@
+{
+  "name": "YouNeeK.xyz",
+  "short_name": "YouNeeK",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a12",
+  "theme_color": "#00ffff"
+}

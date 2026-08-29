@@ -15,7 +15,7 @@ export default function GlitchHero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
       {/* Grid background */}
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage: `
             linear-gradient(hsl(180 100% 50% / 0.15) 1px, transparent 1px),

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 /**
- * CRT-style white noise with a rolling scan band for empty previews.
- * Animation only runs while the element is on-screen.
+ * Analog NTSC snow: fine grain, scanlines, and a slow V-hold roll.
+ * Matches the classic CRT "NO SIGNAL" preview look.
  */
 export default function TvStatic({ label = 'NO SIGNAL' }) {
   const canvasRef = useRef(null);
@@ -25,20 +25,44 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
     if (!canvas || !visible) return undefined;
 
     const ctx = canvas.getContext('2d', { alpha: false });
+    const snow = document.createElement('canvas');
+    const sctx = snow.getContext('2d', { alpha: false });
     let raf = 0;
     let running = true;
     let roll = 0;
+    let flicker = 1;
 
     const resize = () => {
       const parent = canvas.parentElement;
       const w = parent?.clientWidth || 640;
       const h = parent?.clientHeight || 360;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.max(1, Math.floor(w * dpr));
       canvas.height = Math.max(1, Math.floor(h * dpr));
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Half-res snow keeps the grain analog-fine without filling every CSS pixel.
+      snow.width = Math.max(1, Math.floor(w / 2));
+      snow.height = Math.max(1, Math.floor(h / 2));
+    };
+
+    const fillSnow = () => {
+      const w = snow.width;
+      const h = snow.height;
+      const img = sctx.createImageData(w, h);
+      const d = img.data;
+      for (let i = 0; i < d.length; i += 4) {
+        // High-contrast analog snow (mostly black/white with some mid gray)
+        const r = Math.random();
+        const v = r > 0.55 ? 255 : r > 0.12 ? ((r * 180) | 0) : 0;
+        d[i] = v;
+        d[i + 1] = v;
+        d[i + 2] = v + (r > 0.97 ? 18 : 0);
+        d[i + 3] = 255;
+      }
+      sctx.putImageData(img, 0, 0);
     };
 
     const draw = () => {
@@ -46,38 +70,15 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
       const w = canvas.clientWidth || 640;
       const h = canvas.clientHeight || 360;
 
-      // Sparse noise for performance (blocky CRT look)
-      const block = 4;
-      for (let y = 0; y < h; y += block) {
-        for (let x = 0; x < w; x += block) {
-          const v = (Math.random() * 255) | 0;
-          const tint = Math.random() > 0.92 ? 40 : 0;
-          ctx.fillStyle = `rgb(${v},${v + tint},${v + tint})`;
-          ctx.fillRect(x, y, block, block);
-        }
-      }
+      fillSnow();
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(snow, 0, 0, w, h);
 
-      // Soft scanlines
-      ctx.fillStyle = 'rgba(0,0,0,0.18)';
-      for (let y = 0; y < h; y += 3) {
-        ctx.fillRect(0, y, w, 1);
-      }
-
-      // Rolling bright band (V-hold / scan roll)
-      roll = (roll + 2.4) % (h + 80);
-      const band = ctx.createLinearGradient(0, roll - 40, 0, roll + 40);
-      band.addColorStop(0, 'rgba(255,255,255,0)');
-      band.addColorStop(0.45, 'rgba(220,255,255,0.22)');
-      band.addColorStop(0.55, 'rgba(255,255,255,0.35)');
-      band.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = band;
-      ctx.fillRect(0, roll - 40, w, 80);
-
-      // Occasional glitch tear
-      if (Math.random() > 0.9) {
+      // Horizontal tear / tracking jitter
+      if (Math.random() > 0.65) {
         const gy = (Math.random() * h) | 0;
-        const gh = 4 + ((Math.random() * 18) | 0);
-        const shift = (Math.random() * 40 - 20) | 0;
+        const gh = 2 + ((Math.random() * 10) | 0);
+        const shift = (Math.random() * 28 - 14) | 0;
         try {
           const slice = ctx.getImageData(0, gy, w, gh);
           ctx.putImageData(slice, shift, gy);
@@ -86,13 +87,31 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
         }
       }
 
-      // Cyan/magenta fringe
-      ctx.globalCompositeOperation = 'screen';
-      ctx.fillStyle = 'rgba(0,255,255,0.04)';
-      ctx.fillRect(1, 0, w, h);
-      ctx.fillStyle = 'rgba(255,0,255,0.03)';
-      ctx.fillRect(-1, 0, w, h);
-      ctx.globalCompositeOperation = 'source-over';
+      // Fine CRT scanlines
+      ctx.fillStyle = 'rgba(0,0,0,0.28)';
+      for (let y = 0; y < h; y += 2) {
+        ctx.fillRect(0, y, w, 1);
+      }
+
+      // Slow analog V-hold roll (bright band + trailing wash)
+      roll = (roll + 1.15) % (h + 120);
+      const bandH = Math.max(48, h * 0.22);
+      const g = ctx.createLinearGradient(0, roll - bandH, 0, roll + bandH * 0.35);
+      g.addColorStop(0, 'rgba(255,255,255,0)');
+      g.addColorStop(0.55, 'rgba(255,255,255,0.12)');
+      g.addColorStop(0.78, 'rgba(255,255,255,0.38)');
+      g.addColorStop(0.88, 'rgba(255,255,255,0.55)');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, roll - bandH, w, bandH + bandH * 0.35);
+
+      // Bright tracking line
+      ctx.fillStyle = 'rgba(255,255,255,0.55)';
+      ctx.fillRect(0, roll, w, 1.5);
+
+      flicker = 0.88 + Math.random() * 0.14;
+      ctx.fillStyle = `rgba(0,0,0,${1 - flicker})`;
+      ctx.fillRect(0, 0, w, h);
 
       raf = requestAnimationFrame(draw);
     };
@@ -115,19 +134,18 @@ export default function TvStatic({ label = 'NO SIGNAL' }) {
     <div ref={rootRef} className="absolute inset-0 bg-black">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-        <div className="font-mono text-xs sm:text-sm tracking-[0.35em] text-white/80 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]">
+        <div className="font-mono text-xs sm:text-sm tracking-[0.45em] text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.55)]">
           {label}
         </div>
-        <div className="mt-2 font-mono text-[10px] tracking-widest text-white/45">
-          CH — · · ·  NO INPUT
+        <div className="mt-2 font-mono text-[10px] tracking-[0.35em] text-white/70">
+          — NO INPUT —
         </div>
       </div>
-      {/* CRT vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)',
+            'radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,0.62) 100%)',
         }}
       />
     </div>

@@ -20,7 +20,7 @@ The zone already uses Cloudflare nameservers. Deploy attaches those hostnames as
 npm run deploy
 ```
 
-CI deploys on push to `main` when `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are set in repo secrets. The token needs Workers edit plus Zone DNS edit for `youneek.xyz`.
+Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` locally (or later as GitHub Actions secrets). The token needs Workers edit plus Zone DNS edit for `youneek.xyz`.
 
 The old Vercel URL (`youneekxyz.vercel.app`) is disabled (payment required) and is no longer the origin.
 

@@ -8,7 +8,7 @@ Personal portfolio site for Andrew Gray ([@AndrewGrayYouNeeK](https://github.com
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) components
 - [React Router](https://reactrouter.com/)
 
-This is a standalone static site. There is no Base44 (or other BaaS) dependency.
+This is a standalone Vite + React static site.
 
 ## Domain
 

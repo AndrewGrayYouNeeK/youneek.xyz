@@ -1,11 +1,12 @@
 // Auto-sourced from github.com/AndrewGrayYouNeeK — regenerate with node scripts/sync-repos.mjs
+
 export const REPOS = [
   {
     "title": "youneek.xyz",
     "repoName": "youneek.xyz",
     "tag": "// 001",
     "subtitle": "JavaScript",
-    "description": "Base44 App: YouNeeK.xyz",
+    "description": "YouNeeK.xyz",
     "stack": [
       "JavaScript"
     ],
@@ -20,7 +21,7 @@ export const REPOS = [
     "repoName": "vibesdk-production2",
     "tag": "// 002",
     "subtitle": "TypeScript",
-    "description": "GitHub project by Andrew Gray — vibesdk-production2",
+    "description": "Project by Andrew Gray — vibesdk-production2",
     "stack": [
       "TypeScript"
     ],
@@ -35,7 +36,7 @@ export const REPOS = [
     "repoName": "workflows-starter-template",
     "tag": "// 003",
     "subtitle": "TypeScript",
-    "description": "GitHub project by Andrew Gray — workflows-starter-template",
+    "description": "Project by Andrew Gray — workflows-starter-template",
     "stack": [
       "TypeScript"
     ],
@@ -50,7 +51,7 @@ export const REPOS = [
     "repoName": "Real-Neural-Forge",
     "tag": "// 004",
     "subtitle": "Python",
-    "description": "GitHub project by Andrew Gray — Real-Neural-Forge",
+    "description": "Project by Andrew Gray — Real-Neural-Forge",
     "stack": [
       "Python"
     ],
@@ -65,7 +66,7 @@ export const REPOS = [
     "repoName": "multitent",
     "tag": "// 005",
     "subtitle": "TypeScript",
-    "description": "GitHub project by Andrew Gray — multitent",
+    "description": "Project by Andrew Gray — multitent",
     "stack": [
       "TypeScript"
     ],
@@ -95,7 +96,7 @@ export const REPOS = [
     "repoName": "Death-terminal-",
     "tag": "// 007",
     "subtitle": "Zig",
-    "description": "GitHub project by Andrew Gray — Death-terminal-",
+    "description": "Project by Andrew Gray — Death-terminal-",
     "stack": [
       "Zig"
     ],
@@ -110,7 +111,7 @@ export const REPOS = [
     "repoName": "Cloudripper",
     "tag": "// 008",
     "subtitle": "Go",
-    "description": "Multi-cloud orchestration that auto-scales your shit, slashes your AWS+GCP bill like a chainsaw, and straight-up runs chaos engineering experiments. Terraform and Pulumi living together in the same repo like they’re not ",
+    "description": "Multi-cloud orchestration that auto-scales your shit, slashes your AWS+GCP bill like a chainsaw, and straight-up runs chaos engineering experiments. Terraform and Pulumi living together in the same repo like they’re not mortal enemies, ripping resources across AWS and GCP in real time.",
     "stack": [
       "Go"
     ],
@@ -131,7 +132,7 @@ export const REPOS = [
     ],
     "accent": "cyan",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-satellite-tracker",
-    "demoUrl": "https://abiding-orbit-view-live.base44.app",
+    "demoUrl": "",
     "stars": 0,
     "updated": "2026-08-20"
   },
@@ -140,7 +141,7 @@ export const REPOS = [
     "repoName": "youneekvibecode",
     "tag": "// 010",
     "subtitle": "TypeScript",
-    "description": "GitHub project by Andrew Gray — youneekvibecode",
+    "description": "Project by Andrew Gray — youneekvibecode",
     "stack": [
       "TypeScript"
     ],
@@ -185,7 +186,7 @@ export const REPOS = [
     "repoName": "containers-template",
     "tag": "// 013",
     "subtitle": "TypeScript",
-    "description": "GitHub project by Andrew Gray — containers-template",
+    "description": "Project by Andrew Gray — containers-template",
     "stack": [
       "TypeScript"
     ],
@@ -200,7 +201,7 @@ export const REPOS = [
     "repoName": "vibesdk-production",
     "tag": "// 014",
     "subtitle": "TypeScript",
-    "description": "GitHub project by Andrew Gray — vibesdk-production",
+    "description": "Project by Andrew Gray — vibesdk-production",
     "stack": [
       "TypeScript"
     ],
@@ -215,7 +216,7 @@ export const REPOS = [
     "repoName": "YNKAIRTRAFFICGAME",
     "tag": "// 015",
     "subtitle": "JavaScript",
-    "description": "Base44 App: Air Traffic Controller (The Game)",
+    "description": "Air Traffic Controller (The Game)",
     "stack": [
       "JavaScript"
     ],
@@ -230,7 +231,7 @@ export const REPOS = [
     "repoName": "unique-sky",
     "tag": "// 016",
     "subtitle": "JavaScript",
-    "description": "Base44 App: Unique Sky",
+    "description": "Unique Sky",
     "stack": [
       "JavaScript"
     ],
@@ -245,7 +246,7 @@ export const REPOS = [
     "repoName": "atc222trainer",
     "tag": "// 017",
     "subtitle": "Repository",
-    "description": "GitHub project by Andrew Gray — atc222trainer",
+    "description": "Project by Andrew Gray — atc222trainer",
     "stack": [
       "Code"
     ],
@@ -260,7 +261,7 @@ export const REPOS = [
     "repoName": "Original-YouNeeK-Time",
     "tag": "// 018",
     "subtitle": "Repository",
-    "description": "Already on the App Store need to fix App Store description about time. It is not base ten ten hours base 100 mins secs hours ",
+    "description": "Already on the App Store need to fix App Store description about time. It is not base ten ten hours base 100 mins secs hours",
     "stack": [
       "Code"
     ],
@@ -335,7 +336,7 @@ export const REPOS = [
     "repoName": "We-hook-slayer",
     "tag": "// 023",
     "subtitle": "Repository",
-    "description": "GitHub project by Andrew Gray — We-hook-slayer",
+    "description": "Project by Andrew Gray — We-hook-slayer",
     "stack": [
       "Code"
     ],
@@ -350,7 +351,7 @@ export const REPOS = [
     "repoName": "CryptoVault",
     "tag": "// 024",
     "subtitle": "HTML",
-    "description": "GitHub project by Andrew Gray — CryptoVault",
+    "description": "Project by Andrew Gray — CryptoVault",
     "stack": [
       "HTML"
     ],
@@ -379,7 +380,7 @@ export const REPOS = [
 
 function demoScore(r) {
   const u = r.demoUrl || '';
-  if (!u || u.includes('base44.app')) return -1;
+  if (!u) return -1;
   let s = u.includes('vercel.app') ? 1 : 10;
   if (r.repoName === 'youneek.xyz') s -= 5;
   if (r.stars) s += Math.min(r.stars, 3);
@@ -387,6 +388,6 @@ function demoScore(r) {
 }
 
 export const LIVE_DEMOS = REPOS
-  .filter((r) => r.demoUrl && !r.demoUrl.includes('base44.app'))
+  .filter((r) => r.demoUrl)
   .slice()
   .sort((a, b) => demoScore(b) - demoScore(a));

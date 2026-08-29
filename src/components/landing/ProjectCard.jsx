@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import TvStatic from './TvStatic';
 
 const NEON_COLORS = {
   cyan: 'hsl(180, 100%, 50%)',
@@ -33,14 +34,14 @@ export default function ProjectCard({ project, index }) {
             borderColor: isHovered ? neonColor.replace(')', ' / 0.6)') : undefined
           }}
         >
-          {/* Image or neon gradient artwork */}
+          {/* Image, live glow, or TV static when nothing to preview */}
           {project.imageUrl ? (
             <img
               src={project.imageUrl}
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
-          ) : (
+          ) : project.demoUrl ? (
             <div
               className="absolute inset-0"
               style={{
@@ -51,6 +52,8 @@ export default function ProjectCard({ project, index }) {
                 `,
               }}
             />
+          ) : (
+            <TvStatic label="NO SIGNAL" />
           )}
           <div
             className="absolute inset-0 opacity-30 mix-blend-overlay"

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Rocket, X, Terminal } from 'lucide-react';
 import { LIVE_DEMOS, REPOS } from '@/data/repos';
+import TvStatic from './TvStatic';
 
 const BOOT_LINES = [
   'boot> mount /youneek/core ... OK',
@@ -58,18 +59,38 @@ function fireLaunchFX() {
   requestAnimationFrame(tick);
 }
 
+function hasPreview(repo) {
+  return Boolean(repo?.demoUrl);
+}
+
 export default function LiveDemoOverlay({ open, onClose }) {
   const [phase, setPhase] = useState('boot'); // boot | ready
   const [lineCount, setLineCount] = useState(0);
   const [activeDemo, setActiveDemo] = useState(0);
+  const [iframeFailed, setIframeFailed] = useState(false);
 
-  const demos = useMemo(() => LIVE_DEMOS, []);
-  const featured = demos[activeDemo] || demos[0];
+  // All repos as channels — live ones first, then static/no-signal
+  const channels = useMemo(() => {
+    const live = [];
+    const dark = [];
+    for (const repo of REPOS) {
+      if (hasPreview(repo)) live.push(repo);
+      else dark.push(repo);
+    }
+    // Keep LIVE_DEMOS ranking for live ones when possible
+    const order = new Map(LIVE_DEMOS.map((r, i) => [r.repoName, i]));
+    live.sort((a, b) => (order.get(a.repoName) ?? 99) - (order.get(b.repoName) ?? 99));
+    return [...live, ...dark];
+  }, []);
+
+  const featured = channels[activeDemo] || channels[0];
+  const showStatic = !hasPreview(featured) || iframeFailed;
 
   useEffect(() => {
     if (!open) {
       setPhase('boot');
       setLineCount(0);
+      setIframeFailed(false);
       return undefined;
     }
 
@@ -99,12 +120,16 @@ export default function LiveDemoOverlay({ open, onClose }) {
   }, [open, onClose]);
 
   useEffect(() => {
-    if (!open || phase !== 'ready' || demos.length < 2) return undefined;
+    setIframeFailed(false);
+  }, [featured?.repoName, featured?.demoUrl]);
+
+  useEffect(() => {
+    if (!open || phase !== 'ready' || channels.length < 2) return undefined;
     const cycle = setInterval(() => {
-      setActiveDemo((n) => (n + 1) % demos.length);
+      setActiveDemo((n) => (n + 1) % channels.length);
     }, 4500);
     return () => clearInterval(cycle);
-  }, [open, phase, demos.length]);
+  }, [open, phase, channels.length]);
 
   if (!open) return null;
 
@@ -176,37 +201,57 @@ export default function LiveDemoOverlay({ open, onClose }) {
                   {featured?.description}
                 </p>
 
-                <div className="relative aspect-video rounded-lg overflow-hidden border border-primary/30 bg-black/60 mb-4 shadow-[0_0_30px_hsl(180,100%,50%,0.12)]">
-                  <div className="absolute inset-0 opacity-40 pointer-events-none"
-                    style={{
-                      backgroundImage:
-                        'linear-gradient(hsl(180 100% 50% / 0.12) 1px, transparent 1px), linear-gradient(90deg, hsl(180 100% 50% / 0.12) 1px, transparent 1px)',
-                      backgroundSize: '28px 28px',
-                    }}
-                  />
-                  <iframe
-                    key={featured?.demoUrl}
-                    title={featured?.title}
-                    src={featured?.demoUrl}
-                    className="absolute inset-0 w-full h-full bg-black"
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-2 left-2 font-mono text-[10px] px-2 py-1 rounded bg-black/70 text-accent border border-accent/30">
-                    LIVE FEED
+                <div className="relative aspect-video rounded-lg overflow-hidden border border-primary/30 bg-black mb-4 shadow-[0_0_30px_hsl(180,100%,50%,0.12)]">
+                  {showStatic ? (
+                    <TvStatic label={iframeFailed ? 'SIGNAL LOST' : 'NO SIGNAL'} />
+                  ) : (
+                    <>
+                      <iframe
+                        key={featured?.demoUrl}
+                        title={featured?.title}
+                        src={featured?.demoUrl}
+                        className="absolute inset-0 w-full h-full bg-black"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                        loading="lazy"
+                        onError={() => setIframeFailed(true)}
+                      />
+                      {/* If embed is blocked / dead, user can flip to static */}
+                      <button
+                        type="button"
+                        onClick={() => setIframeFailed(true)}
+                        className="absolute bottom-2 right-2 font-mono text-[10px] px-2 py-1 rounded bg-black/70 text-white/60 border border-white/20 hover:text-white hover:border-white/50"
+                      >
+                        FORCE STATIC
+                      </button>
+                    </>
+                  )}
+                  <div
+                    className={`absolute top-2 left-2 font-mono text-[10px] px-2 py-1 rounded bg-black/70 border ${
+                      showStatic
+                        ? 'text-red-400 border-red-400/40'
+                        : 'text-accent border-accent/30'
+                    }`}
+                  >
+                    {showStatic ? 'OFF AIR' : 'LIVE FEED'}
                   </div>
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <a
-                    href={featured?.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-primary/50 text-primary font-mono text-xs hover:shadow-[0_0_20px_hsl(180,100%,50%,0.35)] transition-all"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    OPEN LIVE SITE
-                  </a>
+                  {featured?.demoUrl ? (
+                    <a
+                      href={featured.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-primary/50 text-primary font-mono text-xs hover:shadow-[0_0_20px_hsl(180,100%,50%,0.35)] transition-all"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      OPEN LIVE SITE
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 px-4 py-2 border border-white/15 text-white/40 font-mono text-xs">
+                      NO PREVIEW URL
+                    </span>
+                  )}
                   <a
                     href={featured?.link}
                     target="_blank"
@@ -216,16 +261,26 @@ export default function LiveDemoOverlay({ open, onClose }) {
                     <Github className="w-3.5 h-3.5" />
                     SOURCE
                   </a>
+                  {showStatic && featured?.demoUrl ? (
+                    <button
+                      type="button"
+                      onClick={() => setIframeFailed(false)}
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-accent/40 text-accent font-mono text-xs"
+                    >
+                      RETRY FEED
+                    </button>
+                  ) : null}
                 </div>
               </div>
 
               <div className="p-4 sm:p-6">
                 <p className="font-mono text-[10px] tracking-[0.35em] text-primary/50 mb-3">
-                  ALL.LIVE.BUILDS ({demos.length})
+                  ALL.CHANNELS ({channels.length})
                 </p>
                 <div className="space-y-2">
-                  {demos.map((demo, idx) => {
+                  {channels.map((demo, idx) => {
                     const active = idx === activeDemo;
+                    const live = hasPreview(demo);
                     return (
                       <button
                         key={demo.repoName}
@@ -240,10 +295,18 @@ export default function LiveDemoOverlay({ open, onClose }) {
                       >
                         <div className="flex items-center justify-between gap-2">
                           <span className="font-heading text-sm text-foreground">{demo.title}</span>
-                          <span className="font-mono text-[10px] text-primary/60">{demo.subtitle}</span>
+                          <span
+                            className={`font-mono text-[10px] ${
+                              live ? 'text-accent' : 'text-red-400/80'
+                            }`}
+                          >
+                            {live ? 'LIVE' : 'STATIC'}
+                          </span>
                         </div>
                         <p className="font-mono text-[11px] text-muted-foreground mt-1 line-clamp-2">
-                          {demo.demoUrl.replace(/^https?:\/\//, '')}
+                          {live
+                            ? demo.demoUrl.replace(/^https?:\/\//, '')
+                            : 'no signal · white noise'}
                         </p>
                       </button>
                     );

@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import LiveDemoOverlay from './LiveDemoOverlay';
 import { REPOS, LIVE_DEMOS } from '@/data/repos';
+import { isEmbedded } from '@/lib/live-demos';
 
 export default function GlitchHero() {
   const [loaded, setLoaded] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
+  const embedded = isEmbedded() || (typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('embed'));
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 100);
@@ -72,16 +74,23 @@ export default function GlitchHero() {
           className="mt-10 h-px w-64 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent"
         />
 
-        <motion.button
-          type="button"
-          initial={{ opacity: 0, y: 20 }}
-          animate={loaded ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          onClick={() => setShowDemo(true)}
-          className="mt-10 px-8 py-3 border border-primary/50 text-primary font-mono text-sm hover:border-primary hover:shadow-[0_0_20px_hsl(180,100%,50%,0.3)] transition-all duration-300"
-        >
-          {'>'} LAUNCH LIVE DEMO
-        </motion.button>
+        {!embedded && (
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, y: 20 }}
+            animate={loaded ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            onClick={() => setShowDemo(true)}
+            className="mt-10 px-8 py-3 border border-primary/50 text-primary font-mono text-sm hover:border-primary hover:shadow-[0_0_20px_hsl(180,100%,50%,0.3)] transition-all duration-300"
+          >
+            {'>'} LAUNCH LIVE DEMO
+          </motion.button>
+        )}
+        {embedded && (
+          <p className="mt-10 font-mono text-xs tracking-[0.3em] text-accent">
+            LIVE FEED // YOU HAVE CONTROL
+          </p>
+        )}
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -100,7 +109,7 @@ export default function GlitchHero() {
         </motion.div>
       </motion.div>
 
-      <LiveDemoOverlay open={showDemo} onClose={() => setShowDemo(false)} />
+      {!embedded && <LiveDemoOverlay open={showDemo} onClose={() => setShowDemo(false)} />}
     </section>
   );
 }

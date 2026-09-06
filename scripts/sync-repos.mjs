@@ -77,7 +77,10 @@ for (const repo of repos) {
     stack,
     accent,
     link: repo.html_url,
-    demoUrl: fixUrl(repo.homepage),
+    demoUrl:
+      repo.name === 'youneek.xyz'
+        ? 'https://youneek.xyz'
+        : fixUrl(repo.homepage),
     stars: repo.stargazers_count || 0,
     updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
   });
@@ -92,7 +95,7 @@ function demoScore(r) {
   const u = r.demoUrl || '';
   if (!u || u.includes('base44.app')) return -1;
   let s = u.includes('vercel.app') ? 1 : 10;
-  if (r.repoName === 'youneek.xyz') s -= 5;
+  if (r.repoName === 'youneek.xyz') s += 8;
   if (r.stars) s += Math.min(r.stars, 3);
   return s;
 }

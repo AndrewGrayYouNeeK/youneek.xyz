@@ -109,6 +109,7 @@ export default function LiveDemoOverlay({ open, onClose }) {
     if (!open) return undefined;
     const onKey = (e) => {
       if (e.key === 'Escape') {
+        e.stopPropagation();
         if (controlling) {
           setControlling(false);
           return;
@@ -137,8 +138,8 @@ export default function LiveDemoOverlay({ open, onClose }) {
         setActiveDemo((n) => (n - 1 + demos.length) % demos.length);
       }
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
   }, [open, onClose, controlling, phase, demos.length]);
 
   useEffect(() => {
@@ -157,7 +158,10 @@ export default function LiveDemoOverlay({ open, onClose }) {
     setControlling(true);
     setScan(false);
     setFeedState('connected');
-    iframeRef.current?.focus();
+  };
+
+  const releaseControl = () => {
+    setControlling(false);
   };
 
   const selectDemo = (idx) => {
@@ -289,8 +293,18 @@ export default function LiveDemoOverlay({ open, onClose }) {
                     sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
                     allow="fullscreen; clipboard-read; clipboard-write"
                     loading="lazy"
-                    tabIndex={0}
-                    onLoad={() => setFeedState('connected')}
+                    onLoad={() => {
+                      setFeedState('connected');
+                      try {
+                        const doc = iframeRef.current?.contentWindow?.document;
+                        if (!doc) return;
+                        doc.addEventListener('keydown', (e) => {
+                          if (e.key === 'Escape') setControlling(false);
+                        });
+                      } catch {
+                        /* cross-origin feed — use RELEASE CONTROL in the chrome */
+                      }
+                    }}
                   />
                   <div className="absolute top-2 left-2 z-10 font-mono text-[10px] px-2 py-1 rounded bg-black/70 text-accent border border-accent/30 pointer-events-none">
                     {controlling ? 'YOUR STICK' : 'LIVE FEED'}
@@ -309,11 +323,11 @@ export default function LiveDemoOverlay({ open, onClose }) {
                 <div className="flex flex-wrap gap-3">
                   <button
                     type="button"
-                    onClick={takeControl}
+                    onClick={controlling ? releaseControl : takeControl}
                     className="inline-flex items-center gap-2 px-4 py-2 border border-accent/50 text-accent font-mono text-xs hover:shadow-[0_0_20px_hsl(120,100%,50%,0.35)] transition-all"
                   >
                     <Gamepad2 className="w-3.5 h-3.5" />
-                    {controlling ? 'CONTROLLING' : 'TAKE CONTROL'}
+                    {controlling ? 'RELEASE CONTROL' : 'TAKE CONTROL'}
                   </button>
                   <button
                     type="button"
@@ -348,7 +362,7 @@ export default function LiveDemoOverlay({ open, onClose }) {
                 </div>
                 <p className="mt-3 font-mono text-[11px] text-muted-foreground">
                   {controlling
-                    ? 'You have the stick. Click inside the feed to drive the live site. Esc releases control.'
+                    ? 'You have the stick. Click inside the feed to drive the live site. RELEASE CONTROL or Esc hands it back.'
                     : 'Pick a live build, then TAKE CONTROL — scan will hold so the feed stays on what you chose.'}
                 </p>
               </div>

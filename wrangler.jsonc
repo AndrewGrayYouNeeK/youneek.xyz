@@ -1,6 +1,9 @@
 {
   "name": "youneek-xyz",
   "compatibility_date": "2026-08-27",
+  // workers.dev + preview_urls power per-PR aliases like
+  // <alias>-youneek-xyz.<account>.workers.dev without touching youneek.xyz
+  "workers_dev": true,
   "preview_urls": true,
   "assets": {
     "directory": "./dist",

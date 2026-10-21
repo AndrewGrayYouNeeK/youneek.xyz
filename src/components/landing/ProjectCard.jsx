@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { isBlockedDemoUrl } from '@/lib/live-demos';
 
 const NEON_COLORS = {
   cyan: 'hsl(180, 100%, 50%)',
@@ -11,10 +12,28 @@ const NEON_COLORS = {
 
 const NEON_FALLBACK = ['cyan', 'magenta', 'green', 'yellow', 'purple', 'red'];
 
+function withAlpha(color, alpha) {
+  if (typeof color === 'string' && color.startsWith('#')) {
+    const hex = color.slice(1);
+    const full = hex.length === 3 ? hex.split('').map((channel) => channel + channel).join('') : hex;
+    const value = Number.parseInt(full, 16);
+    const red = (value >> 16) & 255;
+    const green = (value >> 8) & 255;
+    const blue = value & 255;
+    return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+  }
+  return color.replace(')', ` / ${alpha})`);
+}
+
 export default function ProjectCard({ project, index }) {
   const [isHovered, setIsHovered] = useState(false);
+  const palette = project.palette;
   const accent = project.accent || NEON_FALLBACK[index % NEON_FALLBACK.length];
-  const neonColor = NEON_COLORS[accent] || NEON_COLORS.cyan;
+  const neonColor = palette?.accent || NEON_COLORS[accent] || NEON_COLORS.cyan;
+  const textColor = palette?.text;
+  const surface = palette?.background;
+  const demoHref = project.demoUrl && !isBlockedDemoUrl(project.demoUrl) ? project.demoUrl : '';
+  const downloadHref = project.downloadUrl && !isBlockedDemoUrl(project.downloadUrl) ? project.downloadUrl : '';
 
   return (
     <div
@@ -27,10 +46,11 @@ export default function ProjectCard({ project, index }) {
         <div
           className="card-front absolute inset-0 rounded-lg overflow-hidden border border-border/50 transition-shadow duration-300"
           style={{
+            backgroundColor: surface,
             boxShadow: isHovered
-              ? `0 0 30px ${neonColor.replace(')', ' / 0.4)')}, inset 0 0 15px ${neonColor.replace(')', ' / 0.1)')}`
+              ? `0 0 30px ${withAlpha(neonColor, 0.4)}, inset 0 0 15px ${withAlpha(neonColor, 0.1)}`
               : '0 0 0px transparent',
-            borderColor: isHovered ? neonColor.replace(')', ' / 0.6)') : undefined
+            borderColor: isHovered ? withAlpha(neonColor, 0.6) : undefined
           }}
         >
           {/* Image or neon gradient artwork */}
@@ -45,9 +65,9 @@ export default function ProjectCard({ project, index }) {
               className="absolute inset-0"
               style={{
                 background: `
-                  radial-gradient(circle at 20% 20%, ${neonColor.replace(')', ' / 0.45)')} 0%, transparent 55%),
-                  radial-gradient(circle at 80% 70%, ${neonColor.replace(')', ' / 0.25)')} 0%, transparent 60%),
-                  linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 10%, 4%) 100%)
+                  radial-gradient(circle at 20% 20%, ${withAlpha(neonColor, 0.45)} 0%, transparent 55%),
+                  radial-gradient(circle at 80% 70%, ${withAlpha(neonColor, 0.25)} 0%, transparent 60%),
+                  linear-gradient(135deg, ${surface || 'hsl(240, 10%, 8%)'} 0%, ${surface || 'hsl(240, 10%, 4%)'} 100%)
                 `,
               }}
             />
@@ -59,7 +79,16 @@ export default function ProjectCard({ project, index }) {
                 'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          {surface ? (
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(to top, ${surface} 0%, ${withAlpha(surface, 0.72)} 46%, transparent 100%)`,
+              }}
+            />
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          )}
           <div className="absolute bottom-0 left-0 right-0 p-5">
             <span
               className="font-mono text-xs tracking-widest mb-2 block"
@@ -67,10 +96,18 @@ export default function ProjectCard({ project, index }) {
             >
               {project.tag}
             </span>
-            <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+            <h3
+              className="font-heading text-xl sm:text-2xl font-bold text-foreground leading-tight"
+              style={textColor ? { color: textColor } : undefined}
+            >
               {project.title}
             </h3>
-            <p className="font-mono text-xs text-muted-foreground mt-1">{project.subtitle}</p>
+            <p
+              className={`font-mono text-xs mt-1 line-clamp-3 ${textColor ? '' : 'text-muted-foreground'}`}
+              style={textColor ? { color: textColor } : undefined}
+            >
+              {project.subtitle}
+            </p>
           </div>
         </div>
 
@@ -78,19 +115,22 @@ export default function ProjectCard({ project, index }) {
         <div
           className="card-back absolute inset-0 rounded-lg overflow-hidden border p-6 flex flex-col justify-between"
           style={{
-            backgroundColor: 'hsl(240, 10%, 6%)',
-            borderColor: neonColor.replace(')', ' / 0.4)'),
-            boxShadow: `0 0 30px ${neonColor.replace(')', ' / 0.3)')}, inset 0 0 20px ${neonColor.replace(')', ' / 0.05)')}`
+            backgroundColor: surface || 'hsl(240, 10%, 6%)',
+            borderColor: withAlpha(neonColor, 0.4),
+            boxShadow: `0 0 30px ${withAlpha(neonColor, 0.3)}, inset 0 0 20px ${withAlpha(neonColor, 0.05)}`
           }}
         >
           <div>
             <h3
-              className="font-heading text-lg font-bold mb-4"
+              className="font-heading text-lg font-bold mb-4 leading-tight"
               style={{ color: neonColor }}
             >
               {project.title}
             </h3>
-            <p className="font-mono text-sm text-muted-foreground mb-4">
+            <p
+              className={`font-mono text-sm mb-4 line-clamp-5 ${textColor ? '' : 'text-muted-foreground'}`}
+              style={textColor ? { color: textColor } : undefined}
+            >
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -99,9 +139,9 @@ export default function ProjectCard({ project, index }) {
                   key={tech}
                   className="font-mono text-xs px-2 py-1 rounded border"
                   style={{
-                    borderColor: neonColor.replace(')', ' / 0.3)'),
+                    borderColor: withAlpha(neonColor, 0.3),
                     color: neonColor,
-                    backgroundColor: neonColor.replace(')', ' / 0.08)')
+                    backgroundColor: withAlpha(neonColor, 0.08)
                   }}
                 >
                   {tech}
@@ -119,14 +159,26 @@ export default function ProjectCard({ project, index }) {
             >
               GITHUB →
             </a>
-            {project.demoUrl ? (
+            {demoHref ? (
               <a
-                href={project.demoUrl}
+                href={demoHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors text-accent"
+                className={`font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors ${palette ? '' : 'text-accent'}`}
+                style={palette ? { color: neonColor } : undefined}
               >
                 LIVE DEMO →
+              </a>
+            ) : null}
+            {downloadHref ? (
+              <a
+                href={downloadHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
+                style={{ color: neonColor }}
+              >
+                DOWNLOAD →
               </a>
             ) : null}
           </div>

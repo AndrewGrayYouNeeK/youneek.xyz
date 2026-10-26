@@ -40,6 +40,43 @@ function fixUrl(u) {
   return cleaned.replace(/^(https?:\/)\/+/i, '$1/');
 }
 
+// GitHub still labels some descriptions with the retired hosted-app exporter.
+// The same label identifies that product's *.app demo hosts, which are not stored.
+const HOSTED_APP_DESCRIPTION_PREFIX = /^Base44 App:\s*/i;
+
+function hostedAppBrand() {
+  const match = HOSTED_APP_DESCRIPTION_PREFIX.source.match(/[A-Za-z]+\d+/);
+  return match ? match[0].toLowerCase() : '';
+}
+
+function stripHostedAppPrefix(text) {
+  return String(text || '').replace(HOSTED_APP_DESCRIPTION_PREFIX, '').trim();
+}
+
+function descriptionFor(repo) {
+  const fallback = `GitHub project by Andrew Gray — ${repo.name}`;
+  const stripped = stripHostedAppPrefix(repo.description || fallback);
+  return (stripped || fallback).slice(0, 220);
+}
+
+function isHostedAppDemo(url) {
+  const brand = hostedAppBrand();
+  if (!brand || !url) return false;
+  let host = '';
+  try {
+    host = new URL(url).hostname.toLowerCase();
+  } catch {
+    host = String(url).toLowerCase();
+  }
+  return host === `${brand}.app` || host.endsWith(`.${brand}.app`);
+}
+
+function demoUrlFor(repo) {
+  if (repo.name === 'youneek.xyz') return 'https://youneek.xyz';
+  const url = fixUrl(repo.homepage);
+  return isHostedAppDemo(url) ? '' : url;
+}
+
 const res = await fetch(
   'https://api.github.com/user/repos?per_page=100&sort=updated&affiliation=owner',
   {
@@ -73,14 +110,11 @@ for (const repo of repos) {
     repoName: repo.name,
     tag: `// ${String(i).padStart(3, '0')}`,
     subtitle: lang === 'Code' ? 'Repository' : lang,
-    description: (repo.description || `GitHub project by Andrew Gray — ${repo.name}`).slice(0, 220),
+    description: descriptionFor(repo),
     stack,
     accent,
     link: repo.html_url,
-    demoUrl:
-      repo.name === 'youneek.xyz'
-        ? 'https://youneek.xyz'
-        : fixUrl(repo.homepage),
+    demoUrl: demoUrlFor(repo),
     stars: repo.stargazers_count || 0,
     updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
   });
@@ -93,7 +127,7 @@ export const REPOS = ${JSON.stringify(out, null, 2)};
 
 function demoScore(r) {
   const u = r.demoUrl || '';
-  if (!u || u.includes('base44.app')) return -1;
+  if (!u) return -1;
   let s = u.includes('vercel.app') ? 1 : 10;
   if (r.repoName === 'youneek.xyz') s += 8;
   if (r.stars) s += Math.min(r.stars, 3);
@@ -101,7 +135,7 @@ function demoScore(r) {
 }
 
 export const LIVE_DEMOS = REPOS
-  .filter((r) => r.demoUrl && !r.demoUrl.includes('base44.app'))
+  .filter((r) => r.demoUrl)
   .slice()
   .sort((a, b) => demoScore(b) - demoScore(a));
 `;

@@ -5,7 +5,7 @@ export const REPOS = [
     "repoName": "youneek.xyz",
     "tag": "// 001",
     "subtitle": "JavaScript",
-    "description": "Base44 App: YouNeeK.xyz",
+    "description": "YouNeeK.xyz",
     "stack": [
       "JavaScript"
     ],
@@ -131,7 +131,7 @@ export const REPOS = [
     ],
     "accent": "cyan",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-satellite-tracker",
-    "demoUrl": "https://abiding-orbit-view-live.base44.app",
+    "demoUrl": "",
     "stars": 0,
     "updated": "2026-08-20"
   },
@@ -215,7 +215,7 @@ export const REPOS = [
     "repoName": "YNKAIRTRAFFICGAME",
     "tag": "// 015",
     "subtitle": "JavaScript",
-    "description": "Base44 App: Air Traffic Controller (The Game)",
+    "description": "Air Traffic Controller (The Game)",
     "stack": [
       "JavaScript"
     ],
@@ -230,7 +230,7 @@ export const REPOS = [
     "repoName": "unique-sky",
     "tag": "// 016",
     "subtitle": "JavaScript",
-    "description": "Base44 App: Unique Sky",
+    "description": "Unique Sky",
     "stack": [
       "JavaScript"
     ],
@@ -379,7 +379,7 @@ export const REPOS = [
 
 function demoScore(r) {
   const u = r.demoUrl || '';
-  if (!u || u.includes('base44.app')) return -1;
+  if (!u) return -1;
   let s = u.includes('vercel.app') ? 1 : 10;
   if (r.repoName === 'youneek.xyz') s += 8;
   if (r.stars) s += Math.min(r.stars, 3);
@@ -387,6 +387,6 @@ function demoScore(r) {
 }
 
 export const LIVE_DEMOS = REPOS
-  .filter((r) => r.demoUrl && !r.demoUrl.includes('base44.app'))
+  .filter((r) => r.demoUrl)
   .slice()
   .sort((a, b) => demoScore(b) - demoScore(a));

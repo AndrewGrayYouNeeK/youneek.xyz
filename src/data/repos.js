@@ -371,17 +371,27 @@ export const REPOS = [
     "updated": "2026-04-10"
   },
   {
-    "title": "used artifacts",
+    "title": "Used Artifacts",
     "repoName": "used-artifacts",
     "tag": "// 025",
-    "subtitle": "Repository",
-    "description": "Used Artifacts — marketplace for preloved goods with founders badge program",
+    "subtitle": "Artifacts with a paper trail.",
+    "description": "Marketplace for authenticated historic artifacts. Sworn provenance, ID-verified sellers, escrow payments, and partner authentication.",
     "stack": [
-      "Code"
+      "TypeScript",
+      "Next.js",
+      "Stripe",
+      "Postgres"
     ],
-    "accent": "cyan",
+    "accent": "yellow",
     "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
-    "demoUrl": "https://used-artifacts.vercel.app",
+    "demoUrl": "",
+    "status": "COMING SOON",
+    "imageUrl": "/projects/used-artifacts.svg",
+    "palette": {
+      "accent": "#E6B15A",
+      "background": "#120E0A",
+      "text": "#F4E8D4"
+    },
     "stars": 0,
     "updated": "2026-03-31"
   }

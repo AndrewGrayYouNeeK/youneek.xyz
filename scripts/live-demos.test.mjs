@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { LIVE_DEMOS, REPOS } from '../src/data/repos.js';
+import { resolveUsedArtifacts } from '../src/data/used-artifacts.js';
 import {
   hostLabel,
   isBlockedDemoUrl,
@@ -47,5 +48,32 @@ assert.equal(death.imageUrl, '/projects/death-terminal.svg');
 assert.deepEqual(death.palette, { accent: '#FF0033', background: '#000000', text: '#E0E0E0' });
 assert.equal(JSON.stringify({ REPOS, LIVE_DEMOS }).includes('death-terminal-green.vercel.app'), false);
 assert.equal(LIVE_DEMOS.some((repo) => repo.repoName === 'Death-terminal-'), false);
+
+const artifacts = REPOS.find((repo) => repo.repoName === 'used-artifacts');
+assert.ok(artifacts);
+assert.equal(artifacts.title, 'Used Artifacts');
+assert.equal(artifacts.subtitle, 'Artifacts with a paper trail.');
+assert.equal(
+  artifacts.description,
+  'Marketplace for authenticated historic artifacts. Sworn provenance, ID-verified sellers, escrow payments, and partner authentication.'
+);
+assert.equal(artifacts.link, 'https://github.com/AndrewGrayYouNeeK/used-artifacts');
+assert.equal(artifacts.demoUrl, '');
+assert.equal(artifacts.status, 'COMING SOON');
+assert.equal(artifacts.imageUrl, '/projects/used-artifacts.svg');
+assert.deepEqual(artifacts.palette, { accent: '#E6B15A', background: '#120E0A', text: '#F4E8D4' });
+assert.equal(LIVE_DEMOS.some((repo) => repo.repoName === 'used-artifacts'), false);
+assert.equal(JSON.stringify(REPOS).includes('used-artifacts.vercel.app'), false);
+
+const hidden = resolveUsedArtifacts(
+  { ...artifacts, demoUrl: 'https://used-artifacts.vercel.app' },
+  ''
+);
+assert.equal(hidden.demoUrl, '');
+assert.equal(hidden.status, 'COMING SOON');
+const published = resolveUsedArtifacts(artifacts, 'https://usedartifacts.example');
+assert.equal(published.demoUrl, 'https://usedartifacts.example');
+assert.equal(published.status, undefined);
+assert.equal(resolveUsedArtifacts(death).title, death.title);
 
 console.log('live-demos tests passed');

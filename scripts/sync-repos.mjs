@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isBlockedDemoUrl } from '../src/lib/live-demos.js';
+import { USED_ARTIFACTS_LIVE_URL } from '../src/data/used-artifacts.js';
 
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 if (!token) {
@@ -43,7 +44,33 @@ const CURATED = {
       text: '#E0E0E0',
     },
   },
+  'used-artifacts': {
+    title: 'Used Artifacts',
+    subtitle: 'Artifacts with a paper trail.',
+    description:
+      'Marketplace for authenticated historic artifacts. Sworn provenance, ID-verified sellers, escrow payments, and partner authentication.',
+    stack: ['TypeScript', 'Next.js', 'Stripe', 'Postgres'],
+    accent: 'yellow',
+    imageUrl: '/projects/used-artifacts.svg',
+    palette: {
+      accent: '#E6B15A',
+      background: '#120E0A',
+      text: '#F4E8D4',
+    },
+  },
 };
+
+function curatedOverride(repoName) {
+  const curated = CURATED[repoName];
+  if (!curated) return null;
+  if (repoName !== 'used-artifacts') return curated;
+  const demoUrl = String(USED_ARTIFACTS_LIVE_URL || '').trim();
+  return {
+    ...curated,
+    demoUrl,
+    status: demoUrl ? undefined : 'COMING SOON',
+  };
+}
 
 function titleize(name) {
   return name.trim().replace(/^[-_]+|[-_]+$/g, '').replace(/[-_]+/g, ' ');
@@ -141,7 +168,7 @@ for (const repo of repos) {
     stars: repo.stargazers_count || 0,
     updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
   };
-  const curated = CURATED[repo.name];
+  const curated = curatedOverride(repo.name);
   if (curated) Object.assign(row, curated);
   if (isBlockedDemoUrl(row.demoUrl) || isBlockedDemoUrl(row.downloadUrl) || isBlockedDemoUrl(row.link)) {
     throw new Error(`Refusing to write a blocked demo host for ${repo.name}`);

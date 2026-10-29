@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-label="Used Artifacts">
+  <rect width="640" height="400" fill="#120E0A"/>
+  <rect x="28" y="28" width="584" height="196" fill="#1A1410" stroke="#E6B15A" stroke-width="2"/>
+  <rect x="28" y="28" width="584" height="28" fill="#E6B15A"/>
+  <circle cx="48" cy="42" r="4" fill="#120E0A"/>
+  <circle cx="64" cy="42" r="4" fill="#120E0A"/>
+  <circle cx="80" cy="42" r="4" fill="#120E0A"/>
+  <text x="320" y="47" text-anchor="middle" fill="#120E0A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">USED ARTIFACTS</text>
+
+  <ellipse cx="278" cy="92" rx="40" ry="8" fill="none" stroke="#E6B15A" stroke-width="2"/>
+  <path d="M244 96 C240 124 250 142 268 150 L288 150 C306 142 316 124 312 96" fill="none" stroke="#E6B15A" stroke-width="2"/>
+  <path d="M268 150 L260 164 L296 164 L288 150" fill="none" stroke="#E6B15A" stroke-width="2"/>
+  <ellipse cx="278" cy="96" rx="30" ry="5" fill="none" stroke="#F4E8D4" stroke-width="1.5"/>
+
+  <rect x="336" y="92" width="32" height="42" rx="3" fill="none" stroke="#E6B15A" stroke-width="2"/>
+  <circle cx="352" cy="106" r="6" fill="none" stroke="#F4E8D4" stroke-width="1.5"/>
+  <path d="M343 120 H361" stroke="#E6B15A" stroke-width="1.5"/>
+
+  <text x="230" y="184" text-anchor="middle" fill="#F4E8D4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10">SWORN</text>
+  <text x="290" y="184" text-anchor="middle" fill="#F4E8D4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10">ID</text>
+  <text x="350" y="184" text-anchor="middle" fill="#F4E8D4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10">ESCROW</text>
+  <text x="410" y="184" text-anchor="middle" fill="#F4E8D4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10">PARTNER</text>
+  <line x1="230" y1="198" x2="410" y2="198" stroke="#E6B15A" stroke-width="2"/>
+  <circle cx="230" cy="198" r="5" fill="#1A1410" stroke="#E6B15A" stroke-width="2"/>
+  <circle cx="290" cy="198" r="5" fill="#1A1410" stroke="#E6B15A" stroke-width="2"/>
+  <circle cx="350" cy="198" r="5" fill="#1A1410" stroke="#F4E8D4" stroke-width="2"/>
+  <circle cx="410" cy="198" r="5" fill="#E6B15A"/>
+</svg>

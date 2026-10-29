@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { resolveUsedArtifacts } from '@/data/used-artifacts';
 import { isBlockedDemoUrl } from '@/lib/live-demos';
 
 const NEON_COLORS = {
@@ -26,14 +27,15 @@ function withAlpha(color, alpha) {
 }
 
 export default function ProjectCard({ project, index }) {
+  const card = resolveUsedArtifacts(project);
   const [isHovered, setIsHovered] = useState(false);
-  const palette = project.palette;
-  const accent = project.accent || NEON_FALLBACK[index % NEON_FALLBACK.length];
+  const palette = card.palette;
+  const accent = card.accent || NEON_FALLBACK[index % NEON_FALLBACK.length];
   const neonColor = palette?.accent || NEON_COLORS[accent] || NEON_COLORS.cyan;
   const textColor = palette?.text;
   const surface = palette?.background;
-  const demoHref = project.demoUrl && !isBlockedDemoUrl(project.demoUrl) ? project.demoUrl : '';
-  const downloadHref = project.downloadUrl && !isBlockedDemoUrl(project.downloadUrl) ? project.downloadUrl : '';
+  const demoHref = card.demoUrl && !isBlockedDemoUrl(card.demoUrl) ? card.demoUrl : '';
+  const downloadHref = card.downloadUrl && !isBlockedDemoUrl(card.downloadUrl) ? card.downloadUrl : '';
 
   return (
     <div
@@ -54,10 +56,10 @@ export default function ProjectCard({ project, index }) {
           }}
         >
           {/* Image or neon gradient artwork */}
-          {project.imageUrl ? (
+          {card.imageUrl ? (
             <img
-              src={project.imageUrl}
-              alt={project.title}
+              src={card.imageUrl}
+              alt={card.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
           ) : (
@@ -89,24 +91,32 @@ export default function ProjectCard({ project, index }) {
           ) : (
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
           )}
-          <div className="absolute bottom-0 left-0 right-0 p-5">
+          <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
             <span
-              className="font-mono text-xs tracking-widest mb-2 block"
+              className="font-mono text-xs tracking-widest mb-2 flex items-center gap-3"
               style={{ color: neonColor }}
             >
-              {project.tag}
+              <span>{card.tag}</span>
+              {card.status ? (
+                <span
+                  className="border px-2 py-0.5"
+                  style={{ borderColor: withAlpha(neonColor, 0.5) }}
+                >
+                  {card.status}
+                </span>
+              ) : null}
             </span>
             <h3
               className="font-heading text-xl sm:text-2xl font-bold text-foreground leading-tight"
               style={textColor ? { color: textColor } : undefined}
             >
-              {project.title}
+              {card.title}
             </h3>
             <p
               className={`font-mono text-xs mt-1 line-clamp-3 ${textColor ? '' : 'text-muted-foreground'}`}
               style={textColor ? { color: textColor } : undefined}
             >
-              {project.subtitle}
+              {card.subtitle}
             </p>
           </div>
         </div>
@@ -125,16 +135,16 @@ export default function ProjectCard({ project, index }) {
               className="font-heading text-lg font-bold mb-4 leading-tight"
               style={{ color: neonColor }}
             >
-              {project.title}
+              {card.title}
             </h3>
             <p
               className={`font-mono text-sm mb-4 line-clamp-5 ${textColor ? '' : 'text-muted-foreground'}`}
               style={textColor ? { color: textColor } : undefined}
             >
-              {project.description}
+              {card.description}
             </p>
             <div className="flex flex-wrap gap-2">
-              {(project.stack || []).map((tech) => (
+              {(card.stack || []).map((tech) => (
                 <span
                   key={tech}
                   className="font-mono text-xs px-2 py-1 rounded border"
@@ -151,7 +161,7 @@ export default function ProjectCard({ project, index }) {
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
             <a
-              href={project.link}
+              href={card.link}
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
@@ -169,6 +179,13 @@ export default function ProjectCard({ project, index }) {
               >
                 LIVE DEMO →
               </a>
+            ) : card.status ? (
+              <span
+                className="font-mono text-sm inline-flex items-center gap-2"
+                style={{ color: neonColor }}
+              >
+                {card.status}
+              </span>
             ) : null}
             {downloadHref ? (
               <a

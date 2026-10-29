@@ -29,7 +29,7 @@ Each pull request uploads a Worker **version** (it does not replace production) 
 - **Stable alias:** `<sanitized-branch>-youneek-xyz.<subdomain>.workers.dev`
 - **Version URL:** unique per upload, printed in the GitHub Action log and on the PR comment
 
-The workflow is `.github/workflows/preview.yml`. After the two Cloudflare secrets are set, open or update a PR and wait for the **Preview** check.
+The workflow is `.github/workflows/preview.yml`. After the two Cloudflare secrets are set, open or update a PR and wait for the **Preview** check. If those secrets are unset, the check still builds the site and skips the upload.
 
 Locally (same Cloudflare credentials):
 

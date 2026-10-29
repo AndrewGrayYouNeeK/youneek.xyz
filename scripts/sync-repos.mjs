@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isBlockedDemoUrl } from '../src/lib/live-demos.js';
 
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 if (!token) {
@@ -23,6 +24,26 @@ const LANG_ACCENT = {
   Rust: 'yellow',
 };
 const ACCENTS = ['cyan', 'magenta', 'green', 'yellow', 'purple', 'red'];
+
+/** Hand-written cards. Applied after the GitHub pull so a sync cannot restore a blocked homepage. */
+const CURATED = {
+  'Death-terminal-': {
+    title: 'YouNeeK Death Terminal',
+    subtitle: 'A brutalist, GPU-accelerated terminal with AI-native command workflows.',
+    description:
+      'AI autocomplete with Grok/Ollama, Vulkan GPU rendering, built-in SSH, Lua themes and plugins, tabs and splits. Mac, Windows, and Linux.',
+    stack: ['Zig', 'Vulkan', 'Lua', 'SSH'],
+    accent: 'red',
+    demoUrl: '',
+    downloadUrl: 'https://andrewgrayyouneek.github.io/Death-terminal-/',
+    imageUrl: '/projects/death-terminal.svg',
+    palette: {
+      accent: '#FF0033',
+      background: '#000000',
+      text: '#E0E0E0',
+    },
+  },
+};
 
 function titleize(name) {
   return name.trim().replace(/^[-_]+|[-_]+$/g, '').replace(/[-_]+/g, ' ');
@@ -105,7 +126,9 @@ for (const repo of repos) {
   for (const t of repo.topics || []) {
     if (!stack.includes(t) && stack.length < 4) stack.push(t);
   }
-  out.push({
+  let demoUrl = demoUrlFor(repo);
+  if (isBlockedDemoUrl(demoUrl)) demoUrl = '';
+  const row = {
     title: titleize(repo.name),
     repoName: repo.name,
     tag: `// ${String(i).padStart(3, '0')}`,
@@ -114,10 +137,16 @@ for (const repo of repos) {
     stack,
     accent,
     link: repo.html_url,
-    demoUrl: demoUrlFor(repo),
+    demoUrl,
     stars: repo.stargazers_count || 0,
     updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
-  });
+  };
+  const curated = CURATED[repo.name];
+  if (curated) Object.assign(row, curated);
+  if (isBlockedDemoUrl(row.demoUrl) || isBlockedDemoUrl(row.downloadUrl) || isBlockedDemoUrl(row.link)) {
+    throw new Error(`Refusing to write a blocked demo host for ${repo.name}`);
+  }
+  out.push(row);
 }
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -135,7 +164,12 @@ function demoScore(r) {
 }
 
 export const LIVE_DEMOS = REPOS
-  .filter((r) => r.demoUrl)
+  .filter((r) => {
+    const u = r.demoUrl || '';
+    if (!u) return false;
+    if (u.includes('death-terminal-green.vercel.app')) return false;
+    return true;
+  })
   .slice()
   .sort((a, b) => demoScore(b) - demoScore(a));
 `;

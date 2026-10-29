@@ -91,17 +91,27 @@ export const REPOS = [
     "updated": "2026-08-24"
   },
   {
-    "title": "Death terminal",
+    "title": "YouNeeK Death Terminal",
     "repoName": "Death-terminal-",
     "tag": "// 007",
-    "subtitle": "Zig",
-    "description": "GitHub project by Andrew Gray — Death-terminal-",
+    "subtitle": "A brutalist, GPU-accelerated terminal with AI-native command workflows.",
+    "description": "AI autocomplete with Grok/Ollama, Vulkan GPU rendering, built-in SSH, Lua themes and plugins, tabs and splits. Mac, Windows, and Linux.",
     "stack": [
-      "Zig"
+      "Zig",
+      "Vulkan",
+      "Lua",
+      "SSH"
     ],
     "accent": "red",
     "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
-    "demoUrl": "https://death-terminal-green.vercel.app",
+    "demoUrl": "",
+    "downloadUrl": "https://andrewgrayyouneek.github.io/Death-terminal-/",
+    "imageUrl": "/projects/death-terminal.svg",
+    "palette": {
+      "accent": "#FF0033",
+      "background": "#000000",
+      "text": "#E0E0E0"
+    },
     "stars": 1,
     "updated": "2026-08-20"
   },
@@ -387,6 +397,11 @@ function demoScore(r) {
 }
 
 export const LIVE_DEMOS = REPOS
-  .filter((r) => r.demoUrl)
+  .filter((r) => {
+    const u = r.demoUrl || '';
+    if (!u) return false;
+    if (u.includes('death-terminal-green.vercel.app')) return false;
+    return true;
+  })
   .slice()
   .sort((a, b) => demoScore(b) - demoScore(a));

@@ -1,79 +1,147 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { LIVE_DEMOS, REPOS } from '../src/data/repos.js';
-import {
-  hostLabel,
-  isBlockedDemoUrl,
-  isFragileDemo,
-  PRODUCTION_ORIGIN,
-  resolveDemoUrl,
-  withLiveUrls,
-} from '../src/lib/live-demos.js';
+import { classifyResponse } from './verify-url.mjs';
+import { selectRecordsToReplace } from './repair-apex-dns.mjs';
+import config from '../sites.config.json' with { type: 'json' };
 
-const self = { repoName: 'youneek.xyz', demoUrl: 'https://youneekxyz.vercel.app' };
-const other = { repoName: 'roll10000', demoUrl: 'https://roll10000.com' };
+assert.equal(
+  classifyResponse({
+    status: 403,
+    finalUrl: 'https://lillysapp.com/',
+    body: '<title>DNS points to prohibited IP | lillysapp.com | Cloudflare</title> error code: 1000',
+    contentType: 'text/html',
+    challenged: false,
+  }),
+  'dead'
+);
+assert.equal(
+  classifyResponse({
+    status: 402,
+    finalUrl: 'https://youneekxyz.vercel.app/',
+    body: 'Payment required DEPLOYMENT_DISABLED',
+    contentType: 'text/plain',
+    challenged: false,
+  }),
+  'dead'
+);
+assert.equal(
+  classifyResponse({
+    status: 200,
+    finalUrl: 'https://youneekartifacts.cloudflareaccess.com/cdn-cgi/access/login/youneek.dev',
+    body: '<title>Sign in ・ Cloudflare Access</title>',
+    contentType: 'text/html',
+    challenged: false,
+  }),
+  'dead'
+);
+assert.equal(
+  classifyResponse({
+    status: 403,
+    finalUrl: 'https://roll10000.com/',
+    body: '<title>Just a moment...</title>',
+    contentType: 'text/html',
+    challenged: true,
+  }),
+  'live'
+);
+assert.equal(
+  classifyResponse({
+    status: 200,
+    finalUrl: 'https://3iatlasgame.xyz/',
+    body: '<title>3i-Atlas — The Game</title>',
+    contentType: 'text/html',
+    challenged: false,
+  }),
+  'live'
+);
 
-assert.equal(resolveDemoUrl(self, 'http://127.0.0.1:4173'), 'http://127.0.0.1:4173/?embed=1');
-assert.equal(resolveDemoUrl(self, PRODUCTION_ORIGIN), 'https://youneek.xyz/?embed=1');
-assert.equal(resolveDemoUrl(other), 'https://roll10000.com');
-assert.equal(hostLabel('https://youneek.xyz/?embed=1'), 'youneek.xyz');
-assert.equal(isFragileDemo('https://foo.vercel.app'), true);
-assert.equal(isFragileDemo('https://youneek.xyz'), false);
+const records = [
+  { id: '1', type: 'A', name: 'youneek.xyz', content: '203.0.113.10' },
+  { id: '2', type: 'AAAA', name: 'youneek.xyz', content: '2001:db8::1' },
+  { id: '3', type: 'MX', name: 'youneek.xyz', content: 'mail.protonmail.ch' },
+  { id: '4', type: 'TXT', name: 'youneek.xyz', content: 'v=spf1 include:_spf.protonmail.ch ~all' },
+  { id: '5', type: 'CNAME', name: 'relay.youneek.xyz', content: 'youneek-share-relay.workers.dev' },
+  { id: '6', type: 'CNAME', name: 'www.youneek.xyz', content: 'example.com' },
+  { id: '7', type: 'A', name: 'calendar.youneek.dev', content: '192.0.2.1' },
+];
+assert.deepEqual(
+  selectRecordsToReplace(records).map((record) => record.id),
+  ['1', '2', '6']
+);
 
-const live = withLiveUrls([self, other], 'https://youneek.xyz');
-assert.equal(live[0].demoUrl, 'https://youneek.xyz/?embed=1');
-assert.equal(live[1].demoUrl, 'https://roll10000.com');
-
-const blocked = 'https://death-terminal-green.vercel.app';
-assert.equal(isBlockedDemoUrl(blocked), true);
-assert.equal(isBlockedDemoUrl('https://andrewgrayyouneek.github.io/Death-terminal-/'), false);
-assert.equal(resolveDemoUrl({ repoName: 'Death-terminal-', demoUrl: blocked }), '');
-
-const names = REPOS.map((repo) => repo.repoName);
-const death = REPOS.find((repo) => repo.repoName === 'Death-terminal-');
-assert.ok(death);
-assert.equal(names.includes('Projectpaperclip'), false);
-for (const repoName of [
-  'youneekproradarBABY',
-  '3i-atlas-the-gameYNK',
-  'lilly-s-appYNK222',
-  'youneek-pro-radarYNK222',
-  'YouNeeK-Dashboard',
-  'remnant',
-  'bison-earth-plum-bird',
+const names = new Set(REPOS.map((repo) => repo.repoName));
+for (const skipped of [
+  'Projectpaperclip',
+  'workflows-starter-template',
+  'containers-template',
   'nextjs-with-supabase',
   'fastapi',
-  'apex-controlYNK222',
+  'Original-YouNeeK-Time',
+  'We-hook-slayer',
 ]) {
-  assert.ok(names.includes(repoName), `missing ${repoName}`);
+  assert.equal(names.has(skipped), false, `${skipped} should be omitted`);
 }
-assert.equal(new Set(names).size, names.length);
-assert.equal(death.title, 'YouNeeK Death Terminal');
-assert.equal(death.subtitle, 'A brutalist, GPU-accelerated terminal with AI-native command workflows.');
-assert.equal(
-  death.description,
-  'AI autocomplete with Grok/Ollama, Vulkan GPU rendering, built-in SSH, Lua themes and plugins, tabs and splits. Mac, Windows, and Linux.'
-);
-assert.equal(death.link, 'https://github.com/AndrewGrayYouNeeK/Death-terminal-');
-assert.equal(death.downloadUrl, 'https://andrewgrayyouneek.github.io/Death-terminal-/');
-assert.equal(death.demoUrl, '');
-assert.equal(death.imageUrl, '/projects/death-terminal.svg');
-assert.deepEqual(death.palette, { accent: '#FF0033', background: '#000000', text: '#E0E0E0' });
-assert.equal(JSON.stringify({ REPOS, LIVE_DEMOS }).includes('death-terminal-green.vercel.app'), false);
-assert.equal(LIVE_DEMOS.some((repo) => repo.repoName === 'Death-terminal-'), false);
+
+const byName = Object.fromEntries(REPOS.map((repo) => [repo.repoName, repo]));
+
+function siteUrls(name) {
+  return (byName[name]?.sites || []).map((site) => site.url);
+}
+
+assert.deepEqual(siteUrls('10000TheFinalBoss'), [
+  'https://roll10000.com',
+  'https://online.roll10000.com',
+]);
+assert.deepEqual(siteUrls('3i-atlas-the-gameYNK'), ['https://3iatlasgame.xyz']);
+assert.deepEqual(siteUrls('vibesdk-production2'), ['https://usedartifacts.com']);
+assert.deepEqual(siteUrls('YouNeeKTimeTheFinalBoss'), ['https://youneektime.com']);
+assert.deepEqual(siteUrls('youneekproradarBABY'), ['https://youneekproradar.com']);
+assert.deepEqual(siteUrls('Real-Neural-Forge'), [
+  'https://real-neural-forge-api.youneekartifacts.workers.dev',
+]);
+assert.deepEqual(siteUrls('used-artifacts'), []);
+assert.deepEqual(siteUrls('lilly-s-appYNK222'), []);
+assert.deepEqual(siteUrls('youneek'), []);
+assert.deepEqual(siteUrls('youneek-time'), []);
+assert.deepEqual(siteUrls('youneek-pro-radar'), []);
+assert.deepEqual(siteUrls('Death-terminal-'), []);
+assert.equal(byName['Death-terminal-'].title, 'YouNeeK Death Terminal');
+assert.match(byName['Death-terminal-'].description, /Vulkan/);
+
+const blob = JSON.stringify({ REPOS, LIVE_DEMOS });
+for (const forbidden of [
+  'vercel.app',
+  'base44.app',
+  'lillysapp.com',
+  'youneekcare.com',
+  'forge.youneek.xyz',
+  'forge.youneek.dev',
+  'death-terminal-green.vercel.app',
+  'calendar.youneek.dev',
+  'relay.youneek.xyz',
+]) {
+  assert.equal(blob.includes(forbidden), false, forbidden);
+}
 
 for (const repo of REPOS) {
-  assert.equal(repo.link, `https://github.com/AndrewGrayYouNeeK/${repo.repoName}`);
-  assert.equal(isBlockedDemoUrl(repo.demoUrl), false);
-  assert.equal(isBlockedDemoUrl(repo.downloadUrl), false);
+  assert.ok(repo.title, repo.repoName);
+  assert.ok(repo.description, repo.repoName);
+  assert.equal(repo.link, `https://github.com/${config.owner}/${repo.repoName}`);
+  const allowed = new Set(config.repos?.[repo.repoName]?.sites || []);
+  for (const site of repo.sites) {
+    assert.ok(allowed.has(site.url), `${repo.repoName} site ${site.url} is not in sites.config.json`);
+    assert.ok(site.url.startsWith('https://'));
+  }
 }
-const byName = Object.fromEntries(REPOS.map((repo) => [repo.repoName, repo]));
-assert.equal(byName['youneek.xyz'].demoUrl, 'https://youneek.xyz');
-assert.equal(byName['youneek.xyz'].description, 'YouNeeK.xyz');
-assert.equal(byName['youneek-satellite-tracker'].demoUrl, '');
-assert.equal(byName['unique-sky'].description, 'Unique Sky');
-assert.equal(byName['unique-sky'].demoUrl, 'https://unique-sky.vercel.app');
-assert.equal(byName['YouNeeKTimeTheFinalBoss'].demoUrl, 'https://youneektime.com');
-assert.equal(byName['10000TheFinalBoss'].demoUrl, 'https://roll10000.com');
-assert.equal(byName['YNKAIRTRAFFICGAME'].description, 'Air Traffic Controller (The Game)');
 
-console.log('live-demos tests passed');
+assert.ok(LIVE_DEMOS.length >= 6);
+assert.ok(LIVE_DEMOS.every((repo) => repo.sites.length > 0));
+
+const wrangler = fs.readFileSync(new URL('../wrangler.jsonc', import.meta.url), 'utf8');
+assert.equal(wrangler.includes('"pattern": "relay.youneek.xyz"'), false);
+assert.equal(wrangler.includes('"pattern": "youneek.xyz"'), true);
+assert.equal(wrangler.includes('"pattern": "www.youneek.xyz"'), true);
+assert.equal(wrangler.includes('"account_id": "d74b0de637f4d9d9eb3efb9e13142784"'), true);
+
+console.log(`portfolio tests passed (${REPOS.length} slots, ${LIVE_DEMOS.length} live)`);

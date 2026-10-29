@@ -26,13 +26,11 @@ jobs:
 
       - run: npm ci
 
-      - name: Refresh the public repo list
-        continue-on-error: true
+      - run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run sync:repos
 
-      - run: npm run build
+      - run: npm test
 
       - name: Check for Cloudflare credentials
         id: creds

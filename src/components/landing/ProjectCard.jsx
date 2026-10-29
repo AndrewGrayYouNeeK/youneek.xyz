@@ -1,189 +1,74 @@
-import { useState } from 'react';
-import { isBlockedDemoUrl } from '@/lib/live-demos';
-
-const NEON_COLORS = {
-  cyan: 'hsl(180, 100%, 50%)',
-  magenta: 'hsl(300, 100%, 50%)',
-  green: 'hsl(120, 100%, 50%)',
-  yellow: 'hsl(50, 100%, 50%)',
-  purple: 'hsl(270, 100%, 60%)',
-  red: 'hsl(0, 100%, 55%)',
-};
-
-const NEON_FALLBACK = ['cyan', 'magenta', 'green', 'yellow', 'purple', 'red'];
-
-function withAlpha(color, alpha) {
-  if (typeof color === 'string' && color.startsWith('#')) {
-    const hex = color.slice(1);
-    const full = hex.length === 3 ? hex.split('').map((channel) => channel + channel).join('') : hex;
-    const value = Number.parseInt(full, 16);
-    const red = (value >> 16) & 255;
-    const green = (value >> 8) & 255;
-    const blue = value & 255;
-    return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+function hostname(url) {
+  try {
+    return new URL(url).host;
+  } catch {
+    return url;
   }
-  return color.replace(')', ` / ${alpha})`);
 }
 
-export default function ProjectCard({ project, index }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const palette = project.palette;
-  const accent = project.accent || NEON_FALLBACK[index % NEON_FALLBACK.length];
-  const neonColor = palette?.accent || NEON_COLORS[accent] || NEON_COLORS.cyan;
-  const textColor = palette?.text;
-  const surface = palette?.background;
-  const demoHref = project.demoUrl && !isBlockedDemoUrl(project.demoUrl) ? project.demoUrl : '';
-  const downloadHref = project.downloadUrl && !isBlockedDemoUrl(project.downloadUrl) ? project.downloadUrl : '';
+export default function ProjectCard({ project }) {
+  const sites = project.sites || [];
+  const primary = sites[0];
+  const extra = sites.slice(1);
 
   return (
-    <div
-      className="card-flip-trigger group perspective-[1000px] h-72 sm:h-80"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="card-flip-inner relative w-full h-full">
-        {/* Front */}
-        <div
-          className="card-front absolute inset-0 rounded-lg overflow-hidden border border-border/50 transition-shadow duration-300"
-          style={{
-            backgroundColor: surface,
-            boxShadow: isHovered
-              ? `0 0 30px ${withAlpha(neonColor, 0.4)}, inset 0 0 15px ${withAlpha(neonColor, 0.1)}`
-              : '0 0 0px transparent',
-            borderColor: isHovered ? withAlpha(neonColor, 0.6) : undefined
-          }}
-        >
-          {/* Image or neon gradient artwork */}
-          {project.imageUrl ? (
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          ) : (
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `
-                  radial-gradient(circle at 20% 20%, ${withAlpha(neonColor, 0.45)} 0%, transparent 55%),
-                  radial-gradient(circle at 80% 70%, ${withAlpha(neonColor, 0.25)} 0%, transparent 60%),
-                  linear-gradient(135deg, ${surface || 'hsl(240, 10%, 8%)'} 0%, ${surface || 'hsl(240, 10%, 4%)'} 100%)
-                `,
-              }}
-            />
-          )}
-          <div
-            className="absolute inset-0 opacity-30 mix-blend-overlay"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)'
-            }}
-          />
-          {surface ? (
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(to top, ${surface} 0%, ${withAlpha(surface, 0.72)} 46%, transparent 100%)`,
-              }}
-            />
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-          )}
-          <div className="absolute bottom-0 left-0 right-0 p-5">
-            <span
-              className="font-mono text-xs tracking-widest mb-2 block"
-              style={{ color: neonColor }}
-            >
-              {project.tag}
-            </span>
-            <h3
-              className="font-heading text-xl sm:text-2xl font-bold text-foreground leading-tight break-words"
-              style={textColor ? { color: textColor } : undefined}
-            >
-              {project.title}
-            </h3>
-            <p
-              className={`font-mono text-xs mt-1 line-clamp-3 ${textColor ? '' : 'text-muted-foreground'}`}
-              style={textColor ? { color: textColor } : undefined}
-            >
-              {project.subtitle}
-            </p>
-          </div>
-        </div>
-
-        {/* Back */}
-        <div
-          className="card-back absolute inset-0 rounded-lg overflow-hidden border p-6 flex flex-col justify-between"
-          style={{
-            backgroundColor: surface || 'hsl(240, 10%, 6%)',
-            borderColor: withAlpha(neonColor, 0.4),
-            boxShadow: `0 0 30px ${withAlpha(neonColor, 0.3)}, inset 0 0 20px ${withAlpha(neonColor, 0.05)}`
-          }}
-        >
-          <div>
-            <h3
-              className="card-back-title font-heading text-lg font-bold mb-4 leading-tight break-words"
-              style={{ color: neonColor }}
-            >
-              {project.title}
-            </h3>
-            <p
-              className={`font-mono text-sm mb-4 line-clamp-5 break-words ${textColor ? '' : 'text-muted-foreground'}`}
-              style={textColor ? { color: textColor } : undefined}
-            >
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {(project.stack || []).map((tech) => (
-                <span
-                  key={tech}
-                  className="font-mono text-xs px-2 py-1 rounded border"
-                  style={{
-                    borderColor: withAlpha(neonColor, 0.3),
-                    color: neonColor,
-                    backgroundColor: withAlpha(neonColor, 0.08)
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="card-actions mt-4 flex flex-wrap gap-2">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card-link font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
-              style={{ color: neonColor }}
-            >
-              GITHUB →
-            </a>
-            {demoHref ? (
-              <a
-                href={demoHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`project-card-link font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors ${palette ? '' : 'text-accent'}`}
-                style={palette ? { color: neonColor } : undefined}
-              >
-                LIVE DEMO →
-              </a>
-            ) : null}
-            {downloadHref ? (
-              <a
-                href={downloadHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-card-link font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
-                style={{ color: neonColor }}
-              >
-                DOWNLOAD →
-              </a>
-            ) : null}
-          </div>
-        </div>
+    <article className="flex h-full flex-col rounded-2xl border border-white/10 bg-[#10131a] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.25)] transition duration-200 hover:border-[#7ee7ea]/50">
+      {project.image ? (
+        <img
+          src={project.image}
+          alt=""
+          className="mb-4 h-28 w-full rounded-xl object-cover"
+        />
+      ) : null}
+      <div className="flex items-center justify-between gap-3">
+        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#8fb4b6]">
+          {project.language}
+        </p>
+        {primary ? (
+          <span className="rounded-full border border-[#7ee7ea]/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[#7ee7ea]">
+            Live
+          </span>
+        ) : null}
       </div>
-    </div>
+      <h2 className="mt-3 font-heading text-xl leading-tight text-white">{project.title}</h2>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-[#c5d6d6]">{project.description}</p>
+      <p className="mt-4 font-mono text-[11px] text-[#6f8d8f]">Updated {project.updated}</p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs text-white transition hover:border-white/40"
+        >
+          GitHub
+        </a>
+        {primary ? (
+          <a
+            href={primary.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-[#7ee7ea] px-3 py-1.5 font-mono text-xs font-bold text-[#072022] transition hover:bg-white"
+          >
+            Visit site
+          </a>
+        ) : null}
+      </div>
+      {extra.length > 0 ? (
+        <ul className="mt-3 space-y-1">
+          {extra.map((site) => (
+            <li key={site.url}>
+              <a
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-[#7ee7ea] underline-offset-2 hover:underline"
+              >
+                Also {hostname(site.url)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </article>
   );
 }

@@ -1,10 +1,21 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "youneek-xyz",
-  "compatibility_date": "2026-08-27",
-  // workers.dev + preview_urls power per-PR aliases like
-  // <alias>-youneek-xyz.<account>.workers.dev without touching youneek.xyz
+  "account_id": "d74b0de637f4d9d9eb3efb9e13142784",
+  "compatibility_date": "2026-10-29",
+  // workers.dev and preview aliases stay on. relay.youneek.xyz belongs to
+  // the youneek-share-relay Worker and is intentionally not listed here.
   "workers_dev": true,
   "preview_urls": true,
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
   "assets": {
     "directory": "./dist",
     "not_found_handling": "single-page-application"

@@ -197,8 +197,19 @@
   transform-style: preserve-3d;
 }
 
-.card-flip-trigger:hover .card-flip-inner {
-  transform: rotateY(180deg);
+@media (hover: hover) and (pointer: fine) {
+  .card-flip-trigger:hover .card-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-back {
+    overflow-y: auto;
+  }
+}
+
+.project-card-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .card-front, .card-back {
@@ -221,4 +232,64 @@
 
 .hover-glitch:hover {
   animation: glitch1 0.3s linear;
+}
+
+/* Phones have no hover. Show the art and the links together so GitHub and live demos are tappable. */
+@media (hover: none), (pointer: coarse) {
+  .card-flip-trigger {
+    height: auto;
+    perspective: none;
+  }
+
+  .card-flip-inner,
+  .card-flip-trigger:hover .card-flip-inner {
+    transform: none;
+    transform-style: flat;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .card-front,
+  .card-back {
+    position: relative;
+    inset: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    height: auto;
+  }
+
+  .card-front {
+    min-height: 14rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-width: 0;
+  }
+
+  .card-back {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .card-back-title {
+    display: none;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .project-card-link {
+    min-height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+    border-radius: 0.375rem;
+    justify-content: center;
+    width: 100%;
+  }
 }

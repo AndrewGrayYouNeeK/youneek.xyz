@@ -17,9 +17,21 @@ export function currentOrigin() {
   return PRODUCTION_ORIGIN;
 }
 
+const BLOCKED_DEMO_HOSTS = new Set(['death-terminal-green.vercel.app']);
+
+export function isBlockedDemoUrl(url) {
+  if (!url || typeof url !== 'string') return false;
+  try {
+    return BLOCKED_DEMO_HOSTS.has(new URL(url).hostname);
+  } catch {
+    return url.includes('death-terminal-green.vercel.app');
+  }
+}
+
 /** Point this site at the origin you are actually on, not a dead Vercel URL. */
 export function resolveDemoUrl(repo, origin = currentOrigin()) {
   if (!repo) return '';
+  if (isBlockedDemoUrl(repo.demoUrl)) return '';
   if (repo.repoName === SELF_REPO) {
     const base = origin || PRODUCTION_ORIGIN;
     return `${base.replace(/\/$/, '')}/?embed=1`;

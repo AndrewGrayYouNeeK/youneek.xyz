@@ -27,7 +27,7 @@ export default function ProjectGrid() {
   }, []);
 
   return (
-    <section id="portfolio" className="relative z-10 px-4 sm:px-6 lg:px-8 py-20 max-w-7xl mx-auto">
+    <section id="portfolio" className="relative z-10 px-4 sm:px-6 lg:px-8 py-12 sm:py-20 max-w-7xl mx-auto">
       <div className="text-center mb-16">
         <span className="font-mono text-xs tracking-[0.4em] text-primary/50 uppercase">
           {'<'} Real GitHub Work {'/>'}
@@ -47,9 +47,9 @@ export default function ProjectGrid() {
         <div className="mt-4 h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       </div>
 
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {REPOS.map((project, i) => (
-          <div key={project.repoName} className="fade-in-up">
+          <div key={project.repoName} className="fade-in-up min-w-0">
             <ProjectCard project={project} index={i} />
           </div>
         ))}

@@ -1,9 +1,49 @@
 // Auto-sourced from github.com/AndrewGrayYouNeeK — regenerate with node scripts/sync-repos.mjs
 export const REPOS = [
   {
+    "title": "YouNeeK Death Terminal",
+    "repoName": "Death-terminal-",
+    "tag": "// 001",
+    "subtitle": "A brutalist, GPU-accelerated terminal with AI-native command workflows.",
+    "description": "AI autocomplete with Grok/Ollama, Vulkan GPU rendering, built-in SSH, Lua themes and plugins, tabs and splits. Mac, Windows, and Linux.",
+    "stack": [
+      "Zig",
+      "Vulkan",
+      "Lua",
+      "SSH"
+    ],
+    "accent": "red",
+    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "demoUrl": "",
+    "stars": 1,
+    "updated": "2026-10-29",
+    "downloadUrl": "https://andrewgrayyouneek.github.io/Death-terminal-/",
+    "imageUrl": "/projects/death-terminal.svg",
+    "palette": {
+      "accent": "#FF0033",
+      "background": "#000000",
+      "text": "#E0E0E0"
+    }
+  },
+  {
+    "title": "Real Neural Forge",
+    "repoName": "Real-Neural-Forge",
+    "tag": "// 002",
+    "subtitle": "Python",
+    "description": "GitHub project by Andrew Gray — Real-Neural-Forge",
+    "stack": [
+      "Python"
+    ],
+    "accent": "green",
+    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "demoUrl": "https://real-neural-forge.vercel.app",
+    "stars": 1,
+    "updated": "2026-10-29"
+  },
+  {
     "title": "youneek.xyz",
     "repoName": "youneek.xyz",
-    "tag": "// 001",
+    "tag": "// 003",
     "subtitle": "JavaScript",
     "description": "YouNeeK.xyz",
     "stack": [
@@ -13,12 +53,192 @@ export const REPOS = [
     "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
     "demoUrl": "https://youneek.xyz",
     "stars": 1,
-    "updated": "2026-08-29"
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "youneekproradarBABY",
+    "repoName": "youneekproradarBABY",
+    "tag": "// 004",
+    "subtitle": "JavaScript",
+    "description": "YouNeeK Pro Radar",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneekproradarBABY",
+    "demoUrl": "",
+    "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "YouNeeKTimeTheFinalBoss",
+    "repoName": "YouNeeKTimeTheFinalBoss",
+    "tag": "// 005",
+    "subtitle": "JavaScript",
+    "description": "YouNeeK Time",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/YouNeeKTimeTheFinalBoss",
+    "demoUrl": "https://youneektime.com",
+    "stars": 1,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "3i atlas the gameYNK",
+    "repoName": "3i-atlas-the-gameYNK",
+    "tag": "// 006",
+    "subtitle": "JavaScript",
+    "description": "3i-Atlas (The Game)",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/3i-atlas-the-gameYNK",
+    "demoUrl": "",
+    "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "lilly s appYNK222",
+    "repoName": "lilly-s-appYNK222",
+    "tag": "// 007",
+    "subtitle": "JavaScript",
+    "description": "Lilly’s app",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/lilly-s-appYNK222",
+    "demoUrl": "",
+    "stars": 1,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "YNKAIRTRAFFICGAME",
+    "repoName": "YNKAIRTRAFFICGAME",
+    "tag": "// 008",
+    "subtitle": "JavaScript",
+    "description": "Air Traffic Controller (The Game)",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
+    "demoUrl": "",
+    "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "youneek pro radar",
+    "repoName": "youneek-pro-radar",
+    "tag": "// 009",
+    "subtitle": "JavaScript",
+    "description": "YouNeeK Pro Radar",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radar",
+    "demoUrl": "https://youneekproradar.com",
+    "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "youneek time",
+    "repoName": "youneek-time",
+    "tag": "// 010",
+    "subtitle": "JavaScript",
+    "description": "YouNeeK Time",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-time",
+    "demoUrl": "https://youneektime.com",
+    "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "used artifacts",
+    "repoName": "used-artifacts",
+    "tag": "// 011",
+    "subtitle": "TypeScript",
+    "description": "Used Artifacts — marketplace for preloved goods with founders badge program",
+    "stack": [
+      "TypeScript"
+    ],
+    "accent": "magenta",
+    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
+    "demoUrl": "https://used-artifacts.vercel.app",
+    "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "Project Alpha",
+    "repoName": "Project-Alpha",
+    "tag": "// 012",
+    "subtitle": "TypeScript",
+    "description": "Alpha",
+    "stack": [
+      "TypeScript"
+    ],
+    "accent": "magenta",
+    "link": "https://github.com/AndrewGrayYouNeeK/Project-Alpha",
+    "demoUrl": "",
+    "stars": 1,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "youneek",
+    "repoName": "youneek",
+    "tag": "// 013",
+    "subtitle": "JavaScript",
+    "description": "YouNeeK Care",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek",
+    "demoUrl": "https://youneekcare.com",
+    "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "youneek pro radarYNK222",
+    "repoName": "youneek-pro-radarYNK222",
+    "tag": "// 014",
+    "subtitle": "JavaScript",
+    "description": "YouNeeK Pro Radar",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
+    "demoUrl": "",
+    "stars": 1,
+    "updated": "2026-10-22"
+  },
+  {
+    "title": "Cloudripper",
+    "repoName": "Cloudripper",
+    "tag": "// 015",
+    "subtitle": "Go",
+    "description": "Multi-cloud orchestration that auto-scales your shit, slashes your AWS+GCP bill like a chainsaw, and straight-up runs chaos engineering experiments. Terraform and Pulumi living together in the same repo like they’re not ",
+    "stack": [
+      "Go"
+    ],
+    "accent": "yellow",
+    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
+    "demoUrl": "https://cloudripper.vercel.app",
+    "stars": 1,
+    "updated": "2026-10-29"
   },
   {
     "title": "vibesdk production2",
     "repoName": "vibesdk-production2",
-    "tag": "// 002",
+    "tag": "// 016",
     "subtitle": "TypeScript",
     "description": "GitHub project by Andrew Gray — vibesdk-production2",
     "stack": [
@@ -28,12 +248,117 @@ export const REPOS = [
     "link": "https://github.com/AndrewGrayYouNeeK/vibesdk-production2",
     "demoUrl": "",
     "stars": 0,
-    "updated": "2026-08-29"
+    "updated": "2026-10-19"
+  },
+  {
+    "title": "10000TheFinalBoss",
+    "repoName": "10000TheFinalBoss",
+    "tag": "// 017",
+    "subtitle": "JavaScript",
+    "description": "10,000 The Final Boss",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
+    "demoUrl": "https://roll10000.com",
+    "stars": 1,
+    "updated": "2026-10-18"
+  },
+  {
+    "title": "YouNeeK Dashboard",
+    "repoName": "YouNeeK-Dashboard",
+    "tag": "// 018",
+    "subtitle": "TypeScript",
+    "description": "My YouNeek Shit",
+    "stack": [
+      "TypeScript"
+    ],
+    "accent": "magenta",
+    "link": "https://github.com/AndrewGrayYouNeeK/YouNeeK-Dashboard",
+    "demoUrl": "",
+    "stars": 1,
+    "updated": "2026-10-03"
+  },
+  {
+    "title": "remnant",
+    "repoName": "remnant",
+    "tag": "// 019",
+    "subtitle": "TypeScript",
+    "description": "REMNANT — play as the ancient AI that crashed at Roswell. Rebuild the world-mind.",
+    "stack": [
+      "TypeScript"
+    ],
+    "accent": "magenta",
+    "link": "https://github.com/AndrewGrayYouNeeK/remnant",
+    "demoUrl": "",
+    "stars": 0,
+    "updated": "2026-09-16"
+  },
+  {
+    "title": "bison earth plum bird",
+    "repoName": "bison-earth-plum-bird",
+    "tag": "// 020",
+    "subtitle": "JavaScript",
+    "description": "GitHub project by Andrew Gray — bison-earth-plum-bird",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/bison-earth-plum-bird",
+    "demoUrl": "",
+    "stars": 0,
+    "updated": "2026-09-16"
+  },
+  {
+    "title": "nextjs with supabase",
+    "repoName": "nextjs-with-supabase",
+    "tag": "// 021",
+    "subtitle": "TypeScript",
+    "description": "GitHub project by Andrew Gray — nextjs-with-supabase",
+    "stack": [
+      "TypeScript"
+    ],
+    "accent": "magenta",
+    "link": "https://github.com/AndrewGrayYouNeeK/nextjs-with-supabase",
+    "demoUrl": "https://nextjs-with-supabase-beta-self.vercel.app",
+    "stars": 0,
+    "updated": "2026-04-26"
+  },
+  {
+    "title": "fastapi",
+    "repoName": "fastapi",
+    "tag": "// 022",
+    "subtitle": "Python",
+    "description": "GitHub project by Andrew Gray — fastapi",
+    "stack": [
+      "Python"
+    ],
+    "accent": "green",
+    "link": "https://github.com/AndrewGrayYouNeeK/fastapi",
+    "demoUrl": "https://fastapi-omega-six.vercel.app",
+    "stars": 0,
+    "updated": "2026-04-18"
+  },
+  {
+    "title": "apex controlYNK222",
+    "repoName": "apex-controlYNK222",
+    "tag": "// 023",
+    "subtitle": "JavaScript",
+    "description": "Apex Control",
+    "stack": [
+      "JavaScript"
+    ],
+    "accent": "cyan",
+    "link": "https://github.com/AndrewGrayYouNeeK/apex-controlYNK222",
+    "demoUrl": "",
+    "stars": 1,
+    "updated": "2026-08-18"
   },
   {
     "title": "workflows starter template",
     "repoName": "workflows-starter-template",
-    "tag": "// 003",
+    "tag": "// 024",
     "subtitle": "TypeScript",
     "description": "GitHub project by Andrew Gray — workflows-starter-template",
     "stack": [
@@ -46,24 +371,9 @@ export const REPOS = [
     "updated": "2026-08-27"
   },
   {
-    "title": "Real Neural Forge",
-    "repoName": "Real-Neural-Forge",
-    "tag": "// 004",
-    "subtitle": "Python",
-    "description": "GitHub project by Andrew Gray — Real-Neural-Forge",
-    "stack": [
-      "Python"
-    ],
-    "accent": "green",
-    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
-    "demoUrl": "https://real-neural-forge.vercel.app",
-    "stars": 1,
-    "updated": "2026-08-27"
-  },
-  {
     "title": "multitent",
     "repoName": "multitent",
-    "tag": "// 005",
+    "tag": "// 025",
     "subtitle": "TypeScript",
     "description": "GitHub project by Andrew Gray — multitent",
     "stack": [
@@ -76,64 +386,9 @@ export const REPOS = [
     "updated": "2026-08-27"
   },
   {
-    "title": "YouNeeKTimeTheFinalBoss",
-    "repoName": "YouNeeKTimeTheFinalBoss",
-    "tag": "// 006",
-    "subtitle": "JavaScript",
-    "description": "YouNeeK Time",
-    "stack": [
-      "JavaScript"
-    ],
-    "accent": "cyan",
-    "link": "https://github.com/AndrewGrayYouNeeK/YouNeeKTimeTheFinalBoss",
-    "demoUrl": "https://youneektime.com",
-    "stars": 1,
-    "updated": "2026-08-24"
-  },
-  {
-    "title": "YouNeeK Death Terminal",
-    "repoName": "Death-terminal-",
-    "tag": "// 007",
-    "subtitle": "A brutalist, GPU-accelerated terminal with AI-native command workflows.",
-    "description": "AI autocomplete with Grok/Ollama, Vulkan GPU rendering, built-in SSH, Lua themes and plugins, tabs and splits. Mac, Windows, and Linux.",
-    "stack": [
-      "Zig",
-      "Vulkan",
-      "Lua",
-      "SSH"
-    ],
-    "accent": "red",
-    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
-    "demoUrl": "",
-    "downloadUrl": "https://andrewgrayyouneek.github.io/Death-terminal-/",
-    "imageUrl": "/projects/death-terminal.svg",
-    "palette": {
-      "accent": "#FF0033",
-      "background": "#000000",
-      "text": "#E0E0E0"
-    },
-    "stars": 1,
-    "updated": "2026-08-20"
-  },
-  {
-    "title": "Cloudripper",
-    "repoName": "Cloudripper",
-    "tag": "// 008",
-    "subtitle": "Go",
-    "description": "Multi-cloud orchestration that auto-scales your shit, slashes your AWS+GCP bill like a chainsaw, and straight-up runs chaos engineering experiments. Terraform and Pulumi living together in the same repo like they’re not ",
-    "stack": [
-      "Go"
-    ],
-    "accent": "yellow",
-    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
-    "demoUrl": "https://cloudripper.vercel.app",
-    "stars": 1,
-    "updated": "2026-08-20"
-  },
-  {
     "title": "youneek satellite tracker",
     "repoName": "youneek-satellite-tracker",
-    "tag": "// 009",
+    "tag": "// 026",
     "subtitle": "JavaScript",
     "description": "YouNeeK Satellite Tracker",
     "stack": [
@@ -148,7 +403,7 @@ export const REPOS = [
   {
     "title": "youneekvibecode",
     "repoName": "youneekvibecode",
-    "tag": "// 010",
+    "tag": "// 027",
     "subtitle": "TypeScript",
     "description": "GitHub project by Andrew Gray — youneekvibecode",
     "stack": [
@@ -161,39 +416,9 @@ export const REPOS = [
     "updated": "2026-08-20"
   },
   {
-    "title": "Project Alpha",
-    "repoName": "Project-Alpha",
-    "tag": "// 011",
-    "subtitle": "TypeScript",
-    "description": "Alpha",
-    "stack": [
-      "TypeScript"
-    ],
-    "accent": "magenta",
-    "link": "https://github.com/AndrewGrayYouNeeK/Project-Alpha",
-    "demoUrl": "",
-    "stars": 1,
-    "updated": "2026-08-27"
-  },
-  {
-    "title": "10000TheFinalBoss",
-    "repoName": "10000TheFinalBoss",
-    "tag": "// 012",
-    "subtitle": "JavaScript",
-    "description": "10,000 The Final Boss",
-    "stack": [
-      "JavaScript"
-    ],
-    "accent": "cyan",
-    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
-    "demoUrl": "https://roll10000.com",
-    "stars": 1,
-    "updated": "2026-08-19"
-  },
-  {
     "title": "containers template",
     "repoName": "containers-template",
-    "tag": "// 013",
+    "tag": "// 028",
     "subtitle": "TypeScript",
     "description": "GitHub project by Andrew Gray — containers-template",
     "stack": [
@@ -208,7 +433,7 @@ export const REPOS = [
   {
     "title": "vibesdk production",
     "repoName": "vibesdk-production",
-    "tag": "// 014",
+    "tag": "// 029",
     "subtitle": "TypeScript",
     "description": "GitHub project by Andrew Gray — vibesdk-production",
     "stack": [
@@ -221,24 +446,9 @@ export const REPOS = [
     "updated": "2026-08-19"
   },
   {
-    "title": "YNKAIRTRAFFICGAME",
-    "repoName": "YNKAIRTRAFFICGAME",
-    "tag": "// 015",
-    "subtitle": "JavaScript",
-    "description": "Air Traffic Controller (The Game)",
-    "stack": [
-      "JavaScript"
-    ],
-    "accent": "cyan",
-    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
-    "demoUrl": "",
-    "stars": 0,
-    "updated": "2026-08-18"
-  },
-  {
     "title": "unique sky",
     "repoName": "unique-sky",
-    "tag": "// 016",
+    "tag": "// 030",
     "subtitle": "JavaScript",
     "description": "Unique Sky",
     "stack": [
@@ -253,67 +463,37 @@ export const REPOS = [
   {
     "title": "atc222trainer",
     "repoName": "atc222trainer",
-    "tag": "// 017",
+    "tag": "// 031",
     "subtitle": "Repository",
     "description": "GitHub project by Andrew Gray — atc222trainer",
     "stack": [
       "Code"
     ],
-    "accent": "purple",
+    "accent": "cyan",
     "link": "https://github.com/AndrewGrayYouNeeK/atc222trainer",
     "demoUrl": "",
     "stars": 1,
-    "updated": "2026-06-01"
+    "updated": "2026-09-16"
   },
   {
     "title": "Original YouNeeK Time",
     "repoName": "Original-YouNeeK-Time",
-    "tag": "// 018",
+    "tag": "// 032",
     "subtitle": "Repository",
-    "description": "Already on the App Store need to fix App Store description about time. It is not base ten ten hours base 100 mins secs hours ",
+    "description": "Already on the App Store need to fix App Store description about time. It is not base ten ten hours base 100 mins secs hours",
     "stack": [
       "Code"
     ],
-    "accent": "red",
+    "accent": "magenta",
     "link": "https://github.com/AndrewGrayYouNeeK/Original-YouNeeK-Time",
     "demoUrl": "https://original-you-nee-k-time.vercel.app",
     "stars": 1,
     "updated": "2026-04-09"
   },
   {
-    "title": "youneek",
-    "repoName": "youneek",
-    "tag": "// 019",
-    "subtitle": "JavaScript",
-    "description": "YouNeeK Care",
-    "stack": [
-      "JavaScript"
-    ],
-    "accent": "cyan",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek",
-    "demoUrl": "https://youneekcare.com",
-    "stars": 0,
-    "updated": "2026-05-31"
-  },
-  {
-    "title": "youneek time",
-    "repoName": "youneek-time",
-    "tag": "// 020",
-    "subtitle": "JavaScript",
-    "description": "YouNeeK Time",
-    "stack": [
-      "JavaScript"
-    ],
-    "accent": "cyan",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-time",
-    "demoUrl": "https://youneektime.com",
-    "stars": 0,
-    "updated": "2026-05-27"
-  },
-  {
     "title": "Calculator",
     "repoName": "Calculator-",
-    "tag": "// 021",
+    "tag": "// 033",
     "subtitle": "JavaScript",
     "description": "Calculater",
     "stack": [
@@ -326,30 +506,15 @@ export const REPOS = [
     "updated": "2026-05-12"
   },
   {
-    "title": "youneek pro radar",
-    "repoName": "youneek-pro-radar",
-    "tag": "// 022",
-    "subtitle": "JavaScript",
-    "description": "YouNeeK Pro Radar",
-    "stack": [
-      "JavaScript"
-    ],
-    "accent": "cyan",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radar",
-    "demoUrl": "https://youneekproradar.com",
-    "stars": 0,
-    "updated": "2026-05-06"
-  },
-  {
     "title": "We hook slayer",
     "repoName": "We-hook-slayer",
-    "tag": "// 023",
+    "tag": "// 034",
     "subtitle": "Repository",
     "description": "GitHub project by Andrew Gray — We-hook-slayer",
     "stack": [
       "Code"
     ],
-    "accent": "purple",
+    "accent": "yellow",
     "link": "https://github.com/AndrewGrayYouNeeK/We-hook-slayer",
     "demoUrl": "",
     "stars": 0,
@@ -358,7 +523,7 @@ export const REPOS = [
   {
     "title": "CryptoVault",
     "repoName": "CryptoVault",
-    "tag": "// 024",
+    "tag": "// 035",
     "subtitle": "HTML",
     "description": "GitHub project by Andrew Gray — CryptoVault",
     "stack": [
@@ -369,21 +534,6 @@ export const REPOS = [
     "demoUrl": "https://crypto-vault-sigma.vercel.app",
     "stars": 0,
     "updated": "2026-04-10"
-  },
-  {
-    "title": "used artifacts",
-    "repoName": "used-artifacts",
-    "tag": "// 025",
-    "subtitle": "Repository",
-    "description": "Used Artifacts — marketplace for preloved goods with founders badge program",
-    "stack": [
-      "Code"
-    ],
-    "accent": "cyan",
-    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
-    "demoUrl": "https://used-artifacts.vercel.app",
-    "stars": 0,
-    "updated": "2026-03-31"
   }
 ];
 

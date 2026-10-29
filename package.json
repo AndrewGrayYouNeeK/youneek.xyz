@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "preview:cf": "npm run build && wrangler versions upload",
     "sync:repos": "node scripts/sync-repos.mjs",
+    "test": "node scripts/live-demos.test.mjs && node scripts/sync-repos.test.mjs",
     "test:live": "node scripts/live-demos.test.mjs",
     "deploy": "npm run build && wrangler deploy"
   },

@@ -62,4 +62,12 @@ npm run dev
 | `npm run preview:cf` | Upload a Cloudflare preview version (no production change) |
 | `npm run lint`     | Run ESLint                           |
 | `npm run typecheck`| Run the TypeScript checker           |
+| `npm run test`     | Check live-demo URLs and the repo list |
+| `npm run sync:repos` | Rewrite `src/data/repos.js` from public GitHub repos |
 | `npm run deploy`   | Build and deploy to youneek.xyz      |
+
+## Project list
+
+The portfolio grid reads `src/data/repos.js`. `npm run sync:repos` pulls every public, non-fork repository under [@AndrewGrayYouNeeK](https://github.com/AndrewGrayYouNeeK). A token is optional; it only raises the GitHub rate limit. Homepage URLs become the live demo, and GitHub Pages is used when a repo has Pages and no usable homepage. Hand-written cards such as Death Terminal are reapplied after the pull.
+
+Deploy and preview workflows refresh that file before building. `.github/workflows/sync-repos.yml` commits an updated list once a day when GitHub has changed.

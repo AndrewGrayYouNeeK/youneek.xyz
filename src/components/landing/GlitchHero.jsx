@@ -46,13 +46,13 @@ export default function GlitchHero() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="mb-6"
         >
-          <span className="font-mono text-sm tracking-[0.3em] text-primary/60 border border-primary/20 px-4 py-2 inline-block">
+          <span className="font-mono text-[11px] sm:text-sm tracking-normal sm:tracking-[0.3em] text-primary/60 border border-primary/20 px-3 py-2 inline-block max-w-full whitespace-normal leading-relaxed">
             {'>'} SYSTEM.INITIALIZED_ // {REPOS.length}.REPOS // {LIVE_DEMOS.length}.LIVE
           </span>
         </motion.div>
 
         <h1
-          className="glitch-text neon-text font-heading text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-primary leading-none"
+          className="glitch-text neon-text font-heading text-[clamp(1.65rem,8.2vw,8rem)] font-black tracking-tight text-primary leading-none max-w-full"
           data-text="MY PROJECTS"
         >
           MY PROJECTS

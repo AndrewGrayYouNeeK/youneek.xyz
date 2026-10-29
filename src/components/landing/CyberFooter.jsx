@@ -51,7 +51,7 @@ export default function CyberFooter() {
 
         {/* Bottom line */}
         <div className="mt-8 pt-6 border-t border-border/10 text-center">
-          <p className="font-mono text-xs text-muted-foreground/30 tracking-widest">
+          <p className="font-mono text-[10px] sm:text-xs text-muted-foreground/30 tracking-wide sm:tracking-widest leading-relaxed break-words px-2">
             ██ SYSTEM.ONLINE ██ ALL.RIGHTS.RESERVED ██ HACK.THE.PLANET ██
           </p>
         </div>

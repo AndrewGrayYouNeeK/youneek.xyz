@@ -97,7 +97,7 @@ export default function ProjectCard({ project, index }) {
               {project.tag}
             </span>
             <h3
-              className="font-heading text-xl sm:text-2xl font-bold text-foreground leading-tight"
+              className="font-heading text-xl sm:text-2xl font-bold text-foreground leading-tight break-words"
               style={textColor ? { color: textColor } : undefined}
             >
               {project.title}
@@ -122,13 +122,13 @@ export default function ProjectCard({ project, index }) {
         >
           <div>
             <h3
-              className="font-heading text-lg font-bold mb-4 leading-tight"
+              className="card-back-title font-heading text-lg font-bold mb-4 leading-tight break-words"
               style={{ color: neonColor }}
             >
               {project.title}
             </h3>
             <p
-              className={`font-mono text-sm mb-4 line-clamp-5 ${textColor ? '' : 'text-muted-foreground'}`}
+              className={`font-mono text-sm mb-4 line-clamp-5 break-words ${textColor ? '' : 'text-muted-foreground'}`}
               style={textColor ? { color: textColor } : undefined}
             >
               {project.description}
@@ -149,12 +149,12 @@ export default function ProjectCard({ project, index }) {
               ))}
             </div>
           </div>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="card-actions mt-4 flex flex-wrap gap-2">
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
+              className="project-card-link font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
               style={{ color: neonColor }}
             >
               GITHUB →
@@ -164,7 +164,7 @@ export default function ProjectCard({ project, index }) {
                 href={demoHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors ${palette ? '' : 'text-accent'}`}
+                className={`project-card-link font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors ${palette ? '' : 'text-accent'}`}
                 style={palette ? { color: neonColor } : undefined}
               >
                 LIVE DEMO →
@@ -175,7 +175,7 @@ export default function ProjectCard({ project, index }) {
                 href={downloadHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
+                className="project-card-link font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
                 style={{ color: neonColor }}
               >
                 DOWNLOAD →

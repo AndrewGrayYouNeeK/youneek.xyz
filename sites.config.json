@@ -1,0 +1,133 @@
+{
+  "owner": "AndrewGrayYouNeeK",
+  "skipRepos": ["nextjs-with-supabase", "fastapi"],
+  "denyHosts": ["death-terminal-green.vercel.app"],
+  "notes": [
+    "This is the only file to edit when a repository gains or loses a public site. Put the repo name under repos and list absolute https URLs in sites.",
+    "npm run build fetches public GitHub repos, skips forks, templates, and empty repos, then requests every URL below. A URL is linked only when that request shows a live site. Dead hosts, Vercel payment pages, Base44 missing apps, Cloudflare error 1000, and Cloudflare Access login walls are left off the card.",
+    "lillysapp.com answers with Cloudflare error 1000, so lilly-s-appYNK222 has no sites entry.",
+    "youneekcare.com does not resolve, so the youneek repo has no sites entry.",
+    "forge.youneek.xyz and forge.youneek.dev do not resolve yet. Real-Neural-Forge links the workers.dev forecast that is up today.",
+    "calendar.youneek.dev is a live YouNeeK Calendar, but none of the public repositories contain it, so it is not linked.",
+    "Do not add relay.youneek.xyz. That hostname is the youneek-share-relay Worker."
+  ],
+  "repos": {
+    "10000TheFinalBoss": {
+      "title": "10,000 The Final Boss",
+      "sites": ["https://roll10000.com", "https://online.roll10000.com"]
+    },
+    "3i-atlas-the-gameYNK": {
+      "title": "3i-Atlas",
+      "description": "A stealth campaign. You are the interstellar comet 3I/ATLAS, and you have to keep that disguise intact while Earth watches.",
+      "sites": ["https://3iatlasgame.xyz"]
+    },
+    "vibesdk-production2": {
+      "title": "VibeSDK Production",
+      "description": "Production Cloudflare VibeSDK Worker. Its public hostname is usedartifacts.com.",
+      "sites": ["https://usedartifacts.com"]
+    },
+    "used-artifacts": {
+      "title": "Used Artifacts",
+      "description": "Marketplace for buying and selling used goods, with ID-checked sellers, signed provenance, and a founders badge program."
+    },
+    "YouNeeKTimeTheFinalBoss": {
+      "title": "YouNeeK Time",
+      "description": "A hundred-hour clock for the web and Apple Watch. 100 hours, 100 minutes, and 100 seconds.",
+      "sites": ["https://youneektime.com"]
+    },
+    "youneekproradarBABY": {
+      "title": "YouNeeK Pro Radar",
+      "description": "Live NEXRAD radar, severe-weather alerts, NOAA weather radio, and a one-tap shelter message.",
+      "sites": ["https://youneekproradar.com"]
+    },
+    "Real-Neural-Forge": {
+      "title": "Real Neural Forge",
+      "description": "Forecast dashboard for the Neural Forge time-series model.",
+      "sites": ["https://real-neural-forge-api.youneekartifacts.workers.dev"]
+    },
+    "Death-terminal-": {
+      "title": "YouNeeK Death Terminal",
+      "description": "A brutalist, GPU-accelerated terminal with AI autocomplete, Vulkan rendering, built-in SSH, and Lua themes. Mac, Windows, and Linux.",
+      "image": "/projects/death-terminal.svg"
+    },
+    "youneek.xyz": {
+      "title": "youneek.xyz",
+      "description": "This portfolio. One slot for every public repository, and a site link only after the URL answers."
+    },
+    "lilly-s-appYNK222": {
+      "title": "Lilly's App",
+      "description": "A family chore and rewards app. Kids pick up chores, parents approve them, and allowances pay out."
+    },
+    "youneek": {
+      "title": "YouNeeK Care",
+      "description": "The YouNeeK token site: mission, roadmap, staking, and donations."
+    },
+    "youneek-time": {
+      "title": "YouNeeK Time (earlier)",
+      "description": "Earlier clock build. The live site is YouNeeK Time."
+    },
+    "youneek-pro-radar": {
+      "title": "YouNeeK Pro Radar (earlier)",
+      "description": "Earlier radar build. The live site is served by youneekproradarBABY."
+    },
+    "youneek-pro-radarYNK222": {
+      "title": "YouNeeK Pro Radar (YNK222)",
+      "description": "Earlier Worker build of Pro Radar. The public site stays on youneekproradarBABY."
+    },
+    "YouNeeK-Dashboard": {
+      "title": "YouNeeK Dashboard",
+      "description": "Personal dashboard for YouNeeK products, languages, and repository activity."
+    },
+    "YNKAIRTRAFFICGAME": {
+      "title": "Air Traffic Controller",
+      "description": "Browser game of air traffic control and drone radar, with incidents, a watchlist, and session scores."
+    },
+    "youneek-satellite-tracker": {
+      "title": "YouNeeK Satellite Tracker",
+      "description": "Live 3D satellite tracking on a globe, drawn from public orbital elements."
+    },
+    "remnant": {
+      "title": "REMNANT",
+      "description": "Play as the ancient AI that crashed at Roswell and rebuild the world-mind."
+    },
+    "Cloudripper": {
+      "title": "Cloudripper",
+      "description": "Multi-cloud orchestration that scales workloads, cuts AWS and GCP spend, and runs chaos experiments with Terraform and Pulumi."
+    },
+    "Calculator-": {
+      "title": "Calculator"
+    },
+    "unique-sky": {
+      "title": "Unique Sky"
+    },
+    "apex-controlYNK222": {
+      "title": "Apex Control"
+    },
+    "Project-Alpha": {
+      "title": "Project Alpha"
+    },
+    "CryptoVault": {
+      "title": "CryptoVault",
+      "description": "Browser vault for tracking crypto holdings, with a Rust core compiled onto the page."
+    },
+    "bison-earth-plum-bird": {
+      "title": "Bison Earth",
+      "description": "App-builder workspace that holds the REMNANT web client and its migration scripts."
+    },
+    "atc222trainer": {
+      "title": "ATC222 Trainer"
+    },
+    "multitent": {
+      "title": "Multitent",
+      "description": "A Cloudflare Worker that creates and deploys Workers into a dispatch namespace."
+    },
+    "youneekvibecode": {
+      "title": "YouNeeK Vibe Code",
+      "description": "YouNeeK fork of VibeSDK, the agent platform for building and deploying apps on Cloudflare."
+    },
+    "vibesdk-production": {
+      "title": "VibeSDK Production (earlier)",
+      "description": "Earlier VibeSDK production Worker. The public hostname is on vibesdk-production2."
+    }
+  }
+}

@@ -1,178 +1,240 @@
 #!/usr/bin/env node
 /**
- * Refresh src/data/repos.js from the GitHub API.
- * Requires GITHUB_TOKEN (or GH_TOKEN) with public_repo / Contents read.
+ * Build src/data/repos.js from the public GitHub API plus sites.config.json.
+ * Forks, template repositories, and empty repositories are omitted.
+ * A Visit site link is written only after scripts/verify-url.mjs marks it live.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isBlockedDemoUrl } from '../src/lib/live-demos.js';
+import { checkUrl } from './verify-url.mjs';
 
-const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
-if (!token) {
-  console.error('Set GITHUB_TOKEN (or GH_TOKEN) before running sync-repos.');
-  process.exit(1);
-}
-
-const LANG_ACCENT = {
-  JavaScript: 'cyan',
-  TypeScript: 'magenta',
-  Python: 'green',
-  Go: 'yellow',
-  Zig: 'red',
-  HTML: 'purple',
-  Rust: 'yellow',
-};
-const ACCENTS = ['cyan', 'magenta', 'green', 'yellow', 'purple', 'red'];
-
-/** Hand-written cards. Applied after the GitHub pull so a sync cannot restore a blocked homepage. */
-const CURATED = {
-  'Death-terminal-': {
-    title: 'YouNeeK Death Terminal',
-    subtitle: 'A brutalist, GPU-accelerated terminal with AI-native command workflows.',
-    description:
-      'AI autocomplete with Grok/Ollama, Vulkan GPU rendering, built-in SSH, Lua themes and plugins, tabs and splits. Mac, Windows, and Linux.',
-    stack: ['Zig', 'Vulkan', 'Lua', 'SSH'],
-    accent: 'red',
-    demoUrl: '',
-    downloadUrl: 'https://andrewgrayyouneek.github.io/Death-terminal-/',
-    imageUrl: '/projects/death-terminal.svg',
-    palette: {
-      accent: '#FF0033',
-      background: '#000000',
-      text: '#E0E0E0',
-    },
-  },
-};
-
-function titleize(name) {
-  return name.trim().replace(/^[-_]+|[-_]+$/g, '').replace(/[-_]+/g, ' ');
-}
-
-function fixUrl(u) {
-  if (!u) return '';
-  let cleaned = String(u).replace(/\\+/g, '/').trim();
-  cleaned = cleaned.replace(/^https?:\/+(https?:\/+)*/i, (m) => {
-    return m.toLowerCase().includes('https') ? 'https://' : 'http://';
-  });
-  if (!/^https?:\/\//i.test(cleaned)) {
-    cleaned = `https://${cleaned.replace(/^\/+/, '')}`;
-  }
-  return cleaned.replace(/^(https?:\/)\/+/i, '$1/');
-}
-
-// GitHub still labels some descriptions with the retired hosted-app exporter.
-// The same label identifies that product's *.app demo hosts, which are not stored.
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const configPath = path.join(root, 'sites.config.json');
+const target = path.join(root, 'src/data/repos.js');
+const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+const owner = config.owner;
+const skipRepos = new Set(config.skipRepos || []);
+const denyHosts = new Set((config.denyHosts || []).map((host) => host.toLowerCase()));
 const HOSTED_APP_DESCRIPTION_PREFIX = /^Base44 App:\s*/i;
 
-function hostedAppBrand() {
-  const match = HOSTED_APP_DESCRIPTION_PREFIX.source.match(/[A-Za-z]+\d+/);
-  return match ? match[0].toLowerCase() : '';
+function titleize(name) {
+  return name
+    .replace(/YNK\d+$/i, '')
+    .replace(/[-_]+$/g, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/([a-z\d])([A-Z])/g, '$1 $2')
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isTemplate(repo) {
+  if (repo.is_template) return true;
+  if (/template/i.test(repo.name)) return true;
+  if (skipRepos.has(repo.name)) return true;
+  return false;
+}
+
+function isEmpty(repo) {
+  return !repo.size || repo.size < 2;
 }
 
 function stripHostedAppPrefix(text) {
   return String(text || '').replace(HOSTED_APP_DESCRIPTION_PREFIX, '').trim();
 }
 
-function descriptionFor(repo) {
-  const fallback = `GitHub project by Andrew Gray — ${repo.name}`;
-  const stripped = stripHostedAppPrefix(repo.description || fallback);
-  return (stripped || fallback).slice(0, 220);
+function cleanDescription(text) {
+  const cleaned = stripHostedAppPrefix(text).replace(/\s+/g, ' ').trim();
+  if (cleaned.length <= 220) return cleaned;
+  const sliced = cleaned.slice(0, 220);
+  const lastSpace = sliced.lastIndexOf(' ');
+  return (lastSpace > 160 ? sliced.slice(0, lastSpace) : sliced).replace(/[.,;:]+$/, '');
 }
 
-function isHostedAppDemo(url) {
-  const brand = hostedAppBrand();
-  if (!brand || !url) return false;
-  let host = '';
+function readmeBlurb(markdown) {
+  const lines = String(markdown || '').split('\n');
+  const parts = [];
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      if (parts.length) break;
+      continue;
+    }
+    if (
+      trimmed.startsWith('#') ||
+      trimmed.startsWith('![') ||
+      trimmed.startsWith('<') ||
+      trimmed.startsWith('|') ||
+      trimmed.startsWith('```') ||
+      trimmed.startsWith('[![') ||
+      trimmed.startsWith('---')
+    ) {
+      continue;
+    }
+    const prose = trimmed.replace(/^>\s?/, '').replace(/\[(.*?)\]\([^)]*\)/g, '$1');
+    if (!prose) continue;
+    parts.push(prose);
+    if (parts.join(' ').length > 180) break;
+  }
+  return cleanDescription(parts.join(' '));
+}
+
+function hostOf(url) {
   try {
-    host = new URL(url).hostname.toLowerCase();
+    return new URL(url).host;
   } catch {
-    host = String(url).toLowerCase();
+    return '';
   }
-  return host === `${brand}.app` || host.endsWith(`.${brand}.app`);
 }
 
-function demoUrlFor(repo) {
-  if (repo.name === 'youneek.xyz') return 'https://youneek.xyz';
-  const url = fixUrl(repo.homepage);
-  return isHostedAppDemo(url) ? '' : url;
-}
-
-const res = await fetch(
-  'https://api.github.com/user/repos?per_page=100&sort=updated&affiliation=owner',
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/vnd.github+json',
-      'User-Agent': 'youneek-xyz-sync-repos',
-      'X-GitHub-Api-Version': '2022-11-28',
-    },
-  }
-);
-if (!res.ok) {
-  console.error('GitHub API error', res.status, await res.text());
-  process.exit(1);
-}
-
-const repos = await res.json();
-let i = 0;
-const out = [];
-for (const repo of repos) {
-  if (repo.fork || repo.private) continue;
-  i += 1;
-  const lang = repo.language || 'Code';
-  const accent = LANG_ACCENT[lang] || ACCENTS[(i - 1) % ACCENTS.length];
-  const stack = [lang];
-  for (const t of repo.topics || []) {
-    if (!stack.includes(t) && stack.length < 4) stack.push(t);
-  }
-  let demoUrl = demoUrlFor(repo);
-  if (isBlockedDemoUrl(demoUrl)) demoUrl = '';
-  const row = {
-    title: titleize(repo.name),
-    repoName: repo.name,
-    tag: `// ${String(i).padStart(3, '0')}`,
-    subtitle: lang === 'Code' ? 'Repository' : lang,
-    description: descriptionFor(repo),
-    stack,
-    accent,
-    link: repo.html_url,
-    demoUrl,
-    stars: repo.stargazers_count || 0,
-    updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
+async function fetchRepos() {
+  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+  const headers = {
+    Accept: 'application/vnd.github+json',
+    'User-Agent': 'youneek-xyz-sync-repos',
+    'X-GitHub-Api-Version': '2022-11-28',
   };
-  const curated = CURATED[repo.name];
-  if (curated) Object.assign(row, curated);
-  if (isBlockedDemoUrl(row.demoUrl) || isBlockedDemoUrl(row.downloadUrl) || isBlockedDemoUrl(row.link)) {
-    throw new Error(`Refusing to write a blocked demo host for ${repo.name}`);
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const repos = [];
+  for (let page = 1; page <= 10; page += 1) {
+    const response = await fetch(
+      `https://api.github.com/users/${owner}/repos?per_page=100&page=${page}&sort=updated&type=owner`,
+      { headers }
+    );
+    if (!response.ok) {
+      throw new Error(`GitHub API ${response.status}`);
+    }
+    const batch = await response.json();
+    if (!Array.isArray(batch) || batch.length === 0) break;
+    repos.push(...batch);
+    if (batch.length < 100) break;
   }
-  out.push(row);
+  return repos;
 }
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const target = path.join(root, 'src/data/repos.js');
-const body = `// Auto-sourced from github.com/AndrewGrayYouNeeK — regenerate with node scripts/sync-repos.mjs
+async function fetchReadme(name) {
+  const response = await fetch(`https://raw.githubusercontent.com/${owner}/${name}/HEAD/README.md`, {
+    headers: { 'User-Agent': 'youneek-xyz-sync-repos' },
+  });
+  if (!response.ok) return '';
+  return response.text();
+}
+
+function descriptionFor(repo, override, readme) {
+  if (override) return cleanDescription(override);
+  const fromGitHub = cleanDescription(repo.description || '');
+  const title = titleize(repo.name);
+  if (fromGitHub.length >= 24 && fromGitHub.toLowerCase() !== title.toLowerCase()) {
+    return fromGitHub;
+  }
+  const fromReadme = readmeBlurb(readme);
+  if (fromReadme.length >= 24) return fromReadme;
+  if (fromGitHub) return fromGitHub;
+  return `Public repository ${repo.name}.`;
+}
+
+async function verifiedSites(urls) {
+  const sites = [];
+  for (const candidate of urls || []) {
+    let parsed;
+    try {
+      parsed = new URL(candidate);
+    } catch {
+      console.log(`  skip ${candidate} (not a URL)`);
+      continue;
+    }
+    if (parsed.protocol !== 'https:') {
+      console.log(`  skip ${candidate} (https only)`);
+      continue;
+    }
+    if (denyHosts.has(parsed.hostname.toLowerCase())) {
+      console.log(`  skip ${candidate} (denied host)`);
+      continue;
+    }
+    let result = await checkUrl(candidate);
+    if (result.verdict === 'inconclusive') {
+      result = await checkUrl(candidate);
+    }
+    console.log(`  ${result.verdict} ${result.status || '-'} ${candidate}`);
+    if (result.verdict === 'live') {
+      sites.push({ url: candidate, label: parsed.host });
+    }
+  }
+  return sites;
+}
+
+async function main() {
+  let repos;
+  try {
+    repos = await fetchRepos();
+  } catch (error) {
+    if (fs.existsSync(target)) {
+      console.warn(`GitHub fetch failed (${error instanceof Error ? error.message : error}). Keeping ${target}.`);
+      return;
+    }
+    throw error;
+  }
+
+  const kept = [];
+  for (const repo of repos) {
+    if (repo.fork) {
+      console.log(`skip fork ${repo.name}`);
+      continue;
+    }
+    if (isTemplate(repo)) {
+      console.log(`skip template ${repo.name}`);
+      continue;
+    }
+    if (isEmpty(repo)) {
+      console.log(`skip empty ${repo.name}`);
+      continue;
+    }
+    kept.push(repo);
+  }
+
+  const out = [];
+  for (const repo of kept) {
+    const entry = config.repos?.[repo.name] || {};
+    const githubDescription = cleanDescription(repo.description || '');
+    const title = entry.title || titleize(repo.name);
+    let readme = '';
+    if (!entry.description && githubDescription.length < 24) {
+      readme = await fetchReadme(repo.name);
+    }
+    console.log(`check ${repo.name}`);
+    const sites = await verifiedSites(entry.sites);
+    out.push({
+      title,
+      repoName: repo.name,
+      description: descriptionFor(repo, entry.description, readme),
+      language: repo.language || 'Code',
+      link: repo.html_url,
+      sites,
+      image: entry.image || '',
+      stars: repo.stargazers_count || 0,
+      updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
+    });
+  }
+
+  out.sort((a, b) => {
+    const live = Number(b.sites.length > 0) - Number(a.sites.length > 0);
+    if (live !== 0) return live;
+    return b.updated.localeCompare(a.updated) || a.title.localeCompare(b.title);
+  });
+
+  const body = `// Generated by scripts/sync-repos.mjs from sites.config.json and the GitHub API.
+// Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = ${JSON.stringify(out, null, 2)};
 
-function demoScore(r) {
-  const u = r.demoUrl || '';
-  if (!u) return -1;
-  let s = u.includes('vercel.app') ? 1 : 10;
-  if (r.repoName === 'youneek.xyz') s += 8;
-  if (r.stars) s += Math.min(r.stars, 3);
-  return s;
+export const LIVE_DEMOS = REPOS.filter((repo) => repo.sites.length > 0);
+`;
+  fs.writeFileSync(target, body);
+  const linked = out.filter((repo) => repo.sites.length > 0);
+  console.log(`Wrote ${out.length} repos (${linked.length} with a live site) to ${target}`);
 }
 
-export const LIVE_DEMOS = REPOS
-  .filter((r) => {
-    const u = r.demoUrl || '';
-    if (!u) return false;
-    if (u.includes('death-terminal-green.vercel.app')) return false;
-    return true;
-  })
-  .slice()
-  .sort((a, b) => demoScore(b) - demoScore(a));
-`;
-fs.mkdirSync(path.dirname(target), { recursive: true });
-fs.writeFileSync(target, body);
-console.log(`Wrote ${out.length} repos to ${target}`);
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exit(1);
+});

@@ -33,7 +33,7 @@ const deathIndex = names.indexOf('Death-terminal-');
 const death = REPOS[deathIndex];
 assert.ok(death);
 assert.equal(names[deathIndex - 1], 'YouNeeKTimeTheFinalBoss');
-assert.equal(names[deathIndex + 1], 'Cloudripper');
+assert.equal(names[deathIndex + 1], 'youneek-satellite-tracker');
 assert.equal(death.title, 'YouNeeK Death Terminal');
 assert.equal(death.subtitle, 'A brutalist, GPU-accelerated terminal with AI-native command workflows.');
 assert.equal(
@@ -47,5 +47,26 @@ assert.equal(death.imageUrl, '/projects/death-terminal.svg');
 assert.deepEqual(death.palette, { accent: '#FF0033', background: '#000000', text: '#E0E0E0' });
 assert.equal(JSON.stringify({ REPOS, LIVE_DEMOS }).includes('death-terminal-green.vercel.app'), false);
 assert.equal(LIVE_DEMOS.some((repo) => repo.repoName === 'Death-terminal-'), false);
+
+const cloud = REPOS[0];
+assert.equal(cloud.repoName, 'Cloudripper');
+assert.equal(cloud.title, 'CloudRipper');
+assert.equal(
+  cloud.subtitle,
+  'One CLI for cloud waste, real spend, and safe chaos tests, across AWS, GCP, and Azure.'
+);
+assert.equal(
+  cloud.description,
+  'Open-source CLI that finds idle cloud resources and pulls real spend from billing APIs. It applies fixes only after confirmation and runs blast-radius-limited chaos tests.'
+);
+assert.deepEqual(cloud.stack, ['Go', 'AWS', 'GCP', 'Azure', 'FinOps', 'Chaos Engineering']);
+assert.equal(cloud.link, 'https://github.com/AndrewGrayYouNeeK/Cloudripper');
+assert.equal(cloud.websiteUrl, 'https://cloudripper.youneek.dev');
+assert.equal(cloud.demoUrl, '');
+assert.equal(isBlockedDemoUrl('https://cloudripper.vercel.app'), true);
+assert.equal(isBlockedDemoUrl('https://cloudripper.youneek.dev'), false);
+assert.equal(JSON.stringify({ REPOS, LIVE_DEMOS }).includes('cloudripper.vercel.app'), false);
+assert.equal(LIVE_DEMOS.some((repo) => repo.repoName === 'Cloudripper'), false);
+assert.equal(names.filter((name) => name === 'Cloudripper').length, 1);
 
 console.log('live-demos tests passed');

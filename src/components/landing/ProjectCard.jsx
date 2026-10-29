@@ -34,6 +34,7 @@ export default function ProjectCard({ project, index }) {
   const surface = palette?.background;
   const demoHref = project.demoUrl && !isBlockedDemoUrl(project.demoUrl) ? project.demoUrl : '';
   const downloadHref = project.downloadUrl && !isBlockedDemoUrl(project.downloadUrl) ? project.downloadUrl : '';
+  const websiteHref = project.websiteUrl && !isBlockedDemoUrl(project.websiteUrl) ? project.websiteUrl : '';
 
   return (
     <div
@@ -179,6 +180,17 @@ export default function ProjectCard({ project, index }) {
                 style={{ color: neonColor }}
               >
                 DOWNLOAD →
+              </a>
+            ) : null}
+            {websiteHref ? (
+              <a
+                href={websiteHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm inline-flex items-center gap-2 hover-glitch transition-colors"
+                style={{ color: neonColor }}
+              >
+                WEBSITE →
               </a>
             ) : null}
           </div>

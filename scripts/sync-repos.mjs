@@ -43,7 +43,20 @@ const CURATED = {
       text: '#E0E0E0',
     },
   },
+  Cloudripper: {
+    title: 'CloudRipper',
+    subtitle: 'One CLI for cloud waste, real spend, and safe chaos tests, across AWS, GCP, and Azure.',
+    description:
+      'Open-source CLI that finds idle cloud resources and pulls real spend from billing APIs. It applies fixes only after confirmation and runs blast-radius-limited chaos tests.',
+    stack: ['Go', 'AWS', 'GCP', 'Azure', 'FinOps', 'Chaos Engineering'],
+    accent: 'yellow',
+    demoUrl: '',
+    websiteUrl: 'https://cloudripper.youneek.dev',
+  },
 };
+
+/** Pinned to the front of the grid. Order here is the featured order. */
+const FEATURED = ['Cloudripper'];
 
 function titleize(name) {
   return name.trim().replace(/^[-_]+|[-_]+$/g, '').replace(/[-_]+/g, ' ');
@@ -143,16 +156,25 @@ for (const repo of repos) {
   };
   const curated = CURATED[repo.name];
   if (curated) Object.assign(row, curated);
-  if (isBlockedDemoUrl(row.demoUrl) || isBlockedDemoUrl(row.downloadUrl) || isBlockedDemoUrl(row.link)) {
+  if (
+    isBlockedDemoUrl(row.demoUrl) ||
+    isBlockedDemoUrl(row.downloadUrl) ||
+    isBlockedDemoUrl(row.websiteUrl) ||
+    isBlockedDemoUrl(row.link)
+  ) {
     throw new Error(`Refusing to write a blocked demo host for ${repo.name}`);
   }
   out.push(row);
 }
 
+const featuredNames = new Set(FEATURED);
+const featuredRows = FEATURED.map((name) => out.find((row) => row.repoName === name)).filter(Boolean);
+const ordered = [...featuredRows, ...out.filter((row) => !featuredNames.has(row.repoName))];
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const target = path.join(root, 'src/data/repos.js');
 const body = `// Auto-sourced from github.com/AndrewGrayYouNeeK — regenerate with node scripts/sync-repos.mjs
-export const REPOS = ${JSON.stringify(out, null, 2)};
+export const REPOS = ${JSON.stringify(ordered, null, 2)};
 
 function demoScore(r) {
   const u = r.demoUrl || '';
@@ -168,6 +190,7 @@ export const LIVE_DEMOS = REPOS
     const u = r.demoUrl || '';
     if (!u) return false;
     if (u.includes('death-terminal-green.vercel.app')) return false;
+    if (u.includes('cloudripper.vercel.app')) return false;
     return true;
   })
   .slice()

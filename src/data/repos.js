@@ -1,6 +1,27 @@
 // Auto-sourced from github.com/AndrewGrayYouNeeK — regenerate with node scripts/sync-repos.mjs
 export const REPOS = [
   {
+    "title": "CloudRipper",
+    "repoName": "Cloudripper",
+    "tag": "// 008",
+    "subtitle": "One CLI for cloud waste, real spend, and safe chaos tests, across AWS, GCP, and Azure.",
+    "description": "Open-source CLI that finds idle cloud resources and pulls real spend from billing APIs. It applies fixes only after confirmation and runs blast-radius-limited chaos tests.",
+    "stack": [
+      "Go",
+      "AWS",
+      "GCP",
+      "Azure",
+      "FinOps",
+      "Chaos Engineering"
+    ],
+    "accent": "yellow",
+    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
+    "demoUrl": "",
+    "websiteUrl": "https://cloudripper.youneek.dev",
+    "stars": 1,
+    "updated": "2026-08-20"
+  },
+  {
     "title": "youneek.xyz",
     "repoName": "youneek.xyz",
     "tag": "// 001",
@@ -112,21 +133,6 @@ export const REPOS = [
       "background": "#000000",
       "text": "#E0E0E0"
     },
-    "stars": 1,
-    "updated": "2026-08-20"
-  },
-  {
-    "title": "Cloudripper",
-    "repoName": "Cloudripper",
-    "tag": "// 008",
-    "subtitle": "Go",
-    "description": "Multi-cloud orchestration that auto-scales your shit, slashes your AWS+GCP bill like a chainsaw, and straight-up runs chaos engineering experiments. Terraform and Pulumi living together in the same repo like they’re not ",
-    "stack": [
-      "Go"
-    ],
-    "accent": "yellow",
-    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
-    "demoUrl": "https://cloudripper.vercel.app",
     "stars": 1,
     "updated": "2026-08-20"
   },

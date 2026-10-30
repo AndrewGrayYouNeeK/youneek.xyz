@@ -293,3 +293,36 @@
     width: 100%;
   }
 }
+
+/* TV static preview for cards without a live or connected site */
+.tv-static-vignette {
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+/* Respect prefers-reduced-motion: stop the decorative animation, keep the look */
+@media (prefers-reduced-motion: reduce) {
+  .glitch-text::before,
+  .glitch-text::after,
+  .neon-text,
+  .scanline-overlay::after,
+  .matrix-char,
+  .hover-glitch:hover {
+    animation: none;
+  }
+
+  .scanline-overlay::after,
+  .matrix-char {
+    display: none;
+  }
+
+  .card-flip-inner {
+    transition: none;
+  }
+
+  .fade-in-up,
+  .fade-in-up.visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

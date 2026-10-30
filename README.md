@@ -12,15 +12,27 @@ This is a standalone static site.
 
 ## Domain
 
-Production is **https://youneek.xyz** (and `www.youneek.xyz`), served from Cloudflare Workers static assets.
+Production is **https://youneek.xyz** (and `www.youneek.xyz`), served from the `youneek-xyz` Worker static assets.
 
-The zone already uses Cloudflare nameservers. Deploy attaches those hostnames as Worker custom domains and lets Cloudflare issue the certificate.
+`relay.youneek.xyz` is the separate `youneek-share-relay` Worker. This project does not route or delete that hostname.
+
+The zone is already on Cloudflare account `d74b0de637f4d9d9eb3efb9e13142784`. Deploy attaches `youneek.xyz` and `www.youneek.xyz` as Worker custom domains. Before that, the deploy script deletes only broken `A`, `AAAA`, and `CNAME` records on those two names so the custom domain can replace them. Mail, TXT, and every other hostname stay.
+
+From a machine that is logged in with Wrangler, or that has `CLOUDFLARE_API_TOKEN` set:
 
 ```bash
 npm run deploy
 ```
 
-Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` locally **and** as GitHub Actions secrets. The token needs Workers edit plus Zone DNS edit for `youneek.xyz`.
+That command builds the site, repairs the two hostnames, then runs `npx wrangler deploy`. The token needs Workers edit plus Zone DNS edit for `youneek.xyz`. Add the same token and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets to let the main-branch workflow deploy.
+
+## Look
+
+The page keeps the cyberpunk design: Orbitron and Share Tech Mono, neon cyan/magenta/green, glowing glitch heading, scanline overlay, matrix rain, reactive grid, and flip cards. A card with a checked live site shows neon art and a LIVE badge. A card without one shows animated analog TV static. With `prefers-reduced-motion` the static is one still frame and the other animation is switched off.
+
+## Adding a site
+
+Edit `sites.config.json`. Under `repos`, add the GitHub repo name and a `sites` array of `https` URLs. The next build requests each URL and keeps the Visit site link only when the response is a live site.
 
 ## Preview site (pull requests)
 
@@ -45,7 +57,7 @@ The old Vercel URL (`youneekxyz.vercel.app`) is disabled (payment required) and 
 
 ## Local development
 
-Prerequisites: Node.js 18+ and npm.
+Prerequisites: Node.js 22+ and npm.
 
 ```bash
 npm install
@@ -57,9 +69,11 @@ npm run dev
 | Command            | Description                          |
 | ------------------ | ------------------------------------ |
 | `npm run dev`      | Start the local dev server           |
-| `npm run build`    | Build the production bundle          |
+| `npm run sync:repos` | Refresh repository cards from GitHub and recheck site URLs |
+| `npm run build`    | Refresh cards, then build the production bundle |
+| `npm run test`     | Check the card list, site links, and DNS replacement rules |
 | `npm run preview`  | Preview the production build locally |
 | `npm run preview:cf` | Upload a Cloudflare preview version (no production change) |
 | `npm run lint`     | Run ESLint                           |
 | `npm run typecheck`| Run the TypeScript checker           |
-| `npm run deploy`   | Build and deploy to youneek.xyz      |
+| `npm run deploy`   | Build, replace the broken apex DNS, and deploy to youneek.xyz |

@@ -39,7 +39,7 @@ export function resolveDemoUrl(repo, origin = currentOrigin()) {
     const base = origin || PRODUCTION_ORIGIN;
     return `${base.replace(/\/$/, '')}/?embed=1`;
   }
-  return repo.demoUrl || '';
+  return repo.demoUrl || repo.sites?.[0]?.url || '';
 }
 
 export function hostLabel(url) {

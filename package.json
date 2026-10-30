@@ -9,11 +9,13 @@
     "lint": "eslint . --quiet",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc -p ./jsconfig.json",
+    "prebuild": "node scripts/sync-repos.mjs",
     "preview": "vite preview",
     "preview:cf": "npm run build && wrangler versions upload",
     "sync:repos": "node scripts/sync-repos.mjs",
+    "test": "node scripts/live-demos.test.mjs",
     "test:live": "node scripts/live-demos.test.mjs",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && node scripts/repair-apex-dns.mjs && wrangler deploy"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^17.0.0",

@@ -1,4 +1,4 @@
-import { Github, Twitter, Mail } from 'lucide-react';
+import { Github } from 'lucide-react';
 
 export default function CyberFooter() {
   return (
@@ -26,25 +26,12 @@ export default function CyberFooter() {
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/AndrewGrayYouNeeK"
+              aria-label="GitHub profile"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 border border-border/30 rounded-lg hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_hsl(180,100%,50%,0.2)]"
             >
               <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 border border-border/30 rounded-lg hover:border-secondary/50 transition-all duration-300 hover:shadow-[0_0_15px_hsl(300,100%,50%,0.2)]"
-            >
-              <Twitter className="w-5 h-5 text-muted-foreground group-hover:text-secondary transition-colors" />
-            </a>
-            <a
-              href="mailto:you@example.com"
-              className="group p-3 border border-border/30 rounded-lg hover:border-accent/50 transition-all duration-300 hover:shadow-[0_0_15px_hsl(120,100%,50%,0.2)]"
-            >
-              <Mail className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
             </a>
           </div>
         </div>

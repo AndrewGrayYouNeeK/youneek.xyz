@@ -389,7 +389,7 @@ export default function LiveDemoOverlay({ open, onClose }) {
                         >
                           <div className="flex items-center justify-between gap-2">
                             <span className="font-heading text-sm text-foreground">{demo.title}</span>
-                            <span className="font-mono text-[10px] text-primary/60">{demo.subtitle}</span>
+                            <span className="font-mono text-[10px] text-primary/60">{demo.subtitle || demo.language}</span>
                           </div>
                           <p className="font-mono text-[11px] text-muted-foreground mt-1 line-clamp-2">
                             {hostLabel(demo.demoUrl)}

@@ -1,0 +1,226 @@
+{
+  "owner": "AndrewGrayYouNeeK",
+  "skipRepos": [
+    "nextjs-with-supabase",
+    "fastapi"
+  ],
+  "denyHosts": [
+    "death-terminal-green.vercel.app"
+  ],
+  "notes": [
+    "This is the only file to edit when a project gains or loses a public site, picture, or description. Put the repo name under repos and list absolute https URLs in sites. A site can be a URL string or {url, label}.",
+    "npm run build fetches public GitHub repos, skips forks, templates, and empty repos, then requests every URL below. A URL is linked only when that request shows a live site. Dead hosts, Vercel payment pages, Base44 missing apps, Cloudflare error 1000, and Cloudflare Access login walls are left off the card.",
+    "image is the front picture and backImage is the back picture, both under public/projects. Live-site screenshots were taken with headless Chrome. A card with no backImage draws generated circuit art on its back.",
+    "extras are cards for projects that have no public GitHub repo. Give them a repoName slug, title, language, updated, description, sites, image, and backImage. An empty link hides the GitHub button.",
+    "roll10000.com currently answers with a Cloudflare Access login page and online.roll10000.com answers 404, so the verifier leaves them off. www.roll10000.com serves the game. They link automatically once they answer without a login.",
+    "lillysapp.com answers with Cloudflare error 1000, so lilly-s-appYNK222 has no sites entry.",
+    "youneekcare.com does not resolve, so the youneek repo has no sites entry.",
+    "forge.youneek.xyz and w.youneek.xyz currently serve this portfolio instead of their own Workers, so Real-Neural-Forge links the workers.dev forecast and Death Terminal links the dt-windows-download Worker's zip.",
+    "The Architects GM (the-architects-gm) is an owner desk, not a public project, so it has no card.",
+    "Do not add relay.youneek.xyz. That hostname is the youneek-share-relay Worker."
+  ],
+  "repos": {
+    "10000TheFinalBoss": {
+      "title": "10,000 The Final Boss",
+      "sites": [
+        "https://www.roll10000.com",
+        "https://roll10000.com",
+        "https://online.roll10000.com"
+      ],
+      "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
+      "image": "/projects/roll10000-front.jpg",
+      "backImage": "/projects/roll10000-back.jpg"
+    },
+    "3i-atlas-the-gameYNK": {
+      "title": "3i-Atlas",
+      "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
+      "sites": [
+        "https://3iatlasgame.xyz"
+      ],
+      "image": "/projects/3i-atlas-front.jpg",
+      "backImage": "/projects/3i-atlas-back.jpg"
+    },
+    "vibesdk-production2": {
+      "title": "VibeSDK Production",
+      "description": "Production copy of Cloudflare VibeSDK, an open-source platform where an AI agent builds and deploys full-stack apps on Cloudflare. usedartifacts.com currently shows a coming-soon page.",
+      "sites": [
+        "https://usedartifacts.com"
+      ],
+      "image": "/projects/used-artifacts-front.jpg",
+      "backImage": "/projects/used-artifacts-back.jpg"
+    },
+    "used-artifacts": {
+      "title": "Used Artifacts",
+      "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet."
+    },
+    "YouNeeKTimeTheFinalBoss": {
+      "title": "YouNeeK Time",
+      "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
+      "sites": [
+        "https://youneektime.com"
+      ],
+      "image": "/projects/youneek-time-front.jpg",
+      "backImage": "/projects/youneek-time-back.jpg"
+    },
+    "youneekproradarBABY": {
+      "title": "YouNeeK Pro Radar",
+      "description": "Military-style NEXRAD radar and severe-weather tracker: live radar mosaics, NWS alert overlays, NOAA weather radio, and a one-tap shelter SMS to your contacts.",
+      "sites": [
+        "https://youneekproradar.com"
+      ],
+      "image": "/projects/pro-radar-front.jpg",
+      "backImage": "/projects/pro-radar-back.jpg"
+    },
+    "Real-Neural-Forge": {
+      "title": "Real Neural Forge",
+      "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+      "sites": [
+        "https://real-neural-forge-api.youneekartifacts.workers.dev"
+      ],
+      "image": "/projects/original/neural-forge.jpg",
+      "backImage": "/projects/original/neural-forge.jpg"
+    },
+    "Death-terminal-": {
+      "title": "YouNeeK Death Terminal",
+      "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, built-in SSH with tunnels, and Lua config. The card links the Windows download.",
+      "image": "/projects/original/death-terminal.jpg",
+      "sites": [
+        {
+          "url": "https://dt-windows-download.youneekartifacts.workers.dev/DeathTerminal-windows.zip",
+          "label": "Windows download"
+        }
+      ],
+      "backImage": "/projects/original/death-terminal.jpg"
+    },
+    "youneek.xyz": {
+      "title": "youneek.xyz",
+      "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static."
+    },
+    "lilly-s-appYNK222": {
+      "title": "Lilly's App",
+      "description": "A family chore and rewards app built with React, Vite, and Supabase. Parents create chores, approve submissions, and manage allowances."
+    },
+    "youneek": {
+      "title": "YouNeeK Care",
+      "description": "Landing page for the YouNeeK crypto token: mission, transparency, impact, roadmap, a swap widget, staking, donations, and a how-to-buy guide.",
+      "backImage": "/projects/original/youneek-care.jpg",
+      "image": "/projects/original/youneek-care.jpg"
+    },
+    "youneek-time": {
+      "title": "YouNeeK Time (earlier)",
+      "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time.",
+      "backImage": "/projects/original/youneek-time-earlier.jpg",
+      "image": "/projects/original/youneek-time-earlier.jpg"
+    },
+    "youneek-pro-radar": {
+      "title": "YouNeeK Pro Radar (earlier)",
+      "description": "Earlier copy of Pro Radar: NEXRAD radar mosaics, NWS alert overlays, NOAA weather radio, and a shelter SMS button. The live site is YouNeeK Pro Radar.",
+      "backImage": "/projects/original/pro-radar-earlier.jpg",
+      "image": "/projects/original/pro-radar-earlier.jpg"
+    },
+    "youneek-pro-radarYNK222": {
+      "title": "YouNeeK Pro Radar (YNK222)",
+      "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
+      "sites": [
+        "https://youneek-pro-radarynk222.youneekartifacts.workers.dev"
+      ],
+      "image": "/projects/pro-radar-ynk222-front.jpg",
+      "backImage": "/projects/pro-radar-ynk222-back.jpg"
+    },
+    "YouNeeK-Dashboard": {
+      "title": "YouNeeK Dashboard",
+      "description": "Personal Vite + React + TypeScript dashboard that reads repo counts, language mix, and push activity from the GitHub API and lists YouNeeK products."
+    },
+    "YNKAIRTRAFFICGAME": {
+      "title": "Air Traffic Controller",
+      "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser."
+    },
+    "youneek-satellite-tracker": {
+      "title": "YouNeeK Satellite Tracker",
+      "description": "Live 3D globe of satellite positions from CelesTrak orbital data: Starlink, the ISS, GPS, and more, with time simulation, search, and an AR mode."
+    },
+    "remnant": {
+      "title": "REMNANT",
+      "description": "A 1947 stealth game. You are a crashed mind that inhabits machines such as crates, radios, and a jeep battery, dodging flashlight cones to transmit a signal before dawn."
+    },
+    "Cloudripper": {
+      "title": "YouNeeK CloudRipper",
+      "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
+      "sites": [
+        "https://cloudripper.youneek.dev"
+      ],
+      "image": "/projects/cloudripper-front.jpg",
+      "backImage": "/projects/cloudripper-back.jpg"
+    },
+    "Calculator-": {
+      "title": "Calculator",
+      "description": "Savage Calculator: a React calculator with scientific functions, mathjs expression parsing, live preview, and a history you can reuse with Ans."
+    },
+    "unique-sky": {
+      "title": "Unique Sky",
+      "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard."
+    },
+    "apex-controlYNK222": {
+      "title": "Apex Control",
+      "description": "Air traffic control simulator in React. Land aircraft, use voice commands, train at Wittman Regional (KOSH), run emergency drills, and climb a career ladder."
+    },
+    "Project-Alpha": {
+      "title": "Project Alpha",
+      "description": "A self-hosted real-time full-stack starter: React + Vite client, Node/Express API, Redis, and Server-Sent Events, run together with Docker Compose.",
+      "backImage": "/projects/original/project-alpha.jpg",
+      "image": "/projects/original/project-alpha.jpg"
+    },
+    "CryptoVault": {
+      "title": "CryptoVault",
+      "description": "A browser dashboard for tracking crypto holdings: total value, 24h gain or loss, and an add-asset form. The repo also has a Rust wasm-bindgen library.",
+      "backImage": "/projects/original/cryptovault.jpg",
+      "image": "/projects/original/cryptovault.jpg"
+    },
+    "bison-earth-plum-bird": {
+      "title": "Bison Earth",
+      "description": "An app-builder workspace (Vite, server code, auth, database migrations) that contains the INHABIT game from REMNANT. No README."
+    },
+    "atc222trainer": {
+      "title": "ATC222 Trainer",
+      "description": "An aviation training app for practicing ATC communication and decision scenarios in a structured, repeatable way. Early development."
+    },
+    "multitent": {
+      "title": "Multitent",
+      "description": "A Cloudflare Worker that creates a Workers for Platforms dispatch namespace, deploys Workers into it, and routes each one under its own path."
+    },
+    "youneekvibecode": {
+      "title": "YouNeeK Vibe Code",
+      "description": "YouNeeK fork of Cloudflare VibeSDK, an open-source platform where an AI agent builds and deploys full-stack apps on Cloudflare."
+    },
+    "vibesdk-production": {
+      "title": "VibeSDK Production (earlier)",
+      "description": "Earlier VibeSDK production Worker (Cloudflare's agentic app builder). The public hostname is on vibesdk-production2."
+    }
+  },
+  "extras": [
+    {
+      "repoName": "youneek-calendar",
+      "title": "YouNeeK Calendar",
+      "language": "JavaScript",
+      "updated": "2026-10-29",
+      "description": "A calendar with a month grid, moon phases, a list of new and full moons, a Roman March-first month order toggle, and a birthday panel with astrology reference tables.",
+      "sites": [
+        "https://calendar.youneek.dev"
+      ],
+      "image": "/projects/calendar-front.jpg",
+      "backImage": "/projects/calendar-back.jpg"
+    },
+    {
+      "repoName": "the-architects",
+      "title": "The Architects",
+      "language": "Godot",
+      "updated": "2026-10-29",
+      "description": "A satirical strategy game built in Godot. You run a fictional shadow faction through human vessels from 2031 to the horizon, keeping Belief high and Heat low.",
+      "sites": [
+        "https://the-architects.youneekartifacts.workers.dev"
+      ],
+      "image": "/projects/the-architects-front.jpg",
+      "backImage": "/projects/the-architects-back.jpg"
+    }
+  ]
+}

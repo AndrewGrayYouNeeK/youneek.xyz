@@ -22,7 +22,13 @@ const ACCOUNT_ID = 'd74b0de637f4d9d9eb3efb9e13142784';
 
 export function selectRecordsToReplace(records) {
   return (records || []).filter(
-    (record) => REPLACE_NAMES.has(record.name) && REPLACE_TYPES.has(record.type)
+    (record) =>
+      REPLACE_NAMES.has(record.name) &&
+      REPLACE_TYPES.has(record.type) &&
+      // Worker custom-domain records are Cloudflare-managed and read-only;
+      // they are already correct, so never try to delete them.
+      !record.meta?.read_only &&
+      !record.meta?.origin_worker_id
   );
 }
 

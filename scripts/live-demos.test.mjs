@@ -89,10 +89,17 @@ function siteUrls(name) {
   return (byName[name]?.sites || []).map((site) => site.url);
 }
 
-assert.deepEqual(siteUrls('10000TheFinalBoss'), [
-  'https://roll10000.com',
-  'https://online.roll10000.com',
+assert.deepEqual(siteUrls('10000TheFinalBoss'), ['https://www.roll10000.com']);
+assert.deepEqual(siteUrls('Cloudripper'), ['https://cloudripper.youneek.dev']);
+assert.deepEqual(siteUrls('youneek-pro-radarYNK222'), [
+  'https://youneek-pro-radarynk222.youneekartifacts.workers.dev',
 ]);
+assert.deepEqual(siteUrls('youneek-calendar'), ['https://calendar.youneek.dev']);
+assert.deepEqual(siteUrls('the-architects'), [
+  'https://the-architects.youneekartifacts.workers.dev',
+]);
+assert.equal(byName['youneek-calendar'].extra, true);
+assert.equal(byName['the-architects'].extra, true);
 assert.deepEqual(siteUrls('3i-atlas-the-gameYNK'), ['https://3iatlasgame.xyz']);
 assert.deepEqual(siteUrls('vibesdk-production2'), ['https://usedartifacts.com']);
 assert.deepEqual(siteUrls('YouNeeKTimeTheFinalBoss'), ['https://youneektime.com']);
@@ -105,7 +112,10 @@ assert.deepEqual(siteUrls('lilly-s-appYNK222'), []);
 assert.deepEqual(siteUrls('youneek'), []);
 assert.deepEqual(siteUrls('youneek-time'), []);
 assert.deepEqual(siteUrls('youneek-pro-radar'), []);
-assert.deepEqual(siteUrls('Death-terminal-'), []);
+assert.deepEqual(siteUrls('Death-terminal-'), [
+  'https://dt-windows-download.youneekartifacts.workers.dev/DeathTerminal-windows.zip',
+]);
+assert.equal(byName['Death-terminal-'].sites[0].label, 'Windows download');
 assert.equal(byName['Death-terminal-'].title, 'YouNeeK Death Terminal');
 assert.match(byName['Death-terminal-'].description, /Vulkan/);
 
@@ -118,7 +128,6 @@ for (const forbidden of [
   'forge.youneek.xyz',
   'forge.youneek.dev',
   'death-terminal-green.vercel.app',
-  'calendar.youneek.dev',
   'relay.youneek.xyz',
 ]) {
   assert.equal(blob.includes(forbidden), false, forbidden);
@@ -127,8 +136,26 @@ for (const forbidden of [
 for (const repo of REPOS) {
   assert.ok(repo.title, repo.repoName);
   assert.ok(repo.description, repo.repoName);
-  assert.equal(repo.link, `https://github.com/${config.owner}/${repo.repoName}`);
-  const allowed = new Set(config.repos?.[repo.repoName]?.sites || []);
+  assert.ok(repo.description.length > 40 && repo.description.length <= 220, `${repo.repoName} description length`);
+  if (repo.extra) {
+    assert.equal(repo.link, '', `${repo.repoName} has no public repo`);
+  } else {
+    assert.equal(repo.link, `https://github.com/${config.owner}/${repo.repoName}`);
+  }
+  const specs = repo.extra
+    ? (config.extras || []).find((extra) => extra.repoName === repo.repoName)?.sites
+    : config.repos?.[repo.repoName]?.sites;
+  const allowed = new Set((specs || []).map((spec) => (typeof spec === 'string' ? spec : spec.url)));
+  if (repo.sites.length > 0) {
+    assert.ok(repo.image, `${repo.repoName} has a live site so it needs a front image`);
+    assert.ok(repo.backImage, `${repo.repoName} has a live site so it needs a back image`);
+    for (const key of ['image', 'backImage']) {
+      assert.ok(
+        fs.existsSync(new URL(`../public${repo[key]}`, import.meta.url)),
+        `${repo.repoName} ${key} file is missing`
+      );
+    }
+  }
   for (const site of repo.sites) {
     assert.ok(allowed.has(site.url), `${repo.repoName} site ${site.url} is not in sites.config.json`);
     assert.ok(site.url.startsWith('https://'));
@@ -136,6 +163,7 @@ for (const repo of REPOS) {
 }
 
 assert.ok(LIVE_DEMOS.length >= 6);
+assert.ok(REPOS.some((repo) => repo.repoName === 'youneek-calendar'), 'calendar card exists');
 assert.ok(LIVE_DEMOS.every((repo) => repo.sites.length > 0));
 
 const wrangler = fs.readFileSync(new URL('../wrangler.jsonc', import.meta.url), 'utf8');
@@ -150,6 +178,7 @@ const tv = read('../src/components/landing/TvStatic.jsx');
 const css = read('../src/index.css');
 const landing = read('../src/pages/Landing.jsx');
 assert.match(card, /<TvStatic/, 'cards without a site must render TvStatic');
+assert.match(card, /data-card-back-image/, 'card backs render a picture');
 assert.match(tv, /prefers-reduced-motion/, 'TvStatic must respect prefers-reduced-motion');
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 for (const piece of ['GlitchHero', 'MatrixRain', 'ReactiveGrid']) {

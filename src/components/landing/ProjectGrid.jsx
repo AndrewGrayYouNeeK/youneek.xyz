@@ -12,6 +12,8 @@ export default function ProjectGrid() {
   const gridRef = useRef(null);
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('all');
+  const repoCount = REPOS.filter((repo) => !repo.extra).length;
+  const extraCount = REPOS.length - repoCount;
   const liveCount = REPOS.filter((repo) => repo.sites.length > 0).length;
 
   const visible = useMemo(() => {
@@ -51,7 +53,7 @@ export default function ProjectGrid() {
           {'<'} Real GitHub Work {'/>'}
         </span>
         <p className="mx-auto mt-4 max-w-2xl font-mono text-sm text-muted-foreground">
-          {REPOS.length} public repos from{' '}
+          {repoCount} public repos{extraCount ? ` plus ${extraCount} more projects` : ''} from{' '}
           <a
             href="https://github.com/AndrewGrayYouNeeK"
             target="_blank"

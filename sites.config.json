@@ -77,20 +77,20 @@
       "sites": [
         "https://real-neural-forge-api.youneekartifacts.workers.dev"
       ],
-      "image": "/projects/neural-forge-front.jpg",
-      "backImage": "/projects/neural-forge-back.jpg"
+      "image": "/projects/original/neural-forge.jpg",
+      "backImage": "/projects/original/neural-forge.jpg"
     },
     "Death-terminal-": {
       "title": "YouNeeK Death Terminal",
       "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, built-in SSH with tunnels, and Lua config. The card links the Windows download.",
-      "image": "/projects/death-terminal.svg",
+      "image": "/projects/original/death-terminal.jpg",
       "sites": [
         {
           "url": "https://dt-windows-download.youneekartifacts.workers.dev/DeathTerminal-windows.zip",
           "label": "Windows download"
         }
       ],
-      "backImage": "/projects/death-terminal-back.svg"
+      "backImage": "/projects/original/death-terminal.jpg"
     },
     "youneek.xyz": {
       "title": "youneek.xyz",
@@ -102,15 +102,21 @@
     },
     "youneek": {
       "title": "YouNeeK Care",
-      "description": "Landing page for the YouNeeK crypto token: mission, transparency, impact, roadmap, a swap widget, staking, donations, and a how-to-buy guide."
+      "description": "Landing page for the YouNeeK crypto token: mission, transparency, impact, roadmap, a swap widget, staking, donations, and a how-to-buy guide.",
+      "backImage": "/projects/original/youneek-care.jpg",
+      "image": "/projects/original/youneek-care.jpg"
     },
     "youneek-time": {
       "title": "YouNeeK Time (earlier)",
-      "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time."
+      "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time.",
+      "backImage": "/projects/original/youneek-time-earlier.jpg",
+      "image": "/projects/original/youneek-time-earlier.jpg"
     },
     "youneek-pro-radar": {
       "title": "YouNeeK Pro Radar (earlier)",
-      "description": "Earlier copy of Pro Radar: NEXRAD radar mosaics, NWS alert overlays, NOAA weather radio, and a shelter SMS button. The live site is YouNeeK Pro Radar."
+      "description": "Earlier copy of Pro Radar: NEXRAD radar mosaics, NWS alert overlays, NOAA weather radio, and a shelter SMS button. The live site is YouNeeK Pro Radar.",
+      "backImage": "/projects/original/pro-radar-earlier.jpg",
+      "image": "/projects/original/pro-radar-earlier.jpg"
     },
     "youneek-pro-radarYNK222": {
       "title": "YouNeeK Pro Radar (YNK222)",
@@ -143,8 +149,8 @@
       "sites": [
         "https://cloudripper.youneek.dev"
       ],
-      "image": "/projects/cloudripper-front.jpg",
-      "backImage": "/projects/cloudripper-back.jpg"
+      "image": "/projects/original/cloudripper.jpg",
+      "backImage": "/projects/original/cloudripper.jpg"
     },
     "Calculator-": {
       "title": "Calculator",
@@ -160,11 +166,15 @@
     },
     "Project-Alpha": {
       "title": "Project Alpha",
-      "description": "A self-hosted real-time full-stack starter: React + Vite client, Node/Express API, Redis, and Server-Sent Events, run together with Docker Compose."
+      "description": "A self-hosted real-time full-stack starter: React + Vite client, Node/Express API, Redis, and Server-Sent Events, run together with Docker Compose.",
+      "backImage": "/projects/original/project-alpha.jpg",
+      "image": "/projects/original/project-alpha.jpg"
     },
     "CryptoVault": {
       "title": "CryptoVault",
-      "description": "A browser dashboard for tracking crypto holdings: total value, 24h gain or loss, and an add-asset form. The repo also has a Rust wasm-bindgen library."
+      "description": "A browser dashboard for tracking crypto holdings: total value, 24h gain or loss, and an add-asset form. The repo also has a Rust wasm-bindgen library.",
+      "backImage": "/projects/original/cryptovault.jpg",
+      "image": "/projects/original/cryptovault.jpg"
     },
     "bison-earth-plum-bird": {
       "title": "Bison Earth",

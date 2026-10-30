@@ -62,7 +62,7 @@ export default function ProjectGrid() {
           >
             @AndrewGrayYouNeeK
           </a>
-          , {liveCount} with a checked live site. The rest show static until they have one.
+          , {liveCount} with a checked live site. Cards with no picture yet show TV static.
         </p>
         <div className="mx-auto mt-4 h-px w-32 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       </div>

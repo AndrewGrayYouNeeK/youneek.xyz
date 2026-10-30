@@ -146,6 +146,9 @@ for (const repo of REPOS) {
     ? (config.extras || []).find((extra) => extra.repoName === repo.repoName)?.sites
     : config.repos?.[repo.repoName]?.sites;
   const allowed = new Set((specs || []).map((spec) => (typeof spec === 'string' ? spec : spec.url)));
+  if (repo.image) {
+    assert.ok(fs.existsSync(new URL(`../public${repo.image}`, import.meta.url)), `${repo.repoName} image file is missing`);
+  }
   if (repo.sites.length > 0) {
     assert.ok(repo.image, `${repo.repoName} has a live site so it needs a front image`);
     assert.ok(repo.backImage, `${repo.repoName} has a live site so it needs a back image`);
@@ -179,6 +182,19 @@ const css = read('../src/index.css');
 const landing = read('../src/pages/Landing.jsx');
 assert.match(card, /<TvStatic/, 'cards without a site must render TvStatic');
 assert.match(card, /data-card-back-image/, 'card backs render a picture');
+assert.match(card, /data-card-front-image/, 'card fronts render their own picture');
+for (const [name, file] of [
+  ['Project-Alpha', 'project-alpha'],
+  ['Real-Neural-Forge', 'neural-forge'],
+  ['CryptoVault', 'cryptovault'],
+  ['Cloudripper', 'cloudripper'],
+  ['Death-terminal-', 'death-terminal'],
+  ['youneek-pro-radar', 'pro-radar-earlier'],
+  ['youneek-time', 'youneek-time-earlier'],
+  ['youneek', 'youneek-care'],
+]) {
+  assert.equal(byName[name].image, `/projects/original/${file}.jpg`, `${name} keeps its original picture`);
+}
 assert.match(tv, /prefers-reduced-motion/, 'TvStatic must respect prefers-reduced-motion');
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 for (const piece of ['GlitchHero', 'MatrixRain', 'ReactiveGrid']) {

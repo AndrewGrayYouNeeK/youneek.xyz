@@ -102,17 +102,6 @@ export const REPOS = [
     "updated": "2026-10-18"
   },
   {
-    "title": "Air Traffic Controller",
-    "repoName": "YNKAIRTRAFFICGAME",
-    "description": "Browser game of air traffic control and drone radar, with incidents, a watchlist, and session scores.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
-    "sites": [],
-    "image": "",
-    "stars": 0,
-    "updated": "2026-10-29"
-  },
-  {
     "title": "Cloudripper",
     "repoName": "Cloudripper",
     "description": "Multi-cloud orchestration that scales workloads, cuts AWS and GCP spend, and runs chaos experiments with Terraform and Pulumi.",
@@ -121,6 +110,28 @@ export const REPOS = [
     "sites": [],
     "image": "",
     "stars": 1,
+    "updated": "2026-10-30"
+  },
+  {
+    "title": "youneek.xyz",
+    "repoName": "youneek.xyz",
+    "description": "This portfolio. One slot for every public repository, and a site link only after the URL answers.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
+    "sites": [],
+    "image": "",
+    "stars": 1,
+    "updated": "2026-10-30"
+  },
+  {
+    "title": "Air Traffic Controller",
+    "repoName": "YNKAIRTRAFFICGAME",
+    "description": "Browser game of air traffic control and drone radar, with incidents, a watchlist, and session scores.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
+    "sites": [],
+    "image": "",
+    "stars": 0,
     "updated": "2026-10-29"
   },
   {
@@ -209,17 +220,6 @@ export const REPOS = [
     "sites": [],
     "image": "",
     "stars": 0,
-    "updated": "2026-10-29"
-  },
-  {
-    "title": "youneek.xyz",
-    "repoName": "youneek.xyz",
-    "description": "This portfolio. One slot for every public repository, and a site link only after the URL answers.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
-    "sites": [],
-    "image": "",
-    "stars": 1,
     "updated": "2026-10-29"
   },
   {

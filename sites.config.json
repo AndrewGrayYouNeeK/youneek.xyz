@@ -68,8 +68,8 @@
       "sites": [
         "https://youneekproradar.com"
       ],
-      "image": "/projects/pro-radar-front.jpg",
-      "backImage": "/projects/pro-radar-back.jpg"
+      "image": "/projects/original/pro-radar-earlier.jpg",
+      "backImage": "/projects/original/pro-radar-earlier.jpg"
     },
     "Real-Neural-Forge": {
       "title": "Real Neural Forge",

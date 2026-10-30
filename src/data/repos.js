@@ -117,8 +117,8 @@ export const REPOS = [
         "label": "youneekproradar.com"
       }
     ],
-    "image": "/projects/pro-radar-front.jpg",
-    "backImage": "/projects/pro-radar-back.jpg",
+    "image": "/projects/original/pro-radar-earlier.jpg",
+    "backImage": "/projects/original/pro-radar-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },

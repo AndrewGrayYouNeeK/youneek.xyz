@@ -195,7 +195,12 @@ for (const [name, file] of [
 ]) {
   assert.equal(byName[name].image, `/projects/original/${file}.jpg`, `${name} keeps its original picture`);
 }
+assert.equal(byName['youneekproradarBABY'].image, '/projects/original/pro-radar-earlier.jpg', 'Pro Radar card uses the repo social image');
+assert.equal(byName['youneekproradarBABY'].backImage, '/projects/original/pro-radar-earlier.jpg');
 assert.match(tv, /prefers-reduced-motion/, 'TvStatic must respect prefers-reduced-motion');
+assert.match(tv, /requestAnimationFrame/, 'TvStatic must animate with rAF');
+assert.match(tv, /REDUCED_FRAME_MS/, 'reduced motion must be a slower animation, not a frozen frame');
+assert.equal(/data-tv-static=\{reduced \? 'still'/.test(tv), false, 'TvStatic must never freeze');
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 for (const piece of ['GlitchHero', 'MatrixRain', 'ReactiveGrid']) {
   assert.match(landing, new RegExp(piece), `${piece} belongs to the cyberpunk landing page`);

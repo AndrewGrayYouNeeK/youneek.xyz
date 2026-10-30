@@ -2,9 +2,26 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "Cloudripper",
+    "repoName": "Cloudripper",
+    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
+    "language": "Go",
+    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
+    "sites": [
+      {
+        "url": "https://cloudripper.youneek.dev",
+        "label": "cloudripper.youneek.dev"
+      }
+    ],
+    "image": "/projects/cloudripper-front.jpg",
+    "backImage": "/projects/cloudripper-back.jpg",
+    "stars": 1,
+    "updated": "2026-10-30"
+  },
+  {
     "title": "3i-Atlas",
     "repoName": "3i-atlas-the-gameYNK",
-    "description": "A stealth campaign. You are the interstellar comet 3I/ATLAS, and you have to keep that disguise intact while Earth watches.",
+    "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/3i-atlas-the-gameYNK",
     "sites": [
@@ -13,14 +30,15 @@ export const REPOS = [
         "label": "3iatlasgame.xyz"
       }
     ],
-    "image": "",
+    "image": "/projects/3i-atlas-front.jpg",
+    "backImage": "/projects/3i-atlas-back.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
   {
     "title": "Real Neural Forge",
     "repoName": "Real-Neural-Forge",
-    "description": "Forecast dashboard for the Neural Forge time-series model.",
+    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
     "language": "Python",
     "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
     "sites": [
@@ -29,14 +47,68 @@ export const REPOS = [
         "label": "real-neural-forge-api.youneekartifacts.workers.dev"
       }
     ],
-    "image": "",
+    "image": "/projects/neural-forge-front.jpg",
+    "backImage": "/projects/neural-forge-back.jpg",
+    "stars": 1,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "The Architects",
+    "repoName": "the-architects",
+    "description": "A satirical strategy game built in Godot. You run a fictional shadow faction through human vessels from 2031 to the horizon, keeping Belief high and Heat low.",
+    "language": "Godot",
+    "link": "",
+    "sites": [
+      {
+        "url": "https://the-architects.youneekartifacts.workers.dev",
+        "label": "the-architects.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/the-architects-front.jpg",
+    "backImage": "/projects/the-architects-back.jpg",
+    "stars": 0,
+    "updated": "2026-10-29",
+    "extra": true
+  },
+  {
+    "title": "YouNeeK Calendar",
+    "repoName": "youneek-calendar",
+    "description": "A calendar with a month grid, moon phases, a list of new and full moons, a Roman March-first month order toggle, and a birthday panel with astrology reference tables.",
+    "language": "JavaScript",
+    "link": "",
+    "sites": [
+      {
+        "url": "https://calendar.youneek.dev",
+        "label": "calendar.youneek.dev"
+      }
+    ],
+    "image": "/projects/calendar-front.jpg",
+    "backImage": "/projects/calendar-back.jpg",
+    "stars": 0,
+    "updated": "2026-10-29",
+    "extra": true
+  },
+  {
+    "title": "YouNeeK Death Terminal",
+    "repoName": "Death-terminal-",
+    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, built-in SSH with tunnels, and Lua config. The card links the Windows download.",
+    "language": "Zig",
+    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "sites": [
+      {
+        "url": "https://dt-windows-download.youneekartifacts.workers.dev/DeathTerminal-windows.zip",
+        "label": "Windows download"
+      }
+    ],
+    "image": "/projects/death-terminal.svg",
+    "backImage": "/projects/death-terminal-back.svg",
     "stars": 1,
     "updated": "2026-10-29"
   },
   {
     "title": "YouNeeK Pro Radar",
     "repoName": "youneekproradarBABY",
-    "description": "Live NEXRAD radar, severe-weather alerts, NOAA weather radio, and a one-tap shelter message.",
+    "description": "Military-style NEXRAD radar and severe-weather tracker: live radar mosaics, NWS alert overlays, NOAA weather radio, and a one-tap shelter SMS to your contacts.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneekproradarBABY",
     "sites": [
@@ -45,14 +117,32 @@ export const REPOS = [
         "label": "youneekproradar.com"
       }
     ],
-    "image": "",
+    "image": "/projects/pro-radar-front.jpg",
+    "backImage": "/projects/pro-radar-back.jpg",
     "stars": 0,
+    "updated": "2026-10-29"
+  },
+  {
+    "title": "YouNeeK Pro Radar (YNK222)",
+    "repoName": "youneek-pro-radarYNK222",
+    "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
+    "sites": [
+      {
+        "url": "https://youneek-pro-radarynk222.youneekartifacts.workers.dev",
+        "label": "youneek-pro-radarynk222.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/pro-radar-ynk222-front.jpg",
+    "backImage": "/projects/pro-radar-ynk222-back.jpg",
+    "stars": 1,
     "updated": "2026-10-29"
   },
   {
     "title": "YouNeeK Time",
     "repoName": "YouNeeKTimeTheFinalBoss",
-    "description": "A hundred-hour clock for the web and Apple Watch. 100 hours, 100 minutes, and 100 seconds.",
+    "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/YouNeeKTimeTheFinalBoss",
     "sites": [
@@ -61,14 +151,15 @@ export const REPOS = [
         "label": "youneektime.com"
       }
     ],
-    "image": "",
+    "image": "/projects/youneek-time-front.jpg",
+    "backImage": "/projects/youneek-time-back.jpg",
     "stars": 1,
     "updated": "2026-10-29"
   },
   {
     "title": "VibeSDK Production",
     "repoName": "vibesdk-production2",
-    "description": "Production Cloudflare VibeSDK Worker. Its public hostname is usedartifacts.com.",
+    "description": "Production copy of Cloudflare VibeSDK, an open-source platform where an AI agent builds and deploys full-stack apps on Cloudflare. usedartifacts.com currently shows a coming-soon page.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/vibesdk-production2",
     "sites": [
@@ -77,280 +168,265 @@ export const REPOS = [
         "label": "usedartifacts.com"
       }
     ],
-    "image": "",
+    "image": "/projects/used-artifacts-front.jpg",
+    "backImage": "/projects/used-artifacts-back.jpg",
     "stars": 0,
     "updated": "2026-10-19"
   },
   {
     "title": "10,000 The Final Boss",
     "repoName": "10000TheFinalBoss",
-    "description": "A YouNeeK-styled 10,000 dice game with local multiplayer, story mode, shop, and progression. Runs entirely in the browser with no external account or backend required.",
+    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
     "sites": [
       {
-        "url": "https://roll10000.com",
-        "label": "roll10000.com"
-      },
-      {
-        "url": "https://online.roll10000.com",
-        "label": "online.roll10000.com"
+        "url": "https://www.roll10000.com",
+        "label": "www.roll10000.com"
       }
     ],
-    "image": "",
+    "image": "/projects/roll10000-front.jpg",
+    "backImage": "/projects/roll10000-back.jpg",
     "stars": 1,
     "updated": "2026-10-18"
   },
   {
-    "title": "Cloudripper",
-    "repoName": "Cloudripper",
-    "description": "Multi-cloud orchestration that scales workloads, cuts AWS and GCP spend, and runs chaos experiments with Terraform and Pulumi.",
-    "language": "Go",
-    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
-    "sites": [],
-    "image": "",
-    "stars": 1,
-    "updated": "2026-10-30"
-  },
-  {
     "title": "youneek.xyz",
     "repoName": "youneek.xyz",
-    "description": "This portfolio. One slot for every public repository, and a site link only after the URL answers.",
+    "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 1,
     "updated": "2026-10-30"
   },
   {
     "title": "Air Traffic Controller",
     "repoName": "YNKAIRTRAFFICGAME",
-    "description": "Browser game of air traffic control and drone radar, with incidents, a watchlist, and session scores.",
+    "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-10-29"
   },
   {
     "title": "Lilly's App",
     "repoName": "lilly-s-appYNK222",
-    "description": "A family chore and rewards app. Kids pick up chores, parents approve them, and allowances pay out.",
+    "description": "A family chore and rewards app built with React, Vite, and Supabase. Parents create chores, approve submissions, and manage allowances.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/lilly-s-appYNK222",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 1,
     "updated": "2026-10-29"
   },
   {
     "title": "Project Alpha",
     "repoName": "Project-Alpha",
-    "description": "Self-hosted real-time full-stack foundation built with React, Node.js, Redis, and Docker. The API, entity storage, and real-time channel all run in this repository.",
+    "description": "A self-hosted real-time full-stack starter: React + Vite client, Node/Express API, Redis, and Server-Sent Events, run together with Docker Compose.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/Project-Alpha",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 1,
     "updated": "2026-10-29"
   },
   {
     "title": "Used Artifacts",
     "repoName": "used-artifacts",
-    "description": "Marketplace for buying and selling used goods, with ID-checked sellers, signed provenance, and a founders badge program.",
+    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-10-29"
   },
   {
     "title": "YouNeeK Care",
     "repoName": "youneek",
-    "description": "The YouNeeK token site: mission, roadmap, staking, and donations.",
+    "description": "Landing page for the YouNeeK crypto token: mission, transparency, impact, roadmap, a swap widget, staking, donations, and a how-to-buy guide.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
-    "updated": "2026-10-29"
-  },
-  {
-    "title": "YouNeeK Death Terminal",
-    "repoName": "Death-terminal-",
-    "description": "A brutalist, GPU-accelerated terminal with AI autocomplete, Vulkan rendering, built-in SSH, and Lua themes. Mac, Windows, and Linux.",
-    "language": "Zig",
-    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
-    "sites": [],
-    "image": "/projects/death-terminal.svg",
-    "stars": 1,
     "updated": "2026-10-29"
   },
   {
     "title": "YouNeeK Pro Radar (earlier)",
     "repoName": "youneek-pro-radar",
-    "description": "Earlier radar build. The live site is served by youneekproradarBABY.",
+    "description": "Earlier copy of Pro Radar: NEXRAD radar mosaics, NWS alert overlays, NOAA weather radio, and a shelter SMS button. The live site is YouNeeK Pro Radar.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radar",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
-    "updated": "2026-10-29"
-  },
-  {
-    "title": "YouNeeK Pro Radar (YNK222)",
-    "repoName": "youneek-pro-radarYNK222",
-    "description": "Earlier Worker build of Pro Radar. The public site stays on youneekproradarBABY.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
-    "sites": [],
-    "image": "",
-    "stars": 1,
     "updated": "2026-10-29"
   },
   {
     "title": "YouNeeK Time (earlier)",
     "repoName": "youneek-time",
-    "description": "Earlier clock build. The live site is YouNeeK Time.",
+    "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-time",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-10-29"
   },
   {
     "title": "YouNeeK Dashboard",
     "repoName": "YouNeeK-Dashboard",
-    "description": "Personal dashboard for YouNeeK products, languages, and repository activity.",
+    "description": "Personal Vite + React + TypeScript dashboard that reads repo counts, language mix, and push activity from the GitHub API and lists YouNeeK products.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/YouNeeK-Dashboard",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 1,
     "updated": "2026-10-03"
   },
   {
     "title": "ATC222 Trainer",
     "repoName": "atc222trainer",
-    "description": "ATC222 Trainer is an aviation training app focused on helping pilots and students practice core ATC-related scenarios in a structured, repeatable way.",
+    "description": "An aviation training app for practicing ATC communication and decision scenarios in a structured, repeatable way. Early development.",
     "language": "Code",
     "link": "https://github.com/AndrewGrayYouNeeK/atc222trainer",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 1,
     "updated": "2026-09-16"
   },
   {
     "title": "Bison Earth",
     "repoName": "bison-earth-plum-bird",
-    "description": "App-builder workspace that holds the REMNANT web client and its migration scripts.",
+    "description": "An app-builder workspace (Vite, server code, auth, database migrations) that contains the INHABIT game from REMNANT. No README.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/bison-earth-plum-bird",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-09-16"
   },
   {
     "title": "REMNANT",
     "repoName": "remnant",
-    "description": "Play as the ancient AI that crashed at Roswell and rebuild the world-mind.",
+    "description": "A 1947 stealth game. You are a crashed mind that inhabits machines such as crates, radios, and a jeep battery, dodging flashlight cones to transmit a signal before dawn.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/remnant",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-09-16"
   },
   {
     "title": "Multitent",
     "repoName": "multitent",
-    "description": "A Cloudflare Worker that creates and deploys Workers into a dispatch namespace.",
+    "description": "A Cloudflare Worker that creates a Workers for Platforms dispatch namespace, deploys Workers into it, and routes each one under its own path.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/multitent",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-08-27"
   },
   {
     "title": "YouNeeK Satellite Tracker",
     "repoName": "youneek-satellite-tracker",
-    "description": "Live 3D satellite tracking on a globe, drawn from public orbital elements.",
+    "description": "Live 3D globe of satellite positions from CelesTrak orbital data: Starlink, the ISS, GPS, and more, with time simulation, search, and an AR mode.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-satellite-tracker",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-08-20"
   },
   {
     "title": "YouNeeK Vibe Code",
     "repoName": "youneekvibecode",
-    "description": "YouNeeK fork of VibeSDK, the agent platform for building and deploying apps on Cloudflare.",
+    "description": "YouNeeK fork of Cloudflare VibeSDK, an open-source platform where an AI agent builds and deploys full-stack apps on Cloudflare.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneekvibecode",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-08-20"
   },
   {
     "title": "VibeSDK Production (earlier)",
     "repoName": "vibesdk-production",
-    "description": "Earlier VibeSDK production Worker. The public hostname is on vibesdk-production2.",
+    "description": "Earlier VibeSDK production Worker (Cloudflare's agentic app builder). The public hostname is on vibesdk-production2.",
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/vibesdk-production",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-08-19"
   },
   {
     "title": "Apex Control",
     "repoName": "apex-controlYNK222",
-    "description": "Air Traffic Control simulator built with React and Vite. Guide aircraft to safe landings, manage departures, handle emergencies, and climb the career ladder from Ground Observer to Apex Controller.",
+    "description": "Air traffic control simulator in React. Land aircraft, use voice commands, train at Wittman Regional (KOSH), run emergency drills, and climb a career ladder.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/apex-controlYNK222",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 1,
     "updated": "2026-08-18"
   },
   {
     "title": "Unique Sky",
     "repoName": "unique-sky",
-    "description": "An AR star-naming app with sky exploration, daily hunts, and a global star map.",
+    "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/unique-sky",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-08-18"
   },
   {
     "title": "Calculator",
     "repoName": "Calculator-",
-    "description": "A full-featured React calculator with a bold UI, scientific operations, live expression parsing, reusable answer history, and Vercel-ready hosting.",
+    "description": "Savage Calculator: a React calculator with scientific functions, mathjs expression parsing, live preview, and a history you can reuse with Ans.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/Calculator-",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-05-12"
   },
   {
     "title": "CryptoVault",
     "repoName": "CryptoVault",
-    "description": "Browser vault for tracking crypto holdings, with a Rust core compiled onto the page.",
+    "description": "A browser dashboard for tracking crypto holdings: total value, 24h gain or loss, and an add-asset form. The repo also has a Rust wasm-bindgen library.",
     "language": "HTML",
     "link": "https://github.com/AndrewGrayYouNeeK/CryptoVault",
     "sites": [],
     "image": "",
+    "backImage": "",
     "stars": 0,
     "updated": "2026-04-10"
   }

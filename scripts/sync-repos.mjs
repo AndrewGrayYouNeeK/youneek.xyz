@@ -80,14 +80,6 @@ function readmeBlurb(markdown) {
   return cleanDescription(parts.join(' '));
 }
 
-function hostOf(url) {
-  try {
-    return new URL(url).host;
-  } catch {
-    return '';
-  }
-}
-
 async function fetchRepos() {
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
   const headers = {
@@ -136,7 +128,9 @@ function descriptionFor(repo, override, readme) {
 
 async function verifiedSites(urls) {
   const sites = [];
-  for (const candidate of urls || []) {
+  for (let candidate of urls || []) {
+    const spec = typeof candidate === 'string' ? { url: candidate } : candidate;
+    candidate = spec.url;
     let parsed;
     try {
       parsed = new URL(candidate);
@@ -158,7 +152,7 @@ async function verifiedSites(urls) {
     }
     console.log(`  ${result.verdict} ${result.status || '-'} ${candidate}`);
     if (result.verdict === 'live') {
-      sites.push({ url: candidate, label: parsed.host });
+      sites.push({ url: candidate, label: spec.label || parsed.host });
     }
   }
   return sites;
@@ -212,8 +206,26 @@ async function main() {
       link: repo.html_url,
       sites,
       image: entry.image || '',
+      backImage: entry.backImage || '',
       stars: repo.stargazers_count || 0,
       updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
+    });
+  }
+
+  for (const extra of config.extras || []) {
+    console.log(`check ${extra.repoName} (extra)`);
+    out.push({
+      title: extra.title,
+      repoName: extra.repoName,
+      description: cleanDescription(extra.description),
+      language: extra.language || 'Code',
+      link: extra.link || '',
+      sites: await verifiedSites(extra.sites),
+      image: extra.image || '',
+      backImage: extra.backImage || '',
+      stars: 0,
+      updated: extra.updated || '',
+      extra: true,
     });
   }
 

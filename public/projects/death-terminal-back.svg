@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Death Terminal window with a ghost-text command suggestion">
+  <rect width="640" height="480" fill="#07080c"/>
+  <rect x="24" y="24" width="592" height="432" rx="8" fill="#0b0d12" stroke="#ff2d55" stroke-opacity=".6"/>
+  <rect x="24" y="24" width="592" height="32" rx="8" fill="#14070b"/>
+  <circle cx="46" cy="40" r="6" fill="#ff2d55"/><circle cx="68" cy="40" r="6" fill="#ffb000" fill-opacity=".7"/><circle cx="90" cy="40" r="6" fill="#00ff9c" fill-opacity=".7"/>
+  <g font-family="monospace" font-size="17">
+    <text x="44" y="96" fill="#00ff9c">$ deathterminal --ssh prod</text>
+    <text x="44" y="126" fill="#8b93a7">connected. forwards ready.</text>
+    <text x="44" y="170" fill="#00ff9c">$ docker run -</text>
+    <text x="196" y="170" fill="#ffffff" fill-opacity=".35">it --rm ubuntu:latest /bin/bash</text>
+    <text x="44" y="214" fill="#ff2d55">$ rm -rf build</text>
+    <text x="44" y="244" fill="#ffb000">GHOST RUN  preview only: 1,204 files   [y] run  [n] cancel</text>
+    <text x="44" y="296" fill="#00ff9c">$ _</text>
+  </g>
+  <g fill="none" stroke="#ff2d55" stroke-opacity=".25"><path d="M44 340h552M44 372h552M44 404h552"/></g>
+  <text x="44" y="436" font-family="monospace" font-size="14" fill="#ff2d55" fill-opacity=".8">YOUNEEK DEATH TERMINAL // ZIG + VULKAN</text>
+</svg>

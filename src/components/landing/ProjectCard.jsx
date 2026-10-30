@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TvStatic from './TvStatic';
+import CardArt from './CardArt';
 import { hostLabel } from '@/lib/live-demos';
 
 const NEON_COLORS = {
@@ -102,7 +103,19 @@ export default function ProjectCard({ project, index }) {
             boxShadow: `0 0 30px ${withAlpha(neon, 0.3)}, inset 0 0 20px ${withAlpha(neon, 0.05)}`,
           }}
         >
-          <div>
+          {project.backImage ? (
+            <img
+              src={project.backImage}
+              alt=""
+              data-card-back-image=""
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-top opacity-40"
+            />
+          ) : (
+            <CardArt seed={project.repoName} color={neon} />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
+          <div className="relative">
             <h3 className="card-back-title mb-4 font-heading text-lg font-bold leading-tight" style={{ color: neon }}>
               {project.title}
             </h3>
@@ -118,21 +131,25 @@ export default function ProjectCard({ project, index }) {
               >
                 {project.language}
               </span>
-              <span className="rounded border border-border/50 px-2 py-1 font-mono text-xs text-muted-foreground">
-                updated {project.updated}
-              </span>
+              {project.updated ? (
+                <span className="rounded border border-border/50 px-2 py-1 font-mono text-xs text-muted-foreground">
+                  updated {project.updated}
+                </span>
+              ) : null}
             </div>
           </div>
-          <div className="card-actions mt-4 flex flex-wrap gap-3">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card-link hover-glitch inline-flex items-center gap-2 font-mono text-sm transition-colors"
-              style={{ color: neon }}
-            >
-              GITHUB →
-            </a>
+          <div className="card-actions relative mt-4 flex flex-wrap gap-3">
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card-link hover-glitch inline-flex items-center gap-2 font-mono text-sm transition-colors"
+                style={{ color: neon }}
+              >
+                GITHUB →
+              </a>
+            ) : null}
             {primary ? (
               <a
                 href={primary.url}
@@ -140,7 +157,7 @@ export default function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 className="project-card-link hover-glitch inline-flex items-center gap-2 font-mono text-sm text-accent transition-colors"
               >
-                VISIT SITE →
+                {primary.label && !primary.label.includes('.') ? `${primary.label.toUpperCase()} →` : 'VISIT SITE →'}
               </a>
             ) : (
               <span className="font-mono text-xs tracking-widest text-muted-foreground/60">NO LIVE SITE</span>
@@ -153,7 +170,7 @@ export default function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 className="project-card-link hover-glitch inline-flex items-center gap-2 font-mono text-xs text-accent/80 transition-colors"
               >
-                {hostLabel(site.url)} →
+                {site.label || hostLabel(site.url)} →
               </a>
             ))}
           </div>

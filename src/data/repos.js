@@ -2,7 +2,7 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
-    "title": "Cloudripper",
+    "title": "YouNeeK CloudRipper",
     "repoName": "Cloudripper",
     "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
     "language": "Go",
@@ -13,8 +13,8 @@ export const REPOS = [
         "label": "cloudripper.youneek.dev"
       }
     ],
-    "image": "/projects/original/cloudripper.jpg",
-    "backImage": "/projects/original/cloudripper.jpg",
+    "image": "/projects/cloudripper-front.jpg",
+    "backImage": "/projects/cloudripper-back.jpg",
     "stars": 1,
     "updated": "2026-10-30"
   },

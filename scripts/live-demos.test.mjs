@@ -187,7 +187,6 @@ for (const [name, file] of [
   ['Project-Alpha', 'project-alpha'],
   ['Real-Neural-Forge', 'neural-forge'],
   ['CryptoVault', 'cryptovault'],
-  ['Cloudripper', 'cloudripper'],
   ['Death-terminal-', 'death-terminal'],
   ['youneek-pro-radar', 'pro-radar-earlier'],
   ['youneek-time', 'youneek-time-earlier'],
@@ -195,6 +194,9 @@ for (const [name, file] of [
 ]) {
   assert.equal(byName[name].image, `/projects/original/${file}.jpg`, `${name} keeps its original picture`);
 }
+assert.equal(byName.Cloudripper.title, 'YouNeeK CloudRipper');
+assert.equal(byName.Cloudripper.image, '/projects/cloudripper-front.jpg', 'CloudRipper card uses the YouNeeK CloudRipper logo');
+assert.equal(byName.Cloudripper.backImage, '/projects/cloudripper-back.jpg');
 assert.equal(byName['youneekproradarBABY'].image, '/projects/original/pro-radar-earlier.jpg', 'Pro Radar card uses the repo social image');
 assert.equal(byName['youneekproradarBABY'].backImage, '/projects/original/pro-radar-earlier.jpg');
 assert.match(tv, /prefers-reduced-motion/, 'TvStatic must respect prefers-reduced-motion');

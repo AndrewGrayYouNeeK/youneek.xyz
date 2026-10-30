@@ -13,8 +13,8 @@ export const REPOS = [
         "label": "cloudripper.youneek.dev"
       }
     ],
-    "image": "/projects/cloudripper-front.jpg",
-    "backImage": "/projects/cloudripper-back.jpg",
+    "image": "/projects/original/cloudripper.jpg",
+    "backImage": "/projects/original/cloudripper.jpg",
     "stars": 1,
     "updated": "2026-10-30"
   },
@@ -47,8 +47,8 @@ export const REPOS = [
         "label": "real-neural-forge-api.youneekartifacts.workers.dev"
       }
     ],
-    "image": "/projects/neural-forge-front.jpg",
-    "backImage": "/projects/neural-forge-back.jpg",
+    "image": "/projects/original/neural-forge.jpg",
+    "backImage": "/projects/original/neural-forge.jpg",
     "stars": 1,
     "updated": "2026-10-29"
   },
@@ -100,8 +100,8 @@ export const REPOS = [
         "label": "Windows download"
       }
     ],
-    "image": "/projects/death-terminal.svg",
-    "backImage": "/projects/death-terminal-back.svg",
+    "image": "/projects/original/death-terminal.jpg",
+    "backImage": "/projects/original/death-terminal.jpg",
     "stars": 1,
     "updated": "2026-10-29"
   },
@@ -191,6 +191,18 @@ export const REPOS = [
     "updated": "2026-10-18"
   },
   {
+    "title": "Used Artifacts",
+    "repoName": "used-artifacts",
+    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
+    "language": "TypeScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
+    "updated": "2026-10-30"
+  },
+  {
     "title": "youneek.xyz",
     "repoName": "youneek.xyz",
     "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static.",
@@ -233,21 +245,9 @@ export const REPOS = [
     "language": "TypeScript",
     "link": "https://github.com/AndrewGrayYouNeeK/Project-Alpha",
     "sites": [],
-    "image": "",
-    "backImage": "",
+    "image": "/projects/original/project-alpha.jpg",
+    "backImage": "/projects/original/project-alpha.jpg",
     "stars": 1,
-    "updated": "2026-10-29"
-  },
-  {
-    "title": "Used Artifacts",
-    "repoName": "used-artifacts",
-    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
-    "language": "TypeScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
     "updated": "2026-10-29"
   },
   {
@@ -257,8 +257,8 @@ export const REPOS = [
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek",
     "sites": [],
-    "image": "",
-    "backImage": "",
+    "image": "/projects/original/youneek-care.jpg",
+    "backImage": "/projects/original/youneek-care.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -269,8 +269,8 @@ export const REPOS = [
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radar",
     "sites": [],
-    "image": "",
-    "backImage": "",
+    "image": "/projects/original/pro-radar-earlier.jpg",
+    "backImage": "/projects/original/pro-radar-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -281,8 +281,8 @@ export const REPOS = [
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-time",
     "sites": [],
-    "image": "",
-    "backImage": "",
+    "image": "/projects/original/youneek-time-earlier.jpg",
+    "backImage": "/projects/original/youneek-time-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -425,8 +425,8 @@ export const REPOS = [
     "language": "HTML",
     "link": "https://github.com/AndrewGrayYouNeeK/CryptoVault",
     "sites": [],
-    "image": "",
-    "backImage": "",
+    "image": "/projects/original/cryptovault.jpg",
+    "backImage": "/projects/original/cryptovault.jpg",
     "stars": 0,
     "updated": "2026-04-10"
   }

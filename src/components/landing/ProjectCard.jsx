@@ -36,7 +36,7 @@ export default function ProjectCard({ project, index }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="card-flip-inner relative h-full w-full">
-        {/* Front: live sites get neon artwork, everything else gets TV static */}
+        {/* Front: the card's own picture; TV static only when there is no picture */}
         <div
           className="card-front absolute inset-0 overflow-hidden rounded-lg border border-border/50 transition-shadow duration-300"
           style={{
@@ -46,21 +46,23 @@ export default function ProjectCard({ project, index }) {
             borderColor: isHovered ? withAlpha(neon, 0.6) : undefined,
           }}
         >
-          {live ? (
+          {project.image ? (
             <>
               <div
                 className="absolute inset-0"
                 style={{
                   background: `
                     radial-gradient(circle at 20% 20%, ${withAlpha(neon, 0.45)} 0%, transparent 55%),
-                    radial-gradient(circle at 80% 70%, ${withAlpha(neon, 0.25)} 0%, transparent 60%),
                     linear-gradient(135deg, hsl(240 10% 8%) 0%, hsl(240 10% 4%) 100%)
                   `,
                 }}
               />
-              {project.image ? (
-                <img src={project.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-              ) : null}
+              <img
+                src={project.image}
+                alt=""
+                data-card-front-image=""
+                className="absolute inset-0 h-full w-full object-cover"
+              />
               <div
                 className="absolute inset-0 opacity-30 mix-blend-overlay"
                 style={{
@@ -68,22 +70,24 @@ export default function ProjectCard({ project, index }) {
                     'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)',
                 }}
               />
-              <span
-                className="absolute right-3 top-3 rounded border px-2 py-0.5 font-mono text-[10px] tracking-widest"
-                style={{ color: NEON_COLORS.green, borderColor: withAlpha(NEON_COLORS.green, 0.5) }}
-              >
-                ● LIVE
-              </span>
+              {live ? (
+                <span
+                  className="absolute right-3 top-3 rounded border px-2 py-0.5 font-mono text-[10px] tracking-widest"
+                  style={{ color: NEON_COLORS.green, borderColor: withAlpha(NEON_COLORS.green, 0.5) }}
+                >
+                  ● LIVE
+                </span>
+              ) : null}
             </>
           ) : (
             <TvStatic />
           )}
           <div
             className={`absolute inset-0 bg-gradient-to-t ${
-              live ? 'from-background via-background/60' : 'from-background/95 via-background/30'
+              project.image ? 'from-background via-background/60' : 'from-background/95 via-background/30'
             } to-transparent`}
           />
-          <div className={`absolute bottom-0 left-0 right-0 p-5 ${live ? '' : 'bg-black/75'}`}>
+          <div className={`absolute bottom-0 left-0 right-0 p-5 ${project.image ? '' : 'bg-black/75'}`}>
             <span className="mb-2 block font-mono text-xs tracking-widest" style={{ color: neon }}>
               {tag}
             </span>
@@ -109,12 +113,12 @@ export default function ProjectCard({ project, index }) {
               alt=""
               data-card-back-image=""
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover object-top opacity-40"
+              className="absolute inset-0 h-full w-full object-cover object-top opacity-25"
             />
           ) : (
             <CardArt seed={project.repoName} color={neon} />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/60" />
           <div className="relative">
             <h3 className="card-back-title mb-4 font-heading text-lg font-bold leading-tight" style={{ color: neon }}>
               {project.title}

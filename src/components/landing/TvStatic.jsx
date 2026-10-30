@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-const FRAME_MS = 1000 / 24;
+// Full motion: ~30fps noise, flicker, rolling bar. Reduced motion: a slow, gentle version (never frozen).
+const FRAME_MS = 1000 / 30;
+const REDUCED_FRAME_MS = 1000 / 6;
 
 function prefersReducedMotion() {
   return (
@@ -12,8 +14,10 @@ function prefersReducedMotion() {
 
 /**
  * Analog TV white noise for cards that have no live or connected site.
- * Draws only while on screen. With prefers-reduced-motion it paints one
- * still frame of snow and never animates.
+ * Random grayscale noise is redrawn every frame (about 30fps) with a slight
+ * brightness flicker and a faint rolling scan bar, only while on screen.
+ * With prefers-reduced-motion the same snow keeps moving but slowly (about
+ * 6fps), without flicker and with a slower, fainter bar. It is never frozen.
  */
 export default function TvStatic({ label = 'NO SIGNAL', sublabel = 'NO LIVE SITE' }) {
   const rootRef = useRef(null);
@@ -67,7 +71,7 @@ export default function TvStatic({ label = 'NO SIGNAL', sublabel = 'NO LIVE SITE
       snow.height = Math.max(1, Math.floor(height / 2));
     };
 
-    const paint = (withRoll) => {
+    const paint = (animated) => {
       const image = snowCtx.createImageData(snow.width, snow.height);
       const data = image.data;
       for (let i = 0; i < data.length; i += 4) {
@@ -79,18 +83,29 @@ export default function TvStatic({ label = 'NO SIGNAL', sublabel = 'NO LIVE SITE
         data[i + 3] = 255;
       }
       snowCtx.putImageData(image, 0, 0);
+      ctx.globalAlpha = 1;
       ctx.imageSmoothingEnabled = false;
       ctx.drawImage(snow, 0, 0, width, height);
 
       ctx.fillStyle = 'rgba(0,0,0,0.16)';
       for (let y = 0; y < height; y += 2) ctx.fillRect(0, y, width, 1);
 
-      if (withRoll) {
-        roll = (roll + 2) % (height + 120);
+      // Flicker: the whole picture dims a little at random, like a weak signal.
+      if (animated && !reduced) {
+        const dim = Math.random() < 0.35 ? 0.04 + Math.random() * 0.18 : 0;
+        if (dim > 0) {
+          ctx.fillStyle = `rgba(0,0,0,${dim})`;
+          ctx.fillRect(0, 0, width, height);
+        }
+      }
+
+      if (animated) {
+        roll = (roll + (reduced ? 1 : 3)) % (height + 120);
         const band = Math.max(40, height * 0.22);
+        const peak = reduced ? 0.18 : 0.3;
         const g = ctx.createLinearGradient(0, roll - band, 0, roll + band * 0.35);
         g.addColorStop(0, 'rgba(255,255,255,0)');
-        g.addColorStop(0.8, 'rgba(255,255,255,0.35)');
+        g.addColorStop(0.8, `rgba(255,255,255,${peak})`);
         g.addColorStop(1, 'rgba(255,255,255,0)');
         ctx.fillStyle = g;
         ctx.fillRect(0, roll - band, width, band * 1.35);
@@ -99,7 +114,7 @@ export default function TvStatic({ label = 'NO SIGNAL', sublabel = 'NO LIVE SITE
 
     const tick = (now) => {
       raf = requestAnimationFrame(tick);
-      if (now - last < FRAME_MS) return;
+      if (now - last < (reduced ? REDUCED_FRAME_MS : FRAME_MS)) return;
       last = now;
       paint(true);
     };
@@ -107,9 +122,7 @@ export default function TvStatic({ label = 'NO SIGNAL', sublabel = 'NO LIVE SITE
     resize();
     paint(false);
     let observer;
-    if (!reduced) {
-      raf = requestAnimationFrame(tick);
-    }
+    raf = requestAnimationFrame(tick);
     if (typeof ResizeObserver !== 'undefined' && canvas.parentElement) {
       observer = new ResizeObserver(() => {
         resize();
@@ -130,7 +143,7 @@ export default function TvStatic({ label = 'NO SIGNAL', sublabel = 'NO LIVE SITE
       className="tv-static absolute inset-0 overflow-hidden bg-black"
       role="img"
       aria-label={`${label}: ${sublabel}`}
-      data-tv-static={reduced ? 'still' : 'animated'}
+      data-tv-static={reduced ? 'slow' : 'animated'}
     >
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" aria-hidden="true" />
       <div className="tv-static-vignette absolute inset-0 pointer-events-none" />

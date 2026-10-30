@@ -113,7 +113,7 @@ export default function ProjectCard({ project, index }) {
               alt=""
               data-card-back-image=""
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover object-top opacity-25"
+              className={`absolute inset-0 h-full w-full object-cover opacity-25 ${String(project.backImage).includes('/original/') ? 'object-center' : 'object-top'}`}
             />
           ) : (
             <CardArt seed={project.repoName} color={neon} />

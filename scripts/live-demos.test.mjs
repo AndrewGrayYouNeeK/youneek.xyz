@@ -144,4 +144,18 @@ assert.equal(wrangler.includes('"pattern": "youneek.xyz"'), true);
 assert.equal(wrangler.includes('"pattern": "www.youneek.xyz"'), true);
 assert.equal(wrangler.includes('"account_id": "d74b0de637f4d9d9eb3efb9e13142784"'), true);
 
+const read = (path) => fs.readFileSync(new URL(path, import.meta.url), 'utf8');
+const card = read('../src/components/landing/ProjectCard.jsx');
+const tv = read('../src/components/landing/TvStatic.jsx');
+const css = read('../src/index.css');
+const landing = read('../src/pages/Landing.jsx');
+assert.match(card, /<TvStatic/, 'cards without a site must render TvStatic');
+assert.match(tv, /prefers-reduced-motion/, 'TvStatic must respect prefers-reduced-motion');
+assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+for (const piece of ['GlitchHero', 'MatrixRain', 'ReactiveGrid']) {
+  assert.match(landing, new RegExp(piece), `${piece} belongs to the cyberpunk landing page`);
+}
+assert.match(css, /Orbitron/);
+assert.equal(/base44/i.test(card + tv + landing), false);
+
 console.log(`portfolio tests passed (${REPOS.length} slots, ${LIVE_DEMOS.length} live)`);

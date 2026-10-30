@@ -1,62 +1,72 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import { REPOS } from '@/data/repos';
 
 const FILTERS = [
-  { id: 'all', label: 'All work' },
-  { id: 'live', label: 'Live sites' },
+  { id: 'all', label: 'ALL WORK' },
+  { id: 'live', label: 'LIVE SITES' },
+  { id: 'offline', label: 'NO SIGNAL' },
 ];
 
 export default function ProjectGrid() {
+  const gridRef = useRef(null);
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('all');
   const liveCount = REPOS.filter((repo) => repo.sites.length > 0).length;
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    return REPOS.filter((repo) => {
+    return REPOS.map((repo, index) => ({ repo, index })).filter(({ repo }) => {
       if (filter === 'live' && repo.sites.length === 0) return false;
+      if (filter === 'offline' && repo.sites.length > 0) return false;
       if (!needle) return true;
-      const haystack = [repo.title, repo.description, repo.repoName, repo.language]
+      return [repo.title, repo.description, repo.repoName, repo.language]
         .join(' ')
-        .toLowerCase();
-      return haystack.includes(needle);
+        .toLowerCase()
+        .includes(needle);
     });
   }, [filter, query]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    const items = gridRef.current?.querySelectorAll('.fade-in-up:not(.visible)');
+    items?.forEach((item, i) => {
+      item.style.animationDelay = `${Math.min(i, 12) * 0.08}s`;
+      observer.observe(item);
+    });
+    return () => observer.disconnect();
+  }, [visible]);
+
   return (
-    <main className="mx-auto max-w-6xl px-5 pb-8 pt-8 sm:px-8">
-      <header className="border-b border-white/10 pb-10">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <p className="font-mono text-xs uppercase tracking-[0.32em] text-[#7ee7ea]">Andrew Gray</p>
+    <section id="portfolio" className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mb-10 text-center">
+        <span className="font-mono text-xs uppercase tracking-[0.4em] text-primary/50">
+          {'<'} Real GitHub Work {'/>'}
+        </span>
+        <p className="mx-auto mt-4 max-w-2xl font-mono text-sm text-muted-foreground">
+          {REPOS.length} public repos from{' '}
           <a
             href="https://github.com/AndrewGrayYouNeeK"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-[#c5d6d6] underline-offset-4 hover:text-white hover:underline"
+            className="text-primary hover:underline"
           >
-            github.com/AndrewGrayYouNeeK
+            @AndrewGrayYouNeeK
           </a>
-        </div>
-        <h1 className="mt-6 font-heading text-5xl leading-none text-white sm:text-7xl">YouNeeK</h1>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#c5d6d6] sm:text-lg">
-          Public repositories, each with its own slot. Visit site shows up only when that
-          URL answered as a live site.
+          , {liveCount} with a checked live site. The rest show static until they have one.
         </p>
-        <dl className="mt-8 flex gap-10">
-          <div>
-            <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#6f8d8f]">Repositories</dt>
-            <dd className="mt-1 font-heading text-3xl text-white">{REPOS.length}</dd>
-          </div>
-          <div>
-            <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#6f8d8f]">Live sites</dt>
-            <dd className="mt-1 font-heading text-3xl text-white">{liveCount}</dd>
-          </div>
-        </dl>
-      </header>
+        <div className="mx-auto mt-4 h-px w-32 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      </div>
 
-      <div className="sticky top-0 z-10 -mx-5 flex flex-col gap-3 bg-[#07080c]/90 px-5 py-4 backdrop-blur sm:-mx-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <div className="flex gap-2" role="tablist" aria-label="Filter projects">
+      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
           {FILTERS.map((item) => {
             const selected = filter === item.id;
             return (
@@ -66,8 +76,10 @@ export default function ProjectGrid() {
                 role="tab"
                 aria-selected={selected}
                 onClick={() => setFilter(item.id)}
-                className={`rounded-full px-3 py-1.5 font-mono text-xs ${
-                  selected ? 'bg-white text-[#072022]' : 'border border-white/15 text-[#c5d6d6]'
+                className={`rounded border px-3 py-1.5 font-mono text-xs tracking-widest transition-all ${
+                  selected
+                    ? 'border-primary bg-primary/10 text-primary shadow-[0_0_15px_hsl(180,100%,50%,0.3)]'
+                    : 'border-border/50 text-muted-foreground hover:border-primary/50'
                 }`}
               >
                 {item.label}
@@ -80,21 +92,23 @@ export default function ProjectGrid() {
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search projects"
-            className="w-full rounded-full border border-white/15 bg-transparent px-4 py-2 font-mono text-sm text-white outline-none placeholder:text-[#6f8d8f] focus:border-[#7ee7ea]"
+            placeholder="> search projects_"
+            className="w-full rounded border border-border/50 bg-background/60 px-4 py-2 font-mono text-sm text-foreground outline-none placeholder:text-muted-foreground/60 focus:border-primary focus:shadow-[0_0_15px_hsl(180,100%,50%,0.25)]"
           />
         </label>
       </div>
 
       {visible.length === 0 ? (
-        <p className="py-16 text-center font-mono text-sm text-[#8fb4b6]">No projects match that search.</p>
+        <p className="py-16 text-center font-mono text-sm text-muted-foreground">No projects match that search.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {visible.map((project) => (
-            <ProjectCard key={project.repoName} project={project} />
+        <div ref={gridRef} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map(({ repo, index }) => (
+            <div key={repo.repoName} className="fade-in-up">
+              <ProjectCard project={repo} index={index} />
+            </div>
           ))}
         </div>
       )}
-    </main>
+    </section>
   );
 }

@@ -26,6 +26,10 @@ npm run deploy
 
 That command builds the site, repairs the two hostnames, then runs `npx wrangler deploy`. The token needs Workers edit plus Zone DNS edit for `youneek.xyz`. Add the same token and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets to let the main-branch workflow deploy.
 
+## Look
+
+The page keeps the cyberpunk design: Orbitron and Share Tech Mono, neon cyan/magenta/green, glowing glitch heading, scanline overlay, matrix rain, reactive grid, and flip cards. A card with a checked live site shows neon art and a LIVE badge. A card without one shows animated analog TV static. With `prefers-reduced-motion` the static is one still frame and the other animation is switched off.
+
 ## Adding a site
 
 Edit `sites.config.json`. Under `repos`, add the GitHub repo name and a `sites` array of `https` URLs. The next build requests each URL and keeps the Visit site link only when the response is a live site.

@@ -68,8 +68,8 @@
       "sites": [
         "https://youneekproradar.com"
       ],
-      "image": "/projects/original/pro-radar-earlier.jpg",
-      "backImage": "/projects/original/pro-radar-earlier.jpg"
+      "image": "/projects/original/youneek-time-earlier.jpg",
+      "backImage": "/projects/original/youneek-time-earlier.jpg"
     },
     "Real-Neural-Forge": {
       "title": "Real Neural Forge",
@@ -115,8 +115,8 @@
     "youneek-pro-radar": {
       "title": "YouNeeK Pro Radar (earlier)",
       "description": "Earlier copy of Pro Radar: NEXRAD radar mosaics, NWS alert overlays, NOAA weather radio, and a shelter SMS button. The live site is YouNeeK Pro Radar.",
-      "backImage": "/projects/original/pro-radar-earlier.jpg",
-      "image": "/projects/original/pro-radar-earlier.jpg"
+      "backImage": "/projects/original/youneek-time-earlier.jpg",
+      "image": "/projects/original/youneek-time-earlier.jpg"
     },
     "youneek-pro-radarYNK222": {
       "title": "YouNeeK Pro Radar (YNK222)",

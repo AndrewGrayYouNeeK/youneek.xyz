@@ -117,8 +117,8 @@ export const REPOS = [
         "label": "youneekproradar.com"
       }
     ],
-    "image": "/projects/original/pro-radar-earlier.jpg",
-    "backImage": "/projects/original/pro-radar-earlier.jpg",
+    "image": "/projects/original/youneek-time-earlier.jpg",
+    "backImage": "/projects/original/youneek-time-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -269,8 +269,8 @@ export const REPOS = [
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radar",
     "sites": [],
-    "image": "/projects/original/pro-radar-earlier.jpg",
-    "backImage": "/projects/original/pro-radar-earlier.jpg",
+    "image": "/projects/original/youneek-time-earlier.jpg",
+    "backImage": "/projects/original/youneek-time-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },

@@ -183,24 +183,20 @@ export const REPOS = [
       {
         "url": "https://www.roll10000.com",
         "label": "www.roll10000.com"
+      },
+      {
+        "url": "https://roll10000.com",
+        "label": "roll10000.com"
+      },
+      {
+        "url": "https://online.roll10000.com",
+        "label": "online.roll10000.com"
       }
     ],
     "image": "/projects/roll10000-front.jpg",
     "backImage": "/projects/roll10000-back.jpg",
     "stars": 1,
     "updated": "2026-10-18"
-  },
-  {
-    "title": "Used Artifacts",
-    "repoName": "used-artifacts",
-    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
-    "language": "TypeScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-10-30"
   },
   {
     "title": "youneek.xyz",
@@ -212,6 +208,18 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
+    "updated": "2026-10-31"
+  },
+  {
+    "title": "Used Artifacts",
+    "repoName": "used-artifacts",
+    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
+    "language": "TypeScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
     "updated": "2026-10-30"
   },
   {

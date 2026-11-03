@@ -2,6 +2,23 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "Real Neural Forge",
+    "repoName": "Real-Neural-Forge",
+    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+    "language": "Python",
+    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "sites": [
+      {
+        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
+        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/original/neural-forge.jpg",
+    "backImage": "/projects/original/neural-forge.jpg",
+    "stars": 1,
+    "updated": "2026-11-01"
+  },
+  {
     "title": "YouNeeK CloudRipper",
     "repoName": "Cloudripper",
     "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
@@ -33,23 +50,6 @@ export const REPOS = [
     "image": "/projects/3i-atlas-front.jpg",
     "backImage": "/projects/3i-atlas-back.jpg",
     "stars": 0,
-    "updated": "2026-10-29"
-  },
-  {
-    "title": "Real Neural Forge",
-    "repoName": "Real-Neural-Forge",
-    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
-    "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
-    "sites": [
-      {
-        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
-        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
-      }
-    ],
-    "image": "/projects/original/neural-forge.jpg",
-    "backImage": "/projects/original/neural-forge.jpg",
-    "stars": 1,
     "updated": "2026-10-29"
   },
   {
@@ -117,8 +117,8 @@ export const REPOS = [
         "label": "youneekproradar.com"
       }
     ],
-    "image": "/projects/original/pro-radar-earlier.jpg",
-    "backImage": "/projects/original/pro-radar-earlier.jpg",
+    "image": "/projects/original/youneek-time-earlier.jpg",
+    "backImage": "/projects/original/youneek-time-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -183,24 +183,20 @@ export const REPOS = [
       {
         "url": "https://www.roll10000.com",
         "label": "www.roll10000.com"
+      },
+      {
+        "url": "https://roll10000.com",
+        "label": "roll10000.com"
+      },
+      {
+        "url": "https://online.roll10000.com",
+        "label": "online.roll10000.com"
       }
     ],
     "image": "/projects/roll10000-front.jpg",
     "backImage": "/projects/roll10000-back.jpg",
     "stars": 1,
     "updated": "2026-10-18"
-  },
-  {
-    "title": "Used Artifacts",
-    "repoName": "used-artifacts",
-    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
-    "language": "TypeScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-10-30"
   },
   {
     "title": "youneek.xyz",
@@ -212,6 +208,18 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
+    "updated": "2026-11-02"
+  },
+  {
+    "title": "Used Artifacts",
+    "repoName": "used-artifacts",
+    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
+    "language": "TypeScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
     "updated": "2026-10-30"
   },
   {
@@ -269,8 +277,8 @@ export const REPOS = [
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radar",
     "sites": [],
-    "image": "/projects/original/pro-radar-earlier.jpg",
-    "backImage": "/projects/original/pro-radar-earlier.jpg",
+    "image": "/projects/original/youneek-time-earlier.jpg",
+    "backImage": "/projects/original/youneek-time-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },

@@ -188,7 +188,7 @@ for (const [name, file] of [
   ['Real-Neural-Forge', 'neural-forge'],
   ['CryptoVault', 'cryptovault'],
   ['Death-terminal-', 'death-terminal'],
-  ['youneek-pro-radar', 'pro-radar-earlier'],
+  ['youneek-pro-radar', 'youneek-time-earlier'],
   ['youneek-time', 'youneek-time-earlier'],
   ['youneek', 'youneek-care'],
 ]) {
@@ -197,8 +197,10 @@ for (const [name, file] of [
 assert.equal(byName.Cloudripper.title, 'YouNeeK CloudRipper');
 assert.equal(byName.Cloudripper.image, '/projects/cloudripper-front.jpg', 'CloudRipper card uses the YouNeeK CloudRipper logo');
 assert.equal(byName.Cloudripper.backImage, '/projects/cloudripper-back.jpg');
-assert.equal(byName['youneekproradarBABY'].image, '/projects/original/pro-radar-earlier.jpg', 'Pro Radar card uses the repo social image');
-assert.equal(byName['youneekproradarBABY'].backImage, '/projects/original/pro-radar-earlier.jpg');
+for (const name of ['youneekproradarBABY', 'youneek-pro-radar']) {
+  assert.equal(byName[name].image, '/projects/original/youneek-time-earlier.jpg', `${name} uses the neon YOUNEEK sign`);
+  assert.equal(byName[name].backImage, '/projects/original/youneek-time-earlier.jpg');
+}
 assert.match(tv, /prefers-reduced-motion/, 'TvStatic must respect prefers-reduced-motion');
 assert.match(tv, /requestAnimationFrame/, 'TvStatic must animate with rAF');
 assert.match(tv, /REDUCED_FRAME_MS/, 'reduced motion must be a slower animation, not a frozen frame');

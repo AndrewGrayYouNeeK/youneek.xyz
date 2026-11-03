@@ -117,8 +117,8 @@ export const REPOS = [
         "label": "youneekproradar.com"
       }
     ],
-    "image": "/projects/original/youneek-time-earlier.jpg",
-    "backImage": "/projects/original/youneek-time-earlier.jpg",
+    "image": "/projects/original/pro-radar-neon.webp",
+    "backImage": "/projects/original/pro-radar-neon.webp",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -183,14 +183,6 @@ export const REPOS = [
       {
         "url": "https://www.roll10000.com",
         "label": "www.roll10000.com"
-      },
-      {
-        "url": "https://roll10000.com",
-        "label": "roll10000.com"
-      },
-      {
-        "url": "https://online.roll10000.com",
-        "label": "online.roll10000.com"
       }
     ],
     "image": "/projects/roll10000-front.jpg",
@@ -208,7 +200,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-02"
+    "updated": "2026-11-03"
   },
   {
     "title": "Used Artifacts",
@@ -277,8 +269,8 @@ export const REPOS = [
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radar",
     "sites": [],
-    "image": "/projects/original/youneek-time-earlier.jpg",
-    "backImage": "/projects/original/youneek-time-earlier.jpg",
+    "image": "/projects/original/pro-radar-neon.webp",
+    "backImage": "/projects/original/pro-radar-neon.webp",
     "stars": 0,
     "updated": "2026-10-29"
   },

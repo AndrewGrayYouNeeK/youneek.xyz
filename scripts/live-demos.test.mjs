@@ -189,15 +189,14 @@ for (const [name, file] of [
   ['CryptoVault', 'cryptovault'],
   ['Cloudripper', 'cloudripper'],
   ['Death-terminal-', 'death-terminal'],
-  ['youneek-pro-radar', 'youneek-time-earlier'],
   ['youneek-time', 'youneek-time-earlier'],
   ['youneek', 'youneek-care'],
 ]) {
   assert.equal(byName[name].image, `/projects/original/${file}.jpg`, `${name} keeps its original picture`);
 }
 for (const name of ['youneekproradarBABY', 'youneek-pro-radar']) {
-  assert.equal(byName[name].image, '/projects/original/youneek-time-earlier.jpg', `${name} uses the neon YOUNEEK sign`);
-  assert.equal(byName[name].backImage, '/projects/original/youneek-time-earlier.jpg');
+  assert.equal(byName[name].image, '/projects/original/pro-radar-neon.webp', `${name} uses the landing page neon sign`);
+  assert.equal(byName[name].backImage, '/projects/original/pro-radar-neon.webp');
 }
 assert.match(tv, /prefers-reduced-motion/, 'TvStatic must respect prefers-reduced-motion');
 assert.match(tv, /requestAnimationFrame/, 'TvStatic must animate with rAF');

@@ -17,14 +17,17 @@ export function currentOrigin() {
   return PRODUCTION_ORIGIN;
 }
 
-const BLOCKED_DEMO_HOSTS = new Set(['death-terminal-green.vercel.app']);
+const BLOCKED_DEMO_HOSTS = new Set([
+  'death-terminal-green.vercel.app',
+  'cloudripper.vercel.app',
+]);
 
 export function isBlockedDemoUrl(url) {
   if (!url || typeof url !== 'string') return false;
   try {
     return BLOCKED_DEMO_HOSTS.has(new URL(url).hostname);
   } catch {
-    return url.includes('death-terminal-green.vercel.app');
+    return [...BLOCKED_DEMO_HOSTS].some((host) => url.includes(host));
   }
 }
 

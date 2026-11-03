@@ -144,13 +144,13 @@
       "description": "A 1947 stealth game. You are a crashed mind that inhabits machines such as crates, radios, and a jeep battery, dodging flashlight cones to transmit a signal before dawn."
     },
     "Cloudripper": {
-      "title": "Cloudripper",
+      "title": "YouNeeK CloudRipper",
       "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
       "sites": [
         "https://cloudripper.youneek.dev"
       ],
-      "image": "/projects/original/cloudripper.jpg",
-      "backImage": "/projects/original/cloudripper.jpg"
+      "image": "/projects/cloudripper-front.jpg",
+      "backImage": "/projects/cloudripper-back.jpg"
     },
     "Calculator-": {
       "title": "Calculator",

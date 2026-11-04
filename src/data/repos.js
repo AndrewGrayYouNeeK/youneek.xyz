@@ -2,6 +2,23 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "YouNeeK Time",
+    "repoName": "YouNeeKTimeTheFinalBoss",
+    "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/YouNeeKTimeTheFinalBoss",
+    "sites": [
+      {
+        "url": "https://youneektime.com",
+        "label": "youneektime.com"
+      }
+    ],
+    "image": "/projects/youneek-time-front.jpg",
+    "backImage": "/projects/youneek-time-back.jpg",
+    "stars": 1,
+    "updated": "2026-11-03"
+  },
+  {
     "title": "Real Neural Forge",
     "repoName": "Real-Neural-Forge",
     "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
@@ -140,23 +157,6 @@ export const REPOS = [
     "updated": "2026-10-29"
   },
   {
-    "title": "YouNeeK Time",
-    "repoName": "YouNeeKTimeTheFinalBoss",
-    "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/YouNeeKTimeTheFinalBoss",
-    "sites": [
-      {
-        "url": "https://youneektime.com",
-        "label": "youneektime.com"
-      }
-    ],
-    "image": "/projects/youneek-time-front.jpg",
-    "backImage": "/projects/youneek-time-back.jpg",
-    "stars": 1,
-    "updated": "2026-10-29"
-  },
-  {
     "title": "VibeSDK Production",
     "repoName": "vibesdk-production2",
     "description": "Production copy of Cloudflare VibeSDK, an open-source platform where an AI agent builds and deploys full-stack apps on Cloudflare. usedartifacts.com currently shows a coming-soon page.",
@@ -183,6 +183,14 @@ export const REPOS = [
       {
         "url": "https://www.roll10000.com",
         "label": "www.roll10000.com"
+      },
+      {
+        "url": "https://roll10000.com",
+        "label": "roll10000.com"
+      },
+      {
+        "url": "https://online.roll10000.com",
+        "label": "online.roll10000.com"
       }
     ],
     "image": "/projects/roll10000-front.jpg",

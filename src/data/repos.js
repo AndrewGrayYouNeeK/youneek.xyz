@@ -108,7 +108,7 @@ export const REPOS = [
   {
     "title": "YouNeeK Death Terminal",
     "repoName": "Death-terminal-",
-    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, built-in SSH with tunnels, and Lua config. The card links the landing page, which has the Windows download.",
+    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
     "language": "Zig",
     "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
     "sites": [

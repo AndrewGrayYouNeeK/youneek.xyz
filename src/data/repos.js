@@ -183,14 +183,6 @@ export const REPOS = [
       {
         "url": "https://www.roll10000.com",
         "label": "www.roll10000.com"
-      },
-      {
-        "url": "https://roll10000.com",
-        "label": "roll10000.com"
-      },
-      {
-        "url": "https://online.roll10000.com",
-        "label": "online.roll10000.com"
       }
     ],
     "image": "/projects/roll10000-front.jpg",
@@ -208,7 +200,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-03"
+    "updated": "2026-11-04"
   },
   {
     "title": "Used Artifacts",

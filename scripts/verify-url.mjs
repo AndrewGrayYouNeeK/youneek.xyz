@@ -72,14 +72,17 @@ export async function checkUrl(url) {
     const body = new TextDecoder().decode(
       chunks.length === 1 ? chunks[0] : concatBytes(chunks)
     );
+    const challenged =
+      response.headers.get('cf-mitigated') === 'challenge' ||
+      body.toLowerCase().includes('<title>just a moment...</title>');
     const verdict = classifyResponse({
       status: response.status,
       finalUrl: response.url,
       body,
       contentType: response.headers.get('content-type') || '',
-      challenged: response.headers.get('cf-mitigated') === 'challenge',
+      challenged,
     });
-    return { url, verdict, status: response.status, finalUrl: response.url };
+    return { url, verdict, challenged, status: response.status, finalUrl: response.url };
   } catch (error) {
     return { url, verdict: 'inconclusive', error: error instanceof Error ? error.message : String(error) };
   } finally {

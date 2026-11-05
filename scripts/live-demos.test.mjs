@@ -181,6 +181,13 @@ const landing = read('../src/pages/Landing.jsx');
 assert.match(card, /<TvStatic/, 'cards without a site must render TvStatic');
 assert.match(card, /data-card-back-image/, 'card backs render a picture');
 assert.match(card, /data-card-front-image/, 'card fronts render their own picture');
+assert.match(card, /is-flipped/, 'cards flip with an is-flipped class for tap and keyboard');
+assert.match(card, /aria-pressed/, 'flipped state is exposed to assistive tech');
+assert.match(card, /onKeyDown/, 'cards flip with Enter or Space');
+assert.match(card, /LIVE SITE/, 'back face has a Live site button label');
+assert.match(card, /GITHUB/, 'back face has a GitHub button');
+assert.equal(/● LIVE/.test(card), false, 'front face has no LIVE badge');
+assert.equal(/padStart\(3, '0'\)/.test(card), false, 'front face has no numbered tag');
 for (const [name, file] of [
   ['Project-Alpha', 'project-alpha'],
   ['Real-Neural-Forge', 'neural-forge'],

@@ -202,8 +202,8 @@ assert.equal(byName['3i-atlas-the-gameYNK'].image, '/projects/original/3i-atlas-
 assert.equal(byName['3i-atlas-the-gameYNK'].backImage, '/projects/original/3i-atlas-logo-card.jpg');
 assert.equal(byName['10000TheFinalBoss'].image, '/projects/original/roll10000-logo-card.jpg', '10,000 card uses the roll10000.com logo');
 assert.equal(byName['10000TheFinalBoss'].backImage, '/projects/original/roll10000-logo-card.jpg');
-assert.equal(byName['used-artifacts'].image, '/projects/original/used-artifacts-diamond-card.jpg', 'Used Artifacts uses the coming-soon diamond mark');
-assert.equal(byName['used-artifacts'].backImage, '/projects/original/used-artifacts-diamond-card.jpg');
+assert.equal(byName['used-artifacts'].image, '/projects/original/used-artifacts-logo-card.jpg', 'Used Artifacts uses the official logo');
+assert.equal(byName['used-artifacts'].backImage, '/projects/original/used-artifacts-logo-card.jpg');
 assert.deepEqual(siteUrls('used-artifacts'), ['https://usedartifacts.com']);
 assert.match(byName['used-artifacts'].description, /coming soon/i);
 assert.equal(byName['vibesdk-production2'], undefined, 'VibeSDK Production card is removed');

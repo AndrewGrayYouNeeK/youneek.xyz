@@ -64,8 +64,8 @@ export const REPOS = [
         "label": "usedartifacts.com"
       }
     ],
-    "image": "/projects/original/used-artifacts-diamond-card.jpg",
-    "backImage": "/projects/original/used-artifacts-diamond-card.jpg",
+    "image": "/projects/original/used-artifacts-logo-card.jpg",
+    "backImage": "/projects/original/used-artifacts-logo-card.jpg",
     "stars": 0,
     "updated": "2026-10-30"
   },

@@ -19,31 +19,50 @@ function withAlpha(color, alpha) {
 }
 
 export default function ProjectCard({ project, index }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [flipped, setFlipped] = useState(false);
   const accent = project.accent || NEON_ORDER[index % NEON_ORDER.length];
   const neon = NEON_COLORS[accent] || NEON_COLORS.cyan;
   const sites = project.sites || [];
   const primary = sites[0];
   const extra = sites.slice(1);
   const live = Boolean(primary);
-  const tag = `// ${String(index + 1).padStart(3, '0')}`;
+
+  const toggle = () => setFlipped((value) => !value);
+
+  const onCardActivate = (event) => {
+    // Links and other controls on the back must stay clickable without flipping back.
+    if (event.target.closest('a,button,input,textarea,select,label')) return;
+    toggle();
+  };
+
+  const onKeyDown = (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    if (event.target.closest('a,button,input,textarea,select,label')) return;
+    event.preventDefault();
+    toggle();
+  };
 
   return (
     <div
-      className="card-flip-trigger group perspective-[1000px] h-72 sm:h-80"
+      className={`card-flip-trigger group perspective-[1000px] h-72 sm:h-80 ${flipped ? 'is-flipped' : ''}`}
       data-live={live ? 'true' : 'false'}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      data-flipped={flipped ? 'true' : 'false'}
+      role="button"
+      tabIndex={0}
+      aria-pressed={flipped}
+      aria-label={`${project.title}. ${flipped ? 'Showing details. Press Enter or Space to flip back.' : 'Press Enter or Space, or tap, to flip for details.'}`}
+      onClick={onCardActivate}
+      onKeyDown={onKeyDown}
     >
       <div className="card-flip-inner relative h-full w-full">
-        {/* Front: the card's own picture; TV static only when there is no picture */}
+        {/* Front: only the picture (or TV static) and the project name */}
         <div
           className="card-front absolute inset-0 overflow-hidden rounded-lg border border-border/50 transition-shadow duration-300"
           style={{
-            boxShadow: isHovered
+            boxShadow: flipped
               ? `0 0 30px ${withAlpha(neon, 0.4)}, inset 0 0 15px ${withAlpha(neon, 0.1)}`
               : '0 0 0px transparent',
-            borderColor: isHovered ? withAlpha(neon, 0.6) : undefined,
+            borderColor: flipped ? withAlpha(neon, 0.6) : undefined,
           }}
         >
           {project.image ? (
@@ -70,37 +89,28 @@ export default function ProjectCard({ project, index }) {
                     'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)',
                 }}
               />
-              {live ? (
-                <span
-                  className="absolute right-3 top-3 rounded border px-2 py-0.5 font-mono text-[10px] tracking-widest"
-                  style={{ color: NEON_COLORS.green, borderColor: withAlpha(NEON_COLORS.green, 0.5) }}
-                >
-                  ● LIVE
-                </span>
-              ) : null}
             </>
           ) : (
             <TvStatic />
           )}
           <div
-            className={`absolute inset-0 bg-gradient-to-t ${
-              project.image ? 'from-background via-background/60' : 'from-background/95 via-background/30'
+            className={`pointer-events-none absolute inset-0 bg-gradient-to-t ${
+              project.image ? 'from-black/85 via-black/35' : 'from-black/90 via-black/40'
             } to-transparent`}
           />
-          <div className={`absolute bottom-0 left-0 right-0 p-5 ${project.image ? '' : 'bg-black/75'}`}>
-            <span className="mb-2 block font-mono text-xs tracking-widest" style={{ color: neon }}>
-              {tag}
-            </span>
-            <h3 className="font-heading text-xl font-bold leading-tight text-foreground sm:text-2xl">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
+            <h3
+              className="font-heading text-xl font-bold leading-tight tracking-wide text-white drop-shadow-[0_0_12px_rgba(0,0,0,0.85)] sm:text-2xl"
+              style={{ textShadow: `0 0 18px ${withAlpha(neon, 0.55)}` }}
+            >
               {project.title}
             </h3>
-            <p className="mt-1 font-mono text-xs text-muted-foreground">{project.language}</p>
           </div>
         </div>
 
-        {/* Back */}
+        {/* Back: name, description, details, Live site / GitHub */}
         <div
-          className="card-back absolute inset-0 flex flex-col justify-between overflow-hidden rounded-lg border p-6"
+          className="card-back absolute inset-0 flex flex-col justify-between overflow-hidden rounded-lg border p-5 sm:p-6"
           style={{
             backgroundColor: 'hsl(240 10% 6%)',
             borderColor: withAlpha(neon, 0.4),
@@ -119,22 +129,24 @@ export default function ProjectCard({ project, index }) {
             <CardArt seed={project.repoName} color={neon} />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/60" />
-          <div className="relative">
-            <h3 className="card-back-title mb-4 font-heading text-lg font-bold leading-tight" style={{ color: neon }}>
+          <div className="relative min-h-0 flex-1 overflow-y-auto">
+            <h3 className="card-back-title mb-3 font-heading text-lg font-bold leading-tight" style={{ color: neon }}>
               {project.title}
             </h3>
-            <p className="mb-4 line-clamp-5 font-mono text-sm text-muted-foreground">{project.description}</p>
+            <p className="mb-3 font-mono text-sm text-muted-foreground">{project.description}</p>
             <div className="flex flex-wrap gap-2">
-              <span
-                className="rounded border px-2 py-1 font-mono text-xs"
-                style={{
-                  borderColor: withAlpha(neon, 0.3),
-                  color: neon,
-                  backgroundColor: withAlpha(neon, 0.08),
-                }}
-              >
-                {project.language}
-              </span>
+              {project.language ? (
+                <span
+                  className="rounded border px-2 py-1 font-mono text-xs"
+                  style={{
+                    borderColor: withAlpha(neon, 0.3),
+                    color: neon,
+                    backgroundColor: withAlpha(neon, 0.08),
+                  }}
+                >
+                  {project.language}
+                </span>
+              ) : null}
               {project.updated ? (
                 <span className="rounded border border-border/50 px-2 py-1 font-mono text-xs text-muted-foreground">
                   updated {project.updated}
@@ -150,6 +162,7 @@ export default function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 className="project-card-link hover-glitch inline-flex items-center gap-2 font-mono text-sm transition-colors"
                 style={{ color: neon }}
+                onClick={(event) => event.stopPropagation()}
               >
                 GITHUB →
               </a>
@@ -160,8 +173,11 @@ export default function ProjectCard({ project, index }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card-link hover-glitch inline-flex items-center gap-2 font-mono text-sm text-accent transition-colors"
+                onClick={(event) => event.stopPropagation()}
               >
-                {primary.label && !primary.label.includes('.') ? `${primary.label.toUpperCase()} →` : 'VISIT SITE →'}
+                {primary.label && !primary.label.includes('.')
+                  ? `${primary.label.toUpperCase()} →`
+                  : 'LIVE SITE →'}
               </a>
             ) : (
               <span className="font-mono text-xs tracking-widest text-muted-foreground/60">NO LIVE SITE</span>
@@ -173,6 +189,7 @@ export default function ProjectCard({ project, index }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card-link hover-glitch inline-flex items-center gap-2 font-mono text-xs text-accent/80 transition-colors"
+                onClick={(event) => event.stopPropagation()}
               >
                 {site.label || hostLabel(site.url)} →
               </a>

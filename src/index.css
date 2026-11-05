@@ -197,14 +197,24 @@
   transform-style: preserve-3d;
 }
 
+/* Desktop hover flips; touch / click / keyboard use .is-flipped */
+.card-flip-trigger.is-flipped .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .card-flip-trigger:hover .card-flip-inner {
     transform: rotateY(180deg);
   }
+}
 
-  .card-back {
-    overflow-y: auto;
-  }
+.card-back {
+  overflow-y: auto;
+}
+
+.card-flip-trigger:focus-visible {
+  outline: 2px solid hsl(180 100% 50%);
+  outline-offset: 3px;
 }
 
 .project-card-link:focus-visible {
@@ -234,50 +244,10 @@
   animation: glitch1 0.3s linear;
 }
 
-/* Phones have no hover. Show the art and the links together so GitHub and live demos are tappable. */
+/* Phones flip on tap via .is-flipped; keep a fixed card height so the 3D flip works. */
 @media (hover: none), (pointer: coarse) {
   .card-flip-trigger {
-    height: auto;
-    perspective: none;
-  }
-
-  .card-flip-inner,
-  .card-flip-trigger:hover .card-flip-inner {
-    transform: none;
-    transform-style: flat;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
-
-  .card-front,
-  .card-back {
-    position: relative;
-    inset: auto;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    backface-visibility: visible;
-    -webkit-backface-visibility: visible;
-    height: auto;
-  }
-
-  .card-front {
-    min-height: 14rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-width: 0;
-  }
-
-  .card-back {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
-  .card-back-title {
-    display: none;
+    height: 18rem;
   }
 
   .card-actions {

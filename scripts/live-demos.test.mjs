@@ -101,16 +101,17 @@ assert.deepEqual(siteUrls('the-architects'), [
 assert.equal(byName['youneek-calendar'].extra, true);
 assert.equal(byName['the-architects'].extra, true);
 assert.deepEqual(siteUrls('3i-atlas-the-gameYNK'), ['https://3iatlasgame.xyz']);
-assert.deepEqual(siteUrls('vibesdk-production2'), ['https://usedartifacts.com']);
 assert.deepEqual(siteUrls('YouNeeKTimeTheFinalBoss'), ['https://youneektime.com']);
 assert.deepEqual(siteUrls('youneekproradarBABY'), ['https://youneekproradar.com']);
 assert.deepEqual(siteUrls('Real-Neural-Forge'), [
   'https://real-neural-forge-api.youneekartifacts.workers.dev',
 ]);
-assert.deepEqual(siteUrls('used-artifacts'), []);
 assert.deepEqual(siteUrls('lilly-s-appYNK222'), []);
 assert.deepEqual(siteUrls('youneek'), []);
-assert.deepEqual(siteUrls('youneek-time'), []);
+assert.deepEqual(siteUrls('youneek-time'), [
+  'https://apps.apple.com/us/app/youneek-time/id6758902769',
+]);
+assert.equal(byName['youneek-time'].sites[0].label, 'App Store');
 assert.deepEqual(siteUrls('youneek-pro-radar'), []);
 assert.deepEqual(siteUrls('Death-terminal-'), ['https://terminal.youneek.dev']);
 assert.equal(byName['Death-terminal-'].sites[0].label, 'terminal.youneek.dev');
@@ -193,10 +194,23 @@ for (const [name, file] of [
   ['Real-Neural-Forge', 'neural-forge'],
   ['CryptoVault', 'cryptovault'],
   ['Death-terminal-', 'death-terminal'],
-  ['youneek-time', 'youneek-time-earlier'],
   ['youneek', 'youneek-care'],
 ]) {
   assert.equal(byName[name].image, `/projects/original/${file}.jpg`, `${name} keeps its original picture`);
+}
+assert.equal(byName['3i-atlas-the-gameYNK'].image, '/projects/original/3i-atlas-logo-card.jpg', '3i-Atlas card uses the site logo, not a page screenshot');
+assert.equal(byName['3i-atlas-the-gameYNK'].backImage, '/projects/original/3i-atlas-logo-card.jpg');
+assert.equal(byName['10000TheFinalBoss'].image, '/projects/original/roll10000-logo-card.jpg', '10,000 card uses the roll10000.com logo');
+assert.equal(byName['10000TheFinalBoss'].backImage, '/projects/original/roll10000-logo-card.jpg');
+assert.equal(byName['used-artifacts'].image, '/projects/original/used-artifacts-diamond-card.jpg', 'Used Artifacts uses the coming-soon diamond mark');
+assert.equal(byName['used-artifacts'].backImage, '/projects/original/used-artifacts-diamond-card.jpg');
+assert.deepEqual(siteUrls('used-artifacts'), ['https://usedartifacts.com']);
+assert.match(byName['used-artifacts'].description, /coming soon/i);
+assert.equal(byName['vibesdk-production2'], undefined, 'VibeSDK Production card is removed');
+assert.equal(byName['vibesdk-production'], undefined, 'earlier VibeSDK Production card is removed');
+for (const name of ['YouNeeKTimeTheFinalBoss', 'youneek-time']) {
+  assert.equal(byName[name].image, '/projects/original/youneek-time-watch.jpg', `${name} uses the watch logo`);
+  assert.equal(byName[name].backImage, '/projects/original/youneek-time-watch.jpg');
 }
 assert.equal(byName.Cloudripper.title, 'YouNeeK CloudRipper');
 assert.equal(byName.Cloudripper.image, '/projects/cloudripper-front.jpg', 'CloudRipper card uses the YouNeeK CloudRipper logo');

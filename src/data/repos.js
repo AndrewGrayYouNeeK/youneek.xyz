@@ -30,8 +30,8 @@ export const REPOS = [
         "label": "youneektime.com"
       }
     ],
-    "image": "/projects/youneek-time-front.jpg",
-    "backImage": "/projects/youneek-time-back.jpg",
+    "image": "/projects/original/youneek-time-watch.jpg",
+    "backImage": "/projects/original/youneek-time-watch.jpg",
     "stars": 1,
     "updated": "2026-11-05"
   },
@@ -53,6 +53,23 @@ export const REPOS = [
     "updated": "2026-11-01"
   },
   {
+    "title": "Used Artifacts",
+    "repoName": "used-artifacts",
+    "description": "A marketplace for buying and selling used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and the Beta Founder badge program. The live site is coming soon.",
+    "language": "TypeScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
+    "sites": [
+      {
+        "url": "https://usedartifacts.com",
+        "label": "usedartifacts.com"
+      }
+    ],
+    "image": "/projects/original/used-artifacts-diamond-card.jpg",
+    "backImage": "/projects/original/used-artifacts-diamond-card.jpg",
+    "stars": 0,
+    "updated": "2026-10-30"
+  },
+  {
     "title": "3i-Atlas",
     "repoName": "3i-atlas-the-gameYNK",
     "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
@@ -64,8 +81,8 @@ export const REPOS = [
         "label": "3iatlasgame.xyz"
       }
     ],
-    "image": "/projects/3i-atlas-front.jpg",
-    "backImage": "/projects/3i-atlas-back.jpg",
+    "image": "/projects/original/3i-atlas-logo-card.jpg",
+    "backImage": "/projects/original/3i-atlas-logo-card.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -157,21 +174,21 @@ export const REPOS = [
     "updated": "2026-10-29"
   },
   {
-    "title": "VibeSDK Production",
-    "repoName": "vibesdk-production2",
-    "description": "Production copy of Cloudflare VibeSDK, an open-source platform where an AI agent builds and deploys full-stack apps on Cloudflare. usedartifacts.com currently shows a coming-soon page.",
-    "language": "TypeScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/vibesdk-production2",
+    "title": "YouNeeK Time (earlier)",
+    "repoName": "youneek-time",
+    "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-time",
     "sites": [
       {
-        "url": "https://usedartifacts.com",
-        "label": "usedartifacts.com"
+        "url": "https://apps.apple.com/us/app/youneek-time/id6758902769",
+        "label": "App Store"
       }
     ],
-    "image": "/projects/used-artifacts-front.jpg",
-    "backImage": "/projects/used-artifacts-back.jpg",
+    "image": "/projects/original/youneek-time-watch.jpg",
+    "backImage": "/projects/original/youneek-time-watch.jpg",
     "stars": 0,
-    "updated": "2026-10-19"
+    "updated": "2026-10-29"
   },
   {
     "title": "10,000 The Final Boss",
@@ -185,8 +202,8 @@ export const REPOS = [
         "label": "www.roll10000.com"
       }
     ],
-    "image": "/projects/roll10000-front.jpg",
-    "backImage": "/projects/roll10000-back.jpg",
+    "image": "/projects/original/roll10000-logo-card.jpg",
+    "backImage": "/projects/original/roll10000-logo-card.jpg",
     "stars": 1,
     "updated": "2026-10-18"
   },
@@ -201,18 +218,6 @@ export const REPOS = [
     "backImage": "",
     "stars": 1,
     "updated": "2026-11-05"
-  },
-  {
-    "title": "Used Artifacts",
-    "repoName": "used-artifacts",
-    "description": "Planned marketplace for used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and a Beta Founder badge program. Not deployed yet.",
-    "language": "TypeScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/used-artifacts",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-10-30"
   },
   {
     "title": "Air Traffic Controller",
@@ -271,18 +276,6 @@ export const REPOS = [
     "sites": [],
     "image": "/projects/original/pro-radar-neon.webp",
     "backImage": "/projects/original/pro-radar-neon.webp",
-    "stars": 0,
-    "updated": "2026-10-29"
-  },
-  {
-    "title": "YouNeeK Time (earlier)",
-    "repoName": "youneek-time",
-    "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-time",
-    "sites": [],
-    "image": "/projects/original/youneek-time-earlier.jpg",
-    "backImage": "/projects/original/youneek-time-earlier.jpg",
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -369,18 +362,6 @@ export const REPOS = [
     "backImage": "",
     "stars": 0,
     "updated": "2026-08-20"
-  },
-  {
-    "title": "VibeSDK Production (earlier)",
-    "repoName": "vibesdk-production",
-    "description": "Earlier VibeSDK production Worker (Cloudflare's agentic app builder). The public hostname is on vibesdk-production2.",
-    "language": "TypeScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/vibesdk-production",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-08-19"
   },
   {
     "title": "Apex Control",

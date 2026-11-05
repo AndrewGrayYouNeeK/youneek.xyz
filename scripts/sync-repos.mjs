@@ -16,6 +16,14 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const owner = config.owner;
 const skipRepos = new Set(config.skipRepos || []);
 const denyHosts = new Set((config.denyHosts || []).map((host) => host.toLowerCase()));
+// URLs linked by the last committed sync. A Cloudflare bot challenge hides
+// whether the app behind it is up (CI runners get challenged everywhere), so a
+// challenged URL keeps its previous verdict instead of being marked live.
+const previousUrls = new Set(
+  fs.existsSync(target)
+    ? [...fs.readFileSync(target, 'utf8').matchAll(/"url":\s*"([^"]+)"/g)].map((m) => m[1])
+    : []
+);
 const HOSTED_APP_DESCRIPTION_PREFIX = /^Base44 App:\s*/i;
 
 function titleize(name) {
@@ -150,8 +158,14 @@ async function verifiedSites(urls) {
     if (result.verdict === 'inconclusive') {
       result = await checkUrl(candidate);
     }
-    console.log(`  ${result.verdict} ${result.status || '-'} ${candidate}`);
-    if (result.verdict === 'live') {
+    let verdict = result.verdict;
+    if (result.challenged && previousUrls.size > 0) {
+      verdict = previousUrls.has(candidate) ? 'live' : 'dead';
+      console.log(`  challenged ${result.status || '-'} ${candidate} -> keeping previous verdict (${verdict})`);
+    } else {
+      console.log(`  ${verdict} ${result.status || '-'} ${candidate}`);
+    }
+    if (verdict === 'live') {
       sites.push({ url: candidate, label: spec.label || parsed.host });
     }
   }

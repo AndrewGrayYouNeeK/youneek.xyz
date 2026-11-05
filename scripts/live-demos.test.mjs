@@ -112,10 +112,8 @@ assert.deepEqual(siteUrls('lilly-s-appYNK222'), []);
 assert.deepEqual(siteUrls('youneek'), []);
 assert.deepEqual(siteUrls('youneek-time'), []);
 assert.deepEqual(siteUrls('youneek-pro-radar'), []);
-assert.deepEqual(siteUrls('Death-terminal-'), [
-  'https://dt-windows-download.youneekartifacts.workers.dev/DeathTerminal-windows.zip',
-]);
-assert.equal(byName['Death-terminal-'].sites[0].label, 'Windows download');
+assert.deepEqual(siteUrls('Death-terminal-'), ['https://terminal.youneek.dev']);
+assert.equal(byName['Death-terminal-'].sites[0].label, 'terminal.youneek.dev');
 assert.equal(byName['Death-terminal-'].title, 'YouNeeK Death Terminal');
 assert.match(byName['Death-terminal-'].description, /Vulkan/);
 

@@ -15,7 +15,7 @@
     "roll10000.com currently answers with a Cloudflare Access login page and online.roll10000.com answers 404, so the verifier leaves them off. www.roll10000.com serves the game. They link automatically once they answer without a login.",
     "lillysapp.com answers with Cloudflare error 1000, so lilly-s-appYNK222 has no sites entry.",
     "youneekcare.com does not resolve, so the youneek repo has no sites entry.",
-    "forge.youneek.xyz and w.youneek.xyz currently serve this portfolio instead of their own Workers, so Real-Neural-Forge links the workers.dev forecast and Death Terminal links the dt-windows-download Worker's zip.",
+    "forge.youneek.xyz and w.youneek.xyz currently serve this portfolio instead of their own Workers, so Real-Neural-Forge links the workers.dev forecast and Death Terminal links its landing page at terminal.youneek.dev, which hosts the Windows zip from the dt-windows-download Worker.",
     "The Architects GM (the-architects-gm) is an owner desk, not a public project, so it has no card.",
     "Do not add relay.youneek.xyz. That hostname is the youneek-share-relay Worker."
   ],
@@ -82,13 +82,10 @@
     },
     "Death-terminal-": {
       "title": "YouNeeK Death Terminal",
-      "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, built-in SSH with tunnels, and Lua config. The card links the Windows download.",
+      "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, built-in SSH with tunnels, and Lua config. The card links the landing page, which has the Windows download.",
       "image": "/projects/original/death-terminal.jpg",
       "sites": [
-        {
-          "url": "https://dt-windows-download.youneekartifacts.workers.dev/DeathTerminal-windows.zip",
-          "label": "Windows download"
-        }
+        "https://terminal.youneek.dev"
       ],
       "backImage": "/projects/original/death-terminal.jpg"
     },

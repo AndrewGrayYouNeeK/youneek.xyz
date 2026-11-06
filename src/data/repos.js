@@ -2,23 +2,6 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
-    "title": "YouNeeK CloudRipper",
-    "repoName": "Cloudripper",
-    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
-    "language": "Go",
-    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
-    "sites": [
-      {
-        "url": "https://cloudripper.youneek.dev",
-        "label": "cloudripper.youneek.dev"
-      }
-    ],
-    "image": "/projects/cloudripper-front.jpg",
-    "backImage": "/projects/cloudripper-back.jpg",
-    "stars": 1,
-    "updated": "2026-11-05"
-  },
-  {
     "title": "YouNeeK Time",
     "repoName": "YouNeeKTimeTheFinalBoss",
     "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
@@ -32,6 +15,23 @@ export const REPOS = [
     ],
     "image": "/projects/original/youneek-time-watch.jpg",
     "backImage": "/projects/original/youneek-time-watch.jpg",
+    "stars": 1,
+    "updated": "2026-11-06"
+  },
+  {
+    "title": "YouNeeK CloudRipper",
+    "repoName": "Cloudripper",
+    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
+    "language": "Go",
+    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
+    "sites": [
+      {
+        "url": "https://cloudripper.youneek.dev",
+        "label": "cloudripper.youneek.dev"
+      }
+    ],
+    "image": "/projects/cloudripper-front.jpg",
+    "backImage": "/projects/cloudripper-back.jpg",
     "stars": 1,
     "updated": "2026-11-05"
   },

@@ -292,18 +292,6 @@ export const REPOS = [
     "updated": "2026-10-03"
   },
   {
-    "title": "ATC222 Trainer",
-    "repoName": "atc222trainer",
-    "description": "An aviation training app for practicing ATC communication and decision scenarios in a structured, repeatable way. Early development.",
-    "language": "Code",
-    "link": "https://github.com/AndrewGrayYouNeeK/atc222trainer",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 1,
-    "updated": "2026-09-16"
-  },
-  {
     "title": "Bison Earth",
     "repoName": "bison-earth-plum-bird",
     "description": "An app-builder workspace (Vite, server code, auth, database migrations) that contains the INHABIT game from REMNANT. No README.",
@@ -362,18 +350,6 @@ export const REPOS = [
     "backImage": "",
     "stars": 0,
     "updated": "2026-08-20"
-  },
-  {
-    "title": "Apex Control",
-    "repoName": "apex-controlYNK222",
-    "description": "Air traffic control simulator in React. Land aircraft, use voice commands, train at Wittman Regional (KOSH), run emergency drills, and climb a career ladder.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/apex-controlYNK222",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 1,
-    "updated": "2026-08-18"
   },
   {
     "title": "Unique Sky",

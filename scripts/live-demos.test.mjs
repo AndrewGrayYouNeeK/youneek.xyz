@@ -79,6 +79,8 @@ for (const skipped of [
   'fastapi',
   'Original-YouNeeK-Time',
   'We-hook-slayer',
+  'apex-controlYNK222',
+  'atc222trainer',
 ]) {
   assert.equal(names.has(skipped), false, `${skipped} should be omitted`);
 }
@@ -208,6 +210,17 @@ assert.deepEqual(siteUrls('used-artifacts'), ['https://usedartifacts.com']);
 assert.match(byName['used-artifacts'].description, /coming soon/i);
 assert.equal(byName['vibesdk-production2'], undefined, 'VibeSDK Production card is removed');
 assert.equal(byName['vibesdk-production'], undefined, 'earlier VibeSDK Production card is removed');
+assert.equal(byName['apex-controlYNK222'], undefined, 'Apex Control card is removed');
+assert.equal(byName['atc222trainer'], undefined, 'ATC222 Trainer card is removed');
+assert.equal(config.repos['apex-controlYNK222'], undefined);
+assert.equal(config.repos.atc222trainer, undefined);
+assert.ok(config.skipRepos.includes('apex-controlYNK222'));
+assert.ok(config.skipRepos.includes('atc222trainer'));
+assert.equal(byName.YNKAIRTRAFFICGAME.title, 'Air Traffic Controller');
+assert.equal(byName['unique-sky'].title, 'Unique Sky');
+assert.match(byName['unique-sky'].description, /YouneeK Stars/);
+assert.ok(config.repos.YNKAIRTRAFFICGAME);
+assert.ok(config.repos['unique-sky']);
 for (const name of ['YouNeeKTimeTheFinalBoss', 'youneek-time']) {
   assert.equal(byName[name].image, '/projects/original/youneek-time-watch.jpg', `${name} uses the watch logo`);
   assert.equal(byName[name].backImage, '/projects/original/youneek-time-watch.jpg');

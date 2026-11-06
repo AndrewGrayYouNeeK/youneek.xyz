@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Build src/data/repos.js from the public GitHub API plus sites.config.json.
- * Forks, template repositories, and empty repositories are omitted.
+ * Forks, template repositories, empty repositories, and skipRepos names are omitted.
  * A Visit site link is written only after scripts/verify-url.mjs marks it live.
  */
 import fs from 'node:fs';
@@ -40,7 +40,6 @@ function titleize(name) {
 function isTemplate(repo) {
   if (repo.is_template) return true;
   if (/template/i.test(repo.name)) return true;
-  if (skipRepos.has(repo.name)) return true;
   return false;
 }
 
@@ -190,6 +189,10 @@ async function main() {
       console.log(`skip fork ${repo.name}`);
       continue;
     }
+    if (skipRepos.has(repo.name)) {
+      console.log(`skip excluded ${repo.name}`);
+      continue;
+    }
     if (isTemplate(repo)) {
       console.log(`skip template ${repo.name}`);
       continue;
@@ -227,6 +230,10 @@ async function main() {
   }
 
   for (const extra of config.extras || []) {
+    if (skipRepos.has(extra.repoName)) {
+      console.log(`skip excluded ${extra.repoName} (extra)`);
+      continue;
+    }
     console.log(`check ${extra.repoName} (extra)`);
     out.push({
       title: extra.title,

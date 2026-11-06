@@ -4,7 +4,9 @@
     "nextjs-with-supabase",
     "fastapi",
     "vibesdk-production2",
-    "vibesdk-production"
+    "vibesdk-production",
+    "apex-controlYNK222",
+    "atc222trainer"
   ],
   "denyHosts": [
     "death-terminal-green.vercel.app"
@@ -19,6 +21,7 @@
     "youneekcare.com does not resolve, so the youneek repo has no sites entry.",
     "forge.youneek.xyz and w.youneek.xyz currently serve this portfolio instead of their own Workers, so Real-Neural-Forge links the workers.dev forecast and Death Terminal links its landing page at terminal.youneek.dev, which has downloads and install commands for Windows, macOS, and Linux (the Windows zip comes from the dt-windows-download Worker).",
     "The Architects GM (the-architects-gm) is an owner desk, not a public project, so it has no card.",
+    "apex-controlYNK222 (Apex Control) and atc222trainer (ATC222 Trainer) are extra ATC games. They stay in skipRepos so a later sync leaves them off even if the public API lists them again. YNKAIRTRAFFICGAME and unique-sky (YouNeeK Stars) stay on the site.",
     "Do not add relay.youneek.xyz. That hostname is the youneek-share-relay Worker."
   ],
   "repos": {
@@ -161,10 +164,6 @@
       "title": "Unique Sky",
       "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard."
     },
-    "apex-controlYNK222": {
-      "title": "Apex Control",
-      "description": "Air traffic control simulator in React. Land aircraft, use voice commands, train at Wittman Regional (KOSH), run emergency drills, and climb a career ladder."
-    },
     "Project-Alpha": {
       "title": "Project Alpha",
       "description": "A self-hosted real-time full-stack starter: React + Vite client, Node/Express API, Redis, and Server-Sent Events, run together with Docker Compose.",
@@ -180,10 +179,6 @@
     "bison-earth-plum-bird": {
       "title": "Bison Earth",
       "description": "An app-builder workspace (Vite, server code, auth, database migrations) that contains the INHABIT game from REMNANT. No README."
-    },
-    "atc222trainer": {
-      "title": "ATC222 Trainer",
-      "description": "An aviation training app for practicing ATC communication and decision scenarios in a structured, repeatable way. Early development."
     },
     "multitent": {
       "title": "Multitent",

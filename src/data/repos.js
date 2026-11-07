@@ -2,6 +2,40 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "Real Neural Forge",
+    "repoName": "Real-Neural-Forge",
+    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+    "language": "Python",
+    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "sites": [
+      {
+        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
+        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/original/neural-forge.jpg",
+    "backImage": "/projects/original/neural-forge.jpg",
+    "stars": 1,
+    "updated": "2026-11-06"
+  },
+  {
+    "title": "YouNeeK Death Terminal",
+    "repoName": "Death-terminal-",
+    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
+    "language": "Zig",
+    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "sites": [
+      {
+        "url": "https://terminal.youneek.dev",
+        "label": "terminal.youneek.dev"
+      }
+    ],
+    "image": "/projects/original/death-terminal.jpg",
+    "backImage": "/projects/original/death-terminal.jpg",
+    "stars": 1,
+    "updated": "2026-11-06"
+  },
+  {
     "title": "YouNeeK Time",
     "repoName": "YouNeeKTimeTheFinalBoss",
     "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
@@ -36,23 +70,6 @@ export const REPOS = [
     "updated": "2026-11-05"
   },
   {
-    "title": "Real Neural Forge",
-    "repoName": "Real-Neural-Forge",
-    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
-    "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
-    "sites": [
-      {
-        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
-        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
-      }
-    ],
-    "image": "/projects/original/neural-forge.jpg",
-    "backImage": "/projects/original/neural-forge.jpg",
-    "stars": 1,
-    "updated": "2026-11-01"
-  },
-  {
     "title": "Used Artifacts",
     "repoName": "used-artifacts",
     "description": "A marketplace for buying and selling used artifacts, with ID-verified sellers, signed provenance statements, payment held until delivery, and the Beta Founder badge program. The live site is coming soon.",
@@ -82,8 +99,8 @@ export const REPOS = [
       }
     ],
     "image": "/projects/original/3i-atlas-logo-transparent.png",
-    "imageTransparent": true,
     "backImage": "/projects/original/3i-atlas-logo-card.jpg",
+    "imageTransparent": true,
     "stars": 0,
     "updated": "2026-10-29"
   },
@@ -122,23 +139,6 @@ export const REPOS = [
     "stars": 0,
     "updated": "2026-10-29",
     "extra": true
-  },
-  {
-    "title": "YouNeeK Death Terminal",
-    "repoName": "Death-terminal-",
-    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
-    "language": "Zig",
-    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
-    "sites": [
-      {
-        "url": "https://terminal.youneek.dev",
-        "label": "terminal.youneek.dev"
-      }
-    ],
-    "image": "/projects/original/death-terminal.jpg",
-    "backImage": "/projects/original/death-terminal.jpg",
-    "stars": 1,
-    "updated": "2026-10-29"
   },
   {
     "title": "YouNeeK Pro Radar",
@@ -218,7 +218,31 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-05"
+    "updated": "2026-11-07"
+  },
+  {
+    "title": "Unique Sky",
+    "repoName": "unique-sky",
+    "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/unique-sky",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
+    "updated": "2026-11-06"
+  },
+  {
+    "title": "YouNeeK Satellite Tracker",
+    "repoName": "youneek-satellite-tracker",
+    "description": "Live 3D globe of satellite positions from CelesTrak orbital data: Starlink, the ISS, GPS, and more, with time simulation, search, and an AR mode.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-satellite-tracker",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
+    "updated": "2026-11-06"
   },
   {
     "title": "Air Traffic Controller",
@@ -329,18 +353,6 @@ export const REPOS = [
     "updated": "2026-08-27"
   },
   {
-    "title": "YouNeeK Satellite Tracker",
-    "repoName": "youneek-satellite-tracker",
-    "description": "Live 3D globe of satellite positions from CelesTrak orbital data: Starlink, the ISS, GPS, and more, with time simulation, search, and an AR mode.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-satellite-tracker",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-08-20"
-  },
-  {
     "title": "YouNeeK Vibe Code",
     "repoName": "youneekvibecode",
     "description": "YouNeeK fork of Cloudflare VibeSDK, an open-source platform where an AI agent builds and deploys full-stack apps on Cloudflare.",
@@ -351,18 +363,6 @@ export const REPOS = [
     "backImage": "",
     "stars": 0,
     "updated": "2026-08-20"
-  },
-  {
-    "title": "Unique Sky",
-    "repoName": "unique-sky",
-    "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/unique-sky",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-08-18"
   },
   {
     "title": "Calculator",

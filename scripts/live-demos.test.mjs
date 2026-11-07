@@ -200,7 +200,8 @@ for (const [name, file] of [
 ]) {
   assert.equal(byName[name].image, `/projects/original/${file}.jpg`, `${name} keeps its original picture`);
 }
-assert.equal(byName['3i-atlas-the-gameYNK'].image, '/projects/original/3i-atlas-logo-card.jpg', '3i-Atlas card uses the site logo, not a page screenshot');
+assert.equal(byName['3i-atlas-the-gameYNK'].image, '/projects/original/3i-atlas-logo-transparent.png', '3i-Atlas card uses the site logo with a transparent background');
+assert.equal(byName['3i-atlas-the-gameYNK'].imageTransparent, true, '3i-Atlas card renders with no fill behind the logo');
 assert.equal(byName['3i-atlas-the-gameYNK'].backImage, '/projects/original/3i-atlas-logo-card.jpg');
 assert.equal(byName['10000TheFinalBoss'].image, '/projects/original/roll10000-logo-card.jpg', '10,000 card uses the roll10000.com logo');
 assert.equal(byName['10000TheFinalBoss'].backImage, '/projects/original/roll10000-logo-card.jpg');

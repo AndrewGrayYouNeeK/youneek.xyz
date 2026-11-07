@@ -81,7 +81,8 @@ export const REPOS = [
         "label": "3iatlasgame.xyz"
       }
     ],
-    "image": "/projects/original/3i-atlas-logo-card.jpg",
+    "image": "/projects/original/3i-atlas-logo-transparent.png",
+    "imageTransparent": true,
     "backImage": "/projects/original/3i-atlas-logo-card.jpg",
     "stars": 0,
     "updated": "2026-10-29"

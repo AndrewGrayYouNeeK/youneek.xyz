@@ -42,7 +42,8 @@
       "sites": [
         "https://3iatlasgame.xyz"
       ],
-      "image": "/projects/original/3i-atlas-logo-card.jpg",
+      "image": "/projects/original/3i-atlas-logo-transparent.png",
+      "imageTransparent": true,
       "backImage": "/projects/original/3i-atlas-logo-card.jpg"
     },
     "used-artifacts": {

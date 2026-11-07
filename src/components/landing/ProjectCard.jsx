@@ -67,6 +67,7 @@ export default function ProjectCard({ project, index }) {
         >
           {project.image ? (
             <>
+              {!project.imageTransparent && (
               <div
                 className="absolute inset-0"
                 style={{
@@ -76,12 +77,16 @@ export default function ProjectCard({ project, index }) {
                   `,
                 }}
               />
+              )}
               <img
                 src={project.image}
                 alt=""
                 data-card-front-image=""
-                className="absolute inset-0 h-full w-full object-cover"
+                className={project.imageTransparent
+                  ? 'absolute inset-0 h-full w-full object-contain p-4 pb-14'
+                  : 'absolute inset-0 h-full w-full object-cover'}
               />
+              {!project.imageTransparent && (
               <div
                 className="absolute inset-0 opacity-30 mix-blend-overlay"
                 style={{
@@ -89,15 +94,18 @@ export default function ProjectCard({ project, index }) {
                     'repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px)',
                 }}
               />
+              )}
             </>
           ) : (
             <TvStatic />
           )}
+          {!project.imageTransparent && (
           <div
             className={`pointer-events-none absolute inset-0 bg-gradient-to-t ${
               project.image ? 'from-black/85 via-black/35' : 'from-black/90 via-black/40'
             } to-transparent`}
           />
+          )}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
             <h3
               className="font-heading text-xl font-bold leading-tight tracking-wide text-white drop-shadow-[0_0_12px_rgba(0,0,0,0.85)] sm:text-2xl"

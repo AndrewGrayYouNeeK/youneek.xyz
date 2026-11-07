@@ -224,6 +224,7 @@ async function main() {
       sites,
       image: entry.image || '',
       backImage: entry.backImage || '',
+      ...(entry.imageTransparent ? { imageTransparent: true } : {}),
       stars: repo.stargazers_count || 0,
       updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
     });
@@ -244,6 +245,7 @@ async function main() {
       sites: await verifiedSites(extra.sites),
       image: extra.image || '',
       backImage: extra.backImage || '',
+      ...(extra.imageTransparent ? { imageTransparent: true } : {}),
       stars: 0,
       updated: extra.updated || '',
       extra: true,

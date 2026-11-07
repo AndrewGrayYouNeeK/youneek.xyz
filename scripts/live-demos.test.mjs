@@ -193,7 +193,6 @@ assert.equal(/● LIVE/.test(card), false, 'front face has no LIVE badge');
 assert.equal(/padStart\(3, '0'\)/.test(card), false, 'front face has no numbered tag');
 for (const [name, file] of [
   ['Project-Alpha', 'project-alpha'],
-  ['Real-Neural-Forge', 'neural-forge'],
   ['CryptoVault', 'cryptovault'],
   ['Death-terminal-', 'death-terminal'],
   ['youneek', 'youneek-care'],
@@ -205,7 +204,10 @@ assert.equal(byName['3i-atlas-the-gameYNK'].imageTransparent, true, '3i-Atlas ca
 assert.equal(byName['3i-atlas-the-gameYNK'].backImage, '/projects/original/3i-atlas-logo-card.jpg');
 assert.equal(byName['10000TheFinalBoss'].image, '/projects/original/roll10000-logo-card.jpg', '10,000 card uses the roll10000.com logo');
 assert.equal(byName['10000TheFinalBoss'].backImage, '/projects/original/roll10000-logo-card.jpg');
-assert.equal(byName['used-artifacts'].image, '/projects/original/used-artifacts-logo-card.jpg', 'Used Artifacts uses the official logo');
+assert.equal(byName['used-artifacts'].image, '/projects/original/used-artifacts-logo.png', 'Used Artifacts uses the official transparent logo');
+assert.equal(byName['used-artifacts'].imageTransparent, true);
+assert.equal(byName['Real-Neural-Forge'].image, '/projects/original/neural-forge-transparent.png');
+assert.equal(byName['Real-Neural-Forge'].imageTransparent, true);
 assert.equal(byName['used-artifacts'].backImage, '/projects/original/used-artifacts-logo-card.jpg');
 assert.deepEqual(siteUrls('used-artifacts'), ['https://usedartifacts.com']);
 assert.match(byName['used-artifacts'].description, /coming soon/i);

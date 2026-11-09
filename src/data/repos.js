@@ -213,7 +213,7 @@ export const REPOS = [
   {
     "title": "youneek dev",
     "repoName": "youneek-dev",
-    "description": "Public repository youneek-dev.",
+    "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker.",
     "language": "HTML",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-dev",
     "sites": [],

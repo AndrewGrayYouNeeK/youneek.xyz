@@ -93,6 +93,9 @@
       ],
       "backImage": "/projects/original/death-terminal.jpg"
     },
+    "youneek-dev": {
+      "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker."
+    },
     "youneek.xyz": {
       "title": "youneek.xyz",
       "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static."

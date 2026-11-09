@@ -52,7 +52,8 @@
       "sites": [
         "https://usedartifacts.com"
       ],
-      "image": "/projects/original/used-artifacts-logo-card.jpg",
+      "image": "/projects/original/used-artifacts-logo.png",
+      "imageTransparent": true,
       "backImage": "/projects/original/used-artifacts-logo-card.jpg"
     },
     "YouNeeKTimeTheFinalBoss": {
@@ -79,7 +80,8 @@
       "sites": [
         "https://real-neural-forge-api.youneekartifacts.workers.dev"
       ],
-      "image": "/projects/original/neural-forge.jpg",
+      "image": "/projects/original/neural-forge-transparent.png",
+      "imageTransparent": true,
       "backImage": "/projects/original/neural-forge.jpg"
     },
     "Death-terminal-": {
@@ -90,6 +92,9 @@
         "https://terminal.youneek.dev"
       ],
       "backImage": "/projects/original/death-terminal.jpg"
+    },
+    "youneek-dev": {
+      "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker."
     },
     "youneek.xyz": {
       "title": "youneek.xyz",

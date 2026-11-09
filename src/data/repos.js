@@ -13,8 +13,9 @@ export const REPOS = [
         "label": "real-neural-forge-api.youneekartifacts.workers.dev"
       }
     ],
-    "image": "/projects/original/neural-forge.jpg",
+    "image": "/projects/original/neural-forge-transparent.png",
     "backImage": "/projects/original/neural-forge.jpg",
+    "imageTransparent": true,
     "stars": 1,
     "updated": "2026-11-09"
   },
@@ -98,8 +99,9 @@ export const REPOS = [
         "label": "usedartifacts.com"
       }
     ],
-    "image": "/projects/original/used-artifacts-logo-card.jpg",
+    "image": "/projects/original/used-artifacts-logo.png",
     "backImage": "/projects/original/used-artifacts-logo-card.jpg",
+    "imageTransparent": true,
     "stars": 0,
     "updated": "2026-10-30"
   },
@@ -211,7 +213,7 @@ export const REPOS = [
   {
     "title": "youneek dev",
     "repoName": "youneek-dev",
-    "description": "Public repository youneek-dev.",
+    "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker.",
     "language": "HTML",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-dev",
     "sites": [],

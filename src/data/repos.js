@@ -14,27 +14,27 @@ export const REPOS = [
       }
     ],
     "image": "/projects/original/neural-forge-transparent.png",
-    "imageTransparent": true,
     "backImage": "/projects/original/neural-forge.jpg",
+    "imageTransparent": true,
     "stars": 1,
-    "updated": "2026-11-06"
+    "updated": "2026-11-09"
   },
   {
-    "title": "YouNeeK Death Terminal",
-    "repoName": "Death-terminal-",
-    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
-    "language": "Zig",
-    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "title": "10,000 The Final Boss",
+    "repoName": "10000TheFinalBoss",
+    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
     "sites": [
       {
-        "url": "https://terminal.youneek.dev",
-        "label": "terminal.youneek.dev"
+        "url": "https://www.roll10000.com",
+        "label": "www.roll10000.com"
       }
     ],
-    "image": "/projects/original/death-terminal.jpg",
-    "backImage": "/projects/original/death-terminal.jpg",
+    "image": "/projects/original/roll10000-logo-card.jpg",
+    "backImage": "/projects/original/roll10000-logo-card.jpg",
     "stars": 1,
-    "updated": "2026-11-06"
+    "updated": "2026-11-08"
   },
   {
     "title": "YouNeeK Time",
@@ -50,6 +50,23 @@ export const REPOS = [
     ],
     "image": "/projects/original/youneek-time-watch.jpg",
     "backImage": "/projects/original/youneek-time-watch.jpg",
+    "stars": 1,
+    "updated": "2026-11-08"
+  },
+  {
+    "title": "YouNeeK Death Terminal",
+    "repoName": "Death-terminal-",
+    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
+    "language": "Zig",
+    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "sites": [
+      {
+        "url": "https://terminal.youneek.dev",
+        "label": "terminal.youneek.dev"
+      }
+    ],
+    "image": "/projects/original/death-terminal.jpg",
+    "backImage": "/projects/original/death-terminal.jpg",
     "stars": 1,
     "updated": "2026-11-06"
   },
@@ -83,8 +100,8 @@ export const REPOS = [
       }
     ],
     "image": "/projects/original/used-artifacts-logo.png",
-    "imageTransparent": true,
     "backImage": "/projects/original/used-artifacts-logo-card.jpg",
+    "imageTransparent": true,
     "stars": 0,
     "updated": "2026-10-30"
   },
@@ -194,21 +211,16 @@ export const REPOS = [
     "updated": "2026-10-29"
   },
   {
-    "title": "10,000 The Final Boss",
-    "repoName": "10000TheFinalBoss",
-    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
-    "sites": [
-      {
-        "url": "https://www.roll10000.com",
-        "label": "www.roll10000.com"
-      }
-    ],
-    "image": "/projects/original/roll10000-logo-card.jpg",
-    "backImage": "/projects/original/roll10000-logo-card.jpg",
-    "stars": 1,
-    "updated": "2026-10-18"
+    "title": "youneek dev",
+    "repoName": "youneek-dev",
+    "description": "Public repository youneek-dev.",
+    "language": "HTML",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-dev",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
+    "updated": "2026-11-08"
   },
   {
     "title": "youneek.xyz",
@@ -220,7 +232,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-07"
+    "updated": "2026-11-08"
   },
   {
     "title": "Unique Sky",

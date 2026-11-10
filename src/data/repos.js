@@ -2,6 +2,41 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "10,000 The Final Boss",
+    "repoName": "10000TheFinalBoss",
+    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
+    "sites": [
+      {
+        "url": "https://www.roll10000.com",
+        "label": "www.roll10000.com"
+      }
+    ],
+    "image": "/projects/original/roll10000-logo-card.jpg",
+    "backImage": "/projects/original/roll10000-logo-card.jpg",
+    "stars": 1,
+    "updated": "2026-11-10"
+  },
+  {
+    "title": "3i-Atlas",
+    "repoName": "3i-atlas-the-gameYNK",
+    "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/3i-atlas-the-gameYNK",
+    "sites": [
+      {
+        "url": "https://3iatlasgame.xyz",
+        "label": "3iatlasgame.xyz"
+      }
+    ],
+    "image": "/projects/original/3i-atlas-logo-transparent.png",
+    "backImage": "/projects/original/3i-atlas-logo-card.jpg",
+    "imageTransparent": true,
+    "stars": 0,
+    "updated": "2026-11-10"
+  },
+  {
     "title": "Real Neural Forge",
     "repoName": "Real-Neural-Forge",
     "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
@@ -17,58 +52,7 @@ export const REPOS = [
     "backImage": "/projects/original/neural-forge.jpg",
     "imageTransparent": true,
     "stars": 1,
-    "updated": "2026-11-09"
-  },
-  {
-    "title": "10,000 The Final Boss",
-    "repoName": "10000TheFinalBoss",
-    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
-    "sites": [
-      {
-        "url": "https://www.roll10000.com",
-        "label": "www.roll10000.com"
-      }
-    ],
-    "image": "/projects/original/roll10000-logo-card.jpg",
-    "backImage": "/projects/original/roll10000-logo-card.jpg",
-    "stars": 1,
-    "updated": "2026-11-08"
-  },
-  {
-    "title": "YouNeeK Time",
-    "repoName": "YouNeeKTimeTheFinalBoss",
-    "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/YouNeeKTimeTheFinalBoss",
-    "sites": [
-      {
-        "url": "https://youneektime.com",
-        "label": "youneektime.com"
-      }
-    ],
-    "image": "/projects/original/youneek-time-watch.jpg",
-    "backImage": "/projects/original/youneek-time-watch.jpg",
-    "stars": 1,
-    "updated": "2026-11-08"
-  },
-  {
-    "title": "YouNeeK Death Terminal",
-    "repoName": "Death-terminal-",
-    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
-    "language": "Zig",
-    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
-    "sites": [
-      {
-        "url": "https://terminal.youneek.dev",
-        "label": "terminal.youneek.dev"
-      }
-    ],
-    "image": "/projects/original/death-terminal.jpg",
-    "backImage": "/projects/original/death-terminal.jpg",
-    "stars": 1,
-    "updated": "2026-11-06"
+    "updated": "2026-11-10"
   },
   {
     "title": "YouNeeK CloudRipper",
@@ -85,7 +69,75 @@ export const REPOS = [
     "image": "/projects/cloudripper-front.jpg",
     "backImage": "/projects/cloudripper-back.jpg",
     "stars": 1,
-    "updated": "2026-11-05"
+    "updated": "2026-11-10"
+  },
+  {
+    "title": "YouNeeK Death Terminal",
+    "repoName": "Death-terminal-",
+    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
+    "language": "Zig",
+    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "sites": [
+      {
+        "url": "https://terminal.youneek.dev",
+        "label": "terminal.youneek.dev"
+      }
+    ],
+    "image": "/projects/original/death-terminal.jpg",
+    "backImage": "/projects/original/death-terminal.jpg",
+    "stars": 1,
+    "updated": "2026-11-10"
+  },
+  {
+    "title": "YouNeeK Pro Radar",
+    "repoName": "youneekproradarBABY",
+    "description": "Military-style NEXRAD radar and severe-weather tracker: live radar mosaics, NWS alert overlays, NOAA weather radio, and a one-tap shelter SMS to your contacts.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneekproradarBABY",
+    "sites": [
+      {
+        "url": "https://youneekproradar.com",
+        "label": "youneekproradar.com"
+      }
+    ],
+    "image": "/projects/original/pro-radar-neon.webp",
+    "backImage": "/projects/original/pro-radar-neon.webp",
+    "stars": 0,
+    "updated": "2026-11-10"
+  },
+  {
+    "title": "YouNeeK Pro Radar (YNK222)",
+    "repoName": "youneek-pro-radarYNK222",
+    "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
+    "sites": [
+      {
+        "url": "https://youneek-pro-radarynk222.youneekartifacts.workers.dev",
+        "label": "youneek-pro-radarynk222.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/pro-radar-ynk222-front.jpg",
+    "backImage": "/projects/pro-radar-ynk222-back.jpg",
+    "stars": 1,
+    "updated": "2026-11-10"
+  },
+  {
+    "title": "YouNeeK Time",
+    "repoName": "YouNeeKTimeTheFinalBoss",
+    "description": "A dark, minimal clock for the web with a custom clock face, hourly sound, and a live moon phase. Has an Apple Watch app. Runs fully in the browser.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/YouNeeKTimeTheFinalBoss",
+    "sites": [
+      {
+        "url": "https://youneektime.com",
+        "label": "youneektime.com"
+      }
+    ],
+    "image": "/projects/original/youneek-time-watch.jpg",
+    "backImage": "/projects/original/youneek-time-watch.jpg",
+    "stars": 1,
+    "updated": "2026-11-10"
   },
   {
     "title": "Used Artifacts",
@@ -104,24 +156,6 @@ export const REPOS = [
     "imageTransparent": true,
     "stars": 0,
     "updated": "2026-10-30"
-  },
-  {
-    "title": "3i-Atlas",
-    "repoName": "3i-atlas-the-gameYNK",
-    "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/3i-atlas-the-gameYNK",
-    "sites": [
-      {
-        "url": "https://3iatlasgame.xyz",
-        "label": "3iatlasgame.xyz"
-      }
-    ],
-    "image": "/projects/original/3i-atlas-logo-transparent.png",
-    "backImage": "/projects/original/3i-atlas-logo-card.jpg",
-    "imageTransparent": true,
-    "stars": 0,
-    "updated": "2026-10-29"
   },
   {
     "title": "The Architects",
@@ -160,40 +194,6 @@ export const REPOS = [
     "extra": true
   },
   {
-    "title": "YouNeeK Pro Radar",
-    "repoName": "youneekproradarBABY",
-    "description": "Military-style NEXRAD radar and severe-weather tracker: live radar mosaics, NWS alert overlays, NOAA weather radio, and a one-tap shelter SMS to your contacts.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneekproradarBABY",
-    "sites": [
-      {
-        "url": "https://youneekproradar.com",
-        "label": "youneekproradar.com"
-      }
-    ],
-    "image": "/projects/original/pro-radar-neon.webp",
-    "backImage": "/projects/original/pro-radar-neon.webp",
-    "stars": 0,
-    "updated": "2026-10-29"
-  },
-  {
-    "title": "YouNeeK Pro Radar (YNK222)",
-    "repoName": "youneek-pro-radarYNK222",
-    "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
-    "sites": [
-      {
-        "url": "https://youneek-pro-radarynk222.youneekartifacts.workers.dev",
-        "label": "youneek-pro-radarynk222.youneekartifacts.workers.dev"
-      }
-    ],
-    "image": "/projects/pro-radar-ynk222-front.jpg",
-    "backImage": "/projects/pro-radar-ynk222-back.jpg",
-    "stars": 1,
-    "updated": "2026-10-29"
-  },
-  {
     "title": "YouNeeK Time (earlier)",
     "repoName": "youneek-time",
     "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time.",
@@ -211,28 +211,16 @@ export const REPOS = [
     "updated": "2026-10-29"
   },
   {
-    "title": "youneek dev",
-    "repoName": "youneek-dev",
-    "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker.",
-    "language": "HTML",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-dev",
+    "title": "Air Traffic Controller",
+    "repoName": "YNKAIRTRAFFICGAME",
+    "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
     "sites": [],
     "image": "",
     "backImage": "",
     "stars": 0,
-    "updated": "2026-11-08"
-  },
-  {
-    "title": "youneek.xyz",
-    "repoName": "youneek.xyz",
-    "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 1,
-    "updated": "2026-11-08"
+    "updated": "2026-11-10"
   },
   {
     "title": "Unique Sky",
@@ -244,7 +232,19 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 0,
-    "updated": "2026-11-06"
+    "updated": "2026-11-10"
+  },
+  {
+    "title": "youneek dev",
+    "repoName": "youneek-dev",
+    "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker.",
+    "language": "HTML",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-dev",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
+    "updated": "2026-11-10"
   },
   {
     "title": "YouNeeK Satellite Tracker",
@@ -256,19 +256,19 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 0,
-    "updated": "2026-11-06"
+    "updated": "2026-11-10"
   },
   {
-    "title": "Air Traffic Controller",
-    "repoName": "YNKAIRTRAFFICGAME",
-    "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser.",
+    "title": "youneek.xyz",
+    "repoName": "youneek.xyz",
+    "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static.",
     "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
     "sites": [],
     "image": "",
     "backImage": "",
-    "stars": 0,
-    "updated": "2026-10-29"
+    "stars": 1,
+    "updated": "2026-11-10"
   },
   {
     "title": "Lilly's App",

@@ -158,6 +158,7 @@ export const REPOS = [
     ],
     "image": "/projects/original/youneek-time-watch.jpg",
     "backImage": "/projects/original/youneek-time-watch.jpg",
+    "imageContain": true,
     "stars": 1,
     "updated": "2026-11-10"
   },
@@ -229,6 +230,7 @@ export const REPOS = [
     ],
     "image": "/projects/original/youneek-time-watch.jpg",
     "backImage": "/projects/original/youneek-time-watch.jpg",
+    "imageContain": true,
     "stars": 0,
     "updated": "2026-10-29"
   },

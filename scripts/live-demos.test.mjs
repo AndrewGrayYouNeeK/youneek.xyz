@@ -227,7 +227,9 @@ assert.ok(config.repos['unique-sky']);
 for (const name of ['YouNeeKTimeTheFinalBoss', 'youneek-time']) {
   assert.equal(byName[name].image, '/projects/original/youneek-time-watch.jpg', `${name} uses the watch logo`);
   assert.equal(byName[name].backImage, '/projects/original/youneek-time-watch.jpg');
+  assert.equal(byName[name].imageContain, true, `${name} contains the watch logo so the full YouNeeK wordmark stays visible`);
 }
+assert.match(card, /imageContain/, 'ProjectCard must honor imageContain for full wordmark visibility');
 assert.equal(byName.Cloudripper.title, 'YouNeeK CloudRipper');
 assert.equal(byName.Cloudripper.image, '/projects/cloudripper-front.jpg', 'CloudRipper card uses the YouNeeK CloudRipper logo');
 assert.equal(byName.Cloudripper.backImage, '/projects/cloudripper-back.jpg');

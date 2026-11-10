@@ -63,7 +63,8 @@
         "https://youneektime.com"
       ],
       "image": "/projects/original/youneek-time-watch.jpg",
-      "backImage": "/projects/original/youneek-time-watch.jpg"
+      "backImage": "/projects/original/youneek-time-watch.jpg",
+      "imageContain": true
     },
     "youneekproradarBABY": {
       "title": "YouNeeK Pro Radar",
@@ -115,6 +116,7 @@
       "description": "Earlier YouNeeK Time build: a dark, minimal world clock with a widget mode and display settings. The live site is YouNeeK Time.",
       "backImage": "/projects/original/youneek-time-watch.jpg",
       "image": "/projects/original/youneek-time-watch.jpg",
+      "imageContain": true,
       "sites": [
         {
           "url": "https://apps.apple.com/us/app/youneek-time/id6758902769",

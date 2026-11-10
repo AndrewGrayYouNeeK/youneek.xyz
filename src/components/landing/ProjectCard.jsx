@@ -82,9 +82,13 @@ export default function ProjectCard({ project, index }) {
                 src={project.image}
                 alt=""
                 data-card-front-image=""
-                className={project.imageTransparent
-                  ? 'absolute inset-0 h-full w-full object-contain p-4 pb-14'
-                  : 'absolute inset-0 h-full w-full object-cover'}
+                className={
+                  project.imageTransparent
+                    ? 'absolute inset-0 h-full w-full object-contain p-4 pb-14'
+                    : project.imageContain
+                      ? 'absolute inset-0 h-full w-full object-contain p-3 pb-14'
+                      : 'absolute inset-0 h-full w-full object-cover'
+                }
               />
               {!project.imageTransparent && (
               <div

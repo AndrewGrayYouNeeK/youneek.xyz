@@ -225,6 +225,7 @@ async function main() {
       image: entry.image || '',
       backImage: entry.backImage || '',
       ...(entry.imageTransparent ? { imageTransparent: true } : {}),
+      ...(entry.imageContain ? { imageContain: true } : {}),
       stars: repo.stargazers_count || 0,
       updated: (repo.pushed_at || repo.updated_at || '').slice(0, 10),
     });
@@ -246,6 +247,7 @@ async function main() {
       image: extra.image || '',
       backImage: extra.backImage || '',
       ...(extra.imageTransparent ? { imageTransparent: true } : {}),
+      ...(extra.imageContain ? { imageContain: true } : {}),
       stars: 0,
       updated: extra.updated || '',
       extra: true,

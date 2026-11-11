@@ -2,6 +2,58 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "Real Neural Forge",
+    "repoName": "Real-Neural-Forge",
+    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+    "language": "Python",
+    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "sites": [
+      {
+        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
+        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/original/neural-forge-transparent.png",
+    "backImage": "/projects/original/neural-forge.jpg",
+    "imageTransparent": true,
+    "stars": 1,
+    "updated": "2026-11-11"
+  },
+  {
+    "title": "YouNeeK CloudRipper",
+    "repoName": "Cloudripper",
+    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
+    "language": "Go",
+    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
+    "sites": [
+      {
+        "url": "https://cloudripper.youneek.dev",
+        "label": "cloudripper.youneek.dev"
+      }
+    ],
+    "image": "/projects/cloudripper-front.jpg",
+    "backImage": "/projects/cloudripper-back.jpg",
+    "stars": 1,
+    "updated": "2026-11-11"
+  },
+  {
+    "title": "YouNeeK Death Terminal",
+    "repoName": "Death-terminal-",
+    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
+    "language": "Zig",
+    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "sites": [
+      {
+        "url": "https://terminal.youneek.dev",
+        "label": "terminal.youneek.dev"
+      }
+    ],
+    "image": "/projects/original/death-terminal.jpg",
+    "backImage": "/projects/original/death-terminal.jpg",
+    "stars": 1,
+    "updated": "2026-11-11"
+  },
+  {
     "title": "10,000 The Final Boss",
     "repoName": "10000TheFinalBoss",
     "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
@@ -34,58 +86,6 @@ export const REPOS = [
     "backImage": "/projects/original/3i-atlas-logo-card.jpg",
     "imageTransparent": true,
     "stars": 0,
-    "updated": "2026-11-10"
-  },
-  {
-    "title": "Real Neural Forge",
-    "repoName": "Real-Neural-Forge",
-    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
-    "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
-    "sites": [
-      {
-        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
-        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
-      }
-    ],
-    "image": "/projects/original/neural-forge-transparent.png",
-    "backImage": "/projects/original/neural-forge.jpg",
-    "imageTransparent": true,
-    "stars": 1,
-    "updated": "2026-11-10"
-  },
-  {
-    "title": "YouNeeK CloudRipper",
-    "repoName": "Cloudripper",
-    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
-    "language": "Go",
-    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
-    "sites": [
-      {
-        "url": "https://cloudripper.youneek.dev",
-        "label": "cloudripper.youneek.dev"
-      }
-    ],
-    "image": "/projects/cloudripper-front.jpg",
-    "backImage": "/projects/cloudripper-back.jpg",
-    "stars": 1,
-    "updated": "2026-11-10"
-  },
-  {
-    "title": "YouNeeK Death Terminal",
-    "repoName": "Death-terminal-",
-    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
-    "language": "Zig",
-    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
-    "sites": [
-      {
-        "url": "https://terminal.youneek.dev",
-        "label": "terminal.youneek.dev"
-      }
-    ],
-    "image": "/projects/original/death-terminal.jpg",
-    "backImage": "/projects/original/death-terminal.jpg",
-    "stars": 1,
     "updated": "2026-11-10"
   },
   {

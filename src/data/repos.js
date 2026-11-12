@@ -2,6 +2,24 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "3i-Atlas",
+    "repoName": "3i-atlas-the-gameYNK",
+    "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/3i-atlas-the-gameYNK",
+    "sites": [
+      {
+        "url": "https://3iatlasgame.xyz",
+        "label": "3iatlasgame.xyz"
+      }
+    ],
+    "image": "/projects/original/3i-atlas-logo-transparent.png",
+    "backImage": "/projects/original/3i-atlas-logo-card.jpg",
+    "imageTransparent": true,
+    "stars": 0,
+    "updated": "2026-11-11"
+  },
+  {
     "title": "Real Neural Forge",
     "repoName": "Real-Neural-Forge",
     "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
@@ -54,6 +72,23 @@ export const REPOS = [
     "updated": "2026-11-11"
   },
   {
+    "title": "YouNeeK Pro Radar (YNK222)",
+    "repoName": "youneek-pro-radarYNK222",
+    "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
+    "sites": [
+      {
+        "url": "https://youneek-pro-radarynk222.youneekartifacts.workers.dev",
+        "label": "youneek-pro-radarynk222.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/pro-radar-ynk222-front.jpg",
+    "backImage": "/projects/pro-radar-ynk222-back.jpg",
+    "stars": 1,
+    "updated": "2026-11-11"
+  },
+  {
     "title": "10,000 The Final Boss",
     "repoName": "10000TheFinalBoss",
     "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
@@ -71,24 +106,6 @@ export const REPOS = [
     "updated": "2026-11-10"
   },
   {
-    "title": "3i-Atlas",
-    "repoName": "3i-atlas-the-gameYNK",
-    "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/3i-atlas-the-gameYNK",
-    "sites": [
-      {
-        "url": "https://3iatlasgame.xyz",
-        "label": "3iatlasgame.xyz"
-      }
-    ],
-    "image": "/projects/original/3i-atlas-logo-transparent.png",
-    "backImage": "/projects/original/3i-atlas-logo-card.jpg",
-    "imageTransparent": true,
-    "stars": 0,
-    "updated": "2026-11-10"
-  },
-  {
     "title": "YouNeeK Pro Radar",
     "repoName": "youneekproradarBABY",
     "description": "Military-style NEXRAD radar and severe-weather tracker: live radar mosaics, NWS alert overlays, NOAA weather radio, and a one-tap shelter SMS to your contacts.",
@@ -103,23 +120,6 @@ export const REPOS = [
     "image": "/projects/original/pro-radar-neon.webp",
     "backImage": "/projects/original/pro-radar-neon.webp",
     "stars": 0,
-    "updated": "2026-11-10"
-  },
-  {
-    "title": "YouNeeK Pro Radar (YNK222)",
-    "repoName": "youneek-pro-radarYNK222",
-    "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
-    "sites": [
-      {
-        "url": "https://youneek-pro-radarynk222.youneekartifacts.workers.dev",
-        "label": "youneek-pro-radarynk222.youneekartifacts.workers.dev"
-      }
-    ],
-    "image": "/projects/pro-radar-ynk222-front.jpg",
-    "backImage": "/projects/pro-radar-ynk222-back.jpg",
-    "stars": 1,
     "updated": "2026-11-10"
   },
   {
@@ -211,16 +211,16 @@ export const REPOS = [
     "updated": "2026-10-29"
   },
   {
-    "title": "Air Traffic Controller",
-    "repoName": "YNKAIRTRAFFICGAME",
-    "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
+    "title": "personal browser",
+    "repoName": "personal-browser",
+    "description": "Personal macOS-first web browser built with Tauri v3 and the official Chromium Embedded Framework runtime.",
+    "language": "Rust",
+    "link": "https://github.com/AndrewGrayYouNeeK/personal-browser",
     "sites": [],
     "image": "",
     "backImage": "",
     "stars": 0,
-    "updated": "2026-11-10"
+    "updated": "2026-11-11"
   },
   {
     "title": "Unique Sky",
@@ -228,6 +228,42 @@ export const REPOS = [
     "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard.",
     "language": "JavaScript",
     "link": "https://github.com/AndrewGrayYouNeeK/unique-sky",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
+    "updated": "2026-11-11"
+  },
+  {
+    "title": "YouNeeK Satellite Tracker",
+    "repoName": "youneek-satellite-tracker",
+    "description": "Live 3D globe of satellite positions from CelesTrak orbital data: Starlink, the ISS, GPS, and more, with time simulation, search, and an AR mode.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-satellite-tracker",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
+    "updated": "2026-11-11"
+  },
+  {
+    "title": "youneek.xyz",
+    "repoName": "youneek.xyz",
+    "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 1,
+    "updated": "2026-11-11"
+  },
+  {
+    "title": "Air Traffic Controller",
+    "repoName": "YNKAIRTRAFFICGAME",
+    "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
     "sites": [],
     "image": "",
     "backImage": "",
@@ -244,30 +280,6 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 0,
-    "updated": "2026-11-10"
-  },
-  {
-    "title": "YouNeeK Satellite Tracker",
-    "repoName": "youneek-satellite-tracker",
-    "description": "Live 3D globe of satellite positions from CelesTrak orbital data: Starlink, the ISS, GPS, and more, with time simulation, search, and an AR mode.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-satellite-tracker",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-11-10"
-  },
-  {
-    "title": "youneek.xyz",
-    "repoName": "youneek.xyz",
-    "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek.xyz",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 1,
     "updated": "2026-11-10"
   },
   {

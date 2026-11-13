@@ -20,6 +20,14 @@ export default function CyberFooter() {
             <p className="font-mono text-xs text-muted-foreground/40 mt-1">
               {'>'} no templates. no frameworks. no excuses._
             </p>
+            <a
+              href="https://www.roll10000.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 font-mono text-xs text-primary/70 hover:text-primary neon-text transition-colors"
+            >
+              {'>'} YouNeeK 10,000 — The Ultimate Roll
+            </a>
           </div>
 
           {/* Right - Social icons */}

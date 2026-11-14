@@ -17,7 +17,7 @@ export const REPOS = [
     "backImage": "/projects/original/3i-atlas-logo-card.jpg",
     "imageTransparent": true,
     "stars": 0,
-    "updated": "2026-11-13"
+    "updated": "2026-11-14"
   },
   {
     "title": "Real Neural Forge",
@@ -35,24 +35,7 @@ export const REPOS = [
     "backImage": "/projects/original/neural-forge.jpg",
     "imageTransparent": true,
     "stars": 1,
-    "updated": "2026-11-13"
-  },
-  {
-    "title": "YouNeeK Death Terminal",
-    "repoName": "Death-terminal-",
-    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
-    "language": "Zig",
-    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
-    "sites": [
-      {
-        "url": "https://terminal.youneek.dev",
-        "label": "terminal.youneek.dev"
-      }
-    ],
-    "image": "/projects/original/death-terminal.jpg",
-    "backImage": "/projects/original/death-terminal.jpg",
-    "stars": 1,
-    "updated": "2026-11-13"
+    "updated": "2026-11-14"
   },
   {
     "title": "YouNeeK Pro Radar (YNK222)",
@@ -68,6 +51,23 @@ export const REPOS = [
     ],
     "image": "/projects/pro-radar-ynk222-front.jpg",
     "backImage": "/projects/pro-radar-ynk222-back.jpg",
+    "stars": 1,
+    "updated": "2026-11-14"
+  },
+  {
+    "title": "YouNeeK Death Terminal",
+    "repoName": "Death-terminal-",
+    "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
+    "language": "Zig",
+    "link": "https://github.com/AndrewGrayYouNeeK/Death-terminal-",
+    "sites": [
+      {
+        "url": "https://terminal.youneek.dev",
+        "label": "terminal.youneek.dev"
+      }
+    ],
+    "image": "/projects/original/death-terminal.jpg",
+    "backImage": "/projects/original/death-terminal.jpg",
     "stars": 1,
     "updated": "2026-11-13"
   },
@@ -232,7 +232,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-12"
+    "updated": "2026-11-13"
   },
   {
     "title": "personal browser",

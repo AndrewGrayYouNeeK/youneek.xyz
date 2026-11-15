@@ -22,6 +22,7 @@
     "forge.youneek.xyz and w.youneek.xyz currently serve this portfolio instead of their own Workers, so Real-Neural-Forge links the workers.dev forecast and Death Terminal links its landing page at terminal.youneek.dev, which has downloads and install commands for Windows, macOS, and Linux (the Windows zip comes from the dt-windows-download Worker).",
     "The Architects GM (the-architects-gm) is an owner desk, not a public project, so it has no card.",
     "apex-controlYNK222 (Apex Control) and atc222trainer (ATC222 Trainer) are extra ATC games. They stay in skipRepos so a later sync leaves them off even if the public API lists them again. YNKAIRTRAFFICGAME and unique-sky (YouNeeK Stars) stay on the site.",
+    "YNKAIRTRAFFICGAME links https://youneek.xyz/air-traffic, the iPhone game page. Privacy is https://youneek.xyz/air-traffic/privacy and support is https://youneek.xyz/air-traffic/support. Those pages ship with this site. A Cloudflare challenge on youneek.xyz still counts that link as live.",
     "Do not add relay.youneek.xyz. That hostname is the youneek-share-relay Worker."
   ],
   "repos": {
@@ -143,7 +144,16 @@
     },
     "YNKAIRTRAFFICGAME": {
       "title": "Air Traffic Controller",
-      "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser."
+      "description": "YNK Air Traffic is the iPhone game for this repo: a guided tutorial, thumb controls, voice clearances, and offline play. The browser build keeps radar, incidents, and scores on the device.",
+      "sites": [
+        {
+          "url": "https://youneek.xyz/air-traffic",
+          "label": "YNK Air Traffic"
+        }
+      ],
+      "image": "/projects/ynk-air-traffic-icon.png",
+      "imageTransparent": true,
+      "backImage": "/projects/ynk-air-traffic-back.jpg"
     },
     "youneek-satellite-tracker": {
       "title": "YouNeeK Satellite Tracker",

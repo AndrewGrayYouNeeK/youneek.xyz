@@ -17,7 +17,25 @@ export const REPOS = [
     "backImage": "/projects/original/3i-atlas-logo-card.jpg",
     "imageTransparent": true,
     "stars": 0,
-    "updated": "2026-11-14"
+    "updated": "2026-11-15"
+  },
+  {
+    "title": "Air Traffic Controller",
+    "repoName": "YNKAIRTRAFFICGAME",
+    "description": "YNK Air Traffic is the iPhone game for this repo: a guided tutorial, thumb controls, voice clearances, and offline play. The browser build keeps radar, incidents, and scores on the device.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
+    "sites": [
+      {
+        "url": "https://youneek.xyz/air-traffic",
+        "label": "YNK Air Traffic"
+      }
+    ],
+    "image": "/projects/ynk-air-traffic-icon.png",
+    "backImage": "/projects/ynk-air-traffic-back.jpg",
+    "imageTransparent": true,
+    "stars": 0,
+    "updated": "2026-11-15"
   },
   {
     "title": "Real Neural Forge",
@@ -35,7 +53,7 @@ export const REPOS = [
     "backImage": "/projects/original/neural-forge.jpg",
     "imageTransparent": true,
     "stars": 1,
-    "updated": "2026-11-14"
+    "updated": "2026-11-15"
   },
   {
     "title": "YouNeeK Pro Radar (YNK222)",
@@ -52,7 +70,7 @@ export const REPOS = [
     "image": "/projects/pro-radar-ynk222-front.jpg",
     "backImage": "/projects/pro-radar-ynk222-back.jpg",
     "stars": 1,
-    "updated": "2026-11-14"
+    "updated": "2026-11-15"
   },
   {
     "title": "YouNeeK Death Terminal",
@@ -211,18 +229,6 @@ export const REPOS = [
     "updated": "2026-10-29"
   },
   {
-    "title": "Unique Sky",
-    "repoName": "unique-sky",
-    "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/unique-sky",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-11-13"
-  },
-  {
     "title": "youneek.xyz",
     "repoName": "youneek.xyz",
     "description": "This portfolio. A cyberpunk page with one card per public GitHub repo. A card shows a site link only after the URL answers; otherwise it shows TV static.",
@@ -232,6 +238,18 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
+    "updated": "2026-11-14"
+  },
+  {
+    "title": "Unique Sky",
+    "repoName": "unique-sky",
+    "description": "YouneeK Stars, an AR star-naming app: pan the night sky, claim stars with symbolic ownership, do daily sky hunts, and browse a star map with a leaderboard.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/unique-sky",
+    "sites": [],
+    "image": "",
+    "backImage": "",
+    "stars": 0,
     "updated": "2026-11-13"
   },
   {
@@ -257,18 +275,6 @@ export const REPOS = [
     "backImage": "",
     "stars": 0,
     "updated": "2026-11-11"
-  },
-  {
-    "title": "Air Traffic Controller",
-    "repoName": "YNKAIRTRAFFICGAME",
-    "description": "A browser air traffic control game with a live radar scanner, drone detection, voice commands, a watchlist, incidents, and analytics. Data stays in your browser.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/YNKAIRTRAFFICGAME",
-    "sites": [],
-    "image": "",
-    "backImage": "",
-    "stars": 0,
-    "updated": "2026-11-10"
   },
   {
     "title": "youneek dev",

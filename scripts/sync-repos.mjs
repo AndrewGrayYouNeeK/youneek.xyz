@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkUrl } from './verify-url.mjs';
+import { applyChallengePolicy, checkUrl } from './verify-url.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const configPath = path.join(root, 'sites.config.json');
@@ -157,10 +157,15 @@ async function verifiedSites(urls) {
     if (result.verdict === 'inconclusive') {
       result = await checkUrl(candidate);
     }
-    let verdict = result.verdict;
+    const verdict = applyChallengePolicy({
+      candidate,
+      challenged: result.challenged,
+      verdict: result.verdict,
+      hasPreviousRecord: previousUrls.size > 0,
+      previouslyLinked: previousUrls.has(candidate),
+    });
     if (result.challenged && previousUrls.size > 0) {
-      verdict = previousUrls.has(candidate) ? 'live' : 'dead';
-      console.log(`  challenged ${result.status || '-'} ${candidate} -> keeping previous verdict (${verdict})`);
+      console.log(`  challenged ${result.status || '-'} ${candidate} -> ${verdict}`);
     } else {
       console.log(`  ${verdict} ${result.status || '-'} ${candidate}`);
     }

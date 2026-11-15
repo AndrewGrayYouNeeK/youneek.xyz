@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { LIVE_DEMOS, REPOS } from '../src/data/repos.js';
-import { classifyResponse } from './verify-url.mjs';
+import { applyChallengePolicy, classifyResponse } from './verify-url.mjs';
 import { selectRecordsToReplace } from './repair-apex-dns.mjs';
 import config from '../sites.config.json' with { type: 'json' };
 
@@ -52,6 +52,50 @@ assert.equal(
     body: '<title>3i-Atlas — The Game</title>',
     contentType: 'text/html',
     challenged: false,
+  }),
+  'live'
+);
+
+const challenged = { challenged: true, verdict: 'live', hasPreviousRecord: true };
+assert.equal(
+  applyChallengePolicy({
+    ...challenged,
+    candidate: 'https://example.com/new',
+    previouslyLinked: false,
+  }),
+  'dead'
+);
+assert.equal(
+  applyChallengePolicy({
+    ...challenged,
+    candidate: 'https://example.com/old',
+    previouslyLinked: true,
+  }),
+  'live'
+);
+assert.equal(
+  applyChallengePolicy({
+    ...challenged,
+    candidate: 'https://youneek.xyz/air-traffic',
+    previouslyLinked: false,
+  }),
+  'live'
+);
+assert.equal(
+  applyChallengePolicy({
+    ...challenged,
+    candidate: 'https://www.youneek.xyz/air-traffic/privacy',
+    previouslyLinked: false,
+  }),
+  'live'
+);
+assert.equal(
+  applyChallengePolicy({
+    candidate: 'https://youneek.xyz/air-traffic',
+    challenged: true,
+    verdict: 'live',
+    hasPreviousRecord: false,
+    previouslyLinked: false,
   }),
   'live'
 );
@@ -220,6 +264,12 @@ assert.equal(config.repos.atc222trainer, undefined);
 assert.ok(config.skipRepos.includes('apex-controlYNK222'));
 assert.ok(config.skipRepos.includes('atc222trainer'));
 assert.equal(byName.YNKAIRTRAFFICGAME.title, 'Air Traffic Controller');
+assert.deepEqual(siteUrls('YNKAIRTRAFFICGAME'), ['https://youneek.xyz/air-traffic']);
+assert.equal(byName.YNKAIRTRAFFICGAME.sites[0].label, 'YNK Air Traffic');
+assert.equal(byName.YNKAIRTRAFFICGAME.image, '/projects/ynk-air-traffic-icon.png');
+assert.equal(byName.YNKAIRTRAFFICGAME.backImage, '/projects/ynk-air-traffic-back.jpg');
+assert.equal(byName.YNKAIRTRAFFICGAME.imageTransparent, true);
+assert.match(byName.YNKAIRTRAFFICGAME.description, /offline play/);
 assert.equal(byName['unique-sky'].title, 'Unique Sky');
 assert.match(byName['unique-sky'].description, /YouneeK Stars/);
 assert.ok(config.repos.YNKAIRTRAFFICGAME);
@@ -244,6 +294,23 @@ for (const piece of ['GlitchHero', 'MatrixRain', 'ReactiveGrid']) {
   assert.match(landing, new RegExp(piece), `${piece} belongs to the cyberpunk landing page`);
 }
 assert.match(css, /Orbitron/);
-assert.equal(/base44/i.test(card + tv + landing), false);
+const airTraffic = [
+  'store.js',
+  'AirTraffic.jsx',
+  'AirTrafficPrivacy.jsx',
+  'AirTrafficSupport.jsx',
+  'AirTrafficFrame.jsx',
+  'StoreButton.jsx',
+].map((name) => read(`../src/pages/air-traffic/${name}`)).join('\n');
+assert.match(read('../src/App.jsx'), /path="\/air-traffic"/);
+assert.match(read('../src/App.jsx'), /path="\/air-traffic\/privacy"/);
+assert.match(read('../src/App.jsx'), /path="\/air-traffic\/support"/);
+assert.match(airTraffic, /Coming soon/);
+assert.match(airTraffic, /export const AIR_TRAFFIC_STORE_URL = ''/);
+assert.match(airTraffic, /Data Not Collected/);
+assert.match(airTraffic, /on-device/);
+assert.match(airTraffic, /https:\/\/github\.com\/AndrewGrayYouNeeK\/YNKAIRTRAFFICGAME\/issues/);
+assert.equal(/mailto:/i.test(airTraffic), false);
+assert.equal(/base44/i.test(card + tv + landing + airTraffic), false);
 
 console.log(`portfolio tests passed (${REPOS.length} slots, ${LIVE_DEMOS.length} live)`);

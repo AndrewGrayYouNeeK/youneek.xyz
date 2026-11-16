@@ -2,6 +2,24 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "Real Neural Forge",
+    "repoName": "Real-Neural-Forge",
+    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+    "language": "Python",
+    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "sites": [
+      {
+        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
+        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/original/neural-forge-transparent.png",
+    "backImage": "/projects/original/neural-forge.jpg",
+    "imageTransparent": true,
+    "stars": 1,
+    "updated": "2026-11-16"
+  },
+  {
     "title": "3i-Atlas",
     "repoName": "3i-atlas-the-gameYNK",
     "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
@@ -38,20 +56,19 @@ export const REPOS = [
     "updated": "2026-11-15"
   },
   {
-    "title": "Real Neural Forge",
-    "repoName": "Real-Neural-Forge",
-    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
-    "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "title": "YouNeeK CloudRipper",
+    "repoName": "Cloudripper",
+    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
+    "language": "Go",
+    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
     "sites": [
       {
-        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
-        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
+        "url": "https://cloudripper.youneek.dev",
+        "label": "cloudripper.youneek.dev"
       }
     ],
-    "image": "/projects/original/neural-forge-transparent.png",
-    "backImage": "/projects/original/neural-forge.jpg",
-    "imageTransparent": true,
+    "image": "/projects/cloudripper-front.jpg",
+    "backImage": "/projects/cloudripper-back.jpg",
     "stars": 1,
     "updated": "2026-11-15"
   },
@@ -88,23 +105,6 @@ export const REPOS = [
     "backImage": "/projects/original/death-terminal.jpg",
     "stars": 1,
     "updated": "2026-11-13"
-  },
-  {
-    "title": "YouNeeK CloudRipper",
-    "repoName": "Cloudripper",
-    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
-    "language": "Go",
-    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
-    "sites": [
-      {
-        "url": "https://cloudripper.youneek.dev",
-        "label": "cloudripper.youneek.dev"
-      }
-    ],
-    "image": "/projects/cloudripper-front.jpg",
-    "backImage": "/projects/cloudripper-back.jpg",
-    "stars": 1,
-    "updated": "2026-11-11"
   },
   {
     "title": "10,000 The Final Boss",

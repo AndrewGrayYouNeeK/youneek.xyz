@@ -238,7 +238,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-16"
+    "updated": "2026-11-17"
   },
   {
     "title": "Unique Sky",

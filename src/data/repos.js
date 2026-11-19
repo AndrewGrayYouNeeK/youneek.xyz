@@ -2,24 +2,6 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
-    "title": "Real Neural Forge",
-    "repoName": "Real-Neural-Forge",
-    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
-    "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
-    "sites": [
-      {
-        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
-        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
-      }
-    ],
-    "image": "/projects/original/neural-forge-transparent.png",
-    "backImage": "/projects/original/neural-forge.jpg",
-    "imageTransparent": true,
-    "stars": 1,
-    "updated": "2026-11-16"
-  },
-  {
     "title": "3i-Atlas",
     "repoName": "3i-atlas-the-gameYNK",
     "description": "A stealth strategy game. You are interstellar comet 3I/ATLAS and must keep your comet disguise intact across eight stages while observatories watch. Easy, Medium, and Hard modes.",
@@ -238,7 +220,20 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-17"
+    "updated": "2026-11-18"
+  },
+  {
+    "title": "Real Neural Forge",
+    "repoName": "Real-Neural-Forge",
+    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+    "language": "Python",
+    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "sites": [],
+    "image": "/projects/original/neural-forge-transparent.png",
+    "backImage": "/projects/original/neural-forge.jpg",
+    "imageTransparent": true,
+    "stars": 1,
+    "updated": "2026-11-16"
   },
   {
     "title": "Unique Sky",

@@ -2,6 +2,23 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
+    "title": "10,000 The Final Boss",
+    "repoName": "10000TheFinalBoss",
+    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
+    "sites": [
+      {
+        "url": "https://www.roll10000.com",
+        "label": "www.roll10000.com"
+      }
+    ],
+    "image": "/projects/original/roll10000-logo-card.jpg",
+    "backImage": "/projects/original/roll10000-logo-card.jpg",
+    "stars": 1,
+    "updated": "2026-11-21"
+  },
+  {
     "title": "Real Neural Forge",
     "repoName": "Real-Neural-Forge",
     "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
@@ -17,7 +34,41 @@ export const REPOS = [
     "backImage": "/projects/original/neural-forge.jpg",
     "imageTransparent": true,
     "stars": 1,
-    "updated": "2026-11-16"
+    "updated": "2026-11-21"
+  },
+  {
+    "title": "YouNeeK CloudRipper",
+    "repoName": "Cloudripper",
+    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
+    "language": "Go",
+    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
+    "sites": [
+      {
+        "url": "https://cloudripper.youneek.dev",
+        "label": "cloudripper.youneek.dev"
+      }
+    ],
+    "image": "/projects/cloudripper-front.jpg",
+    "backImage": "/projects/cloudripper-back.jpg",
+    "stars": 1,
+    "updated": "2026-11-21"
+  },
+  {
+    "title": "YouNeeK Pro Radar (YNK222)",
+    "repoName": "youneek-pro-radarYNK222",
+    "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
+    "sites": [
+      {
+        "url": "https://youneek-pro-radarynk222.youneekartifacts.workers.dev",
+        "label": "youneek-pro-radarynk222.youneekartifacts.workers.dev"
+      }
+    ],
+    "image": "/projects/pro-radar-ynk222-front.jpg",
+    "backImage": "/projects/pro-radar-ynk222-back.jpg",
+    "stars": 1,
+    "updated": "2026-11-21"
   },
   {
     "title": "3i-Atlas",
@@ -56,40 +107,6 @@ export const REPOS = [
     "updated": "2026-11-15"
   },
   {
-    "title": "YouNeeK CloudRipper",
-    "repoName": "Cloudripper",
-    "description": "One CLI for cloud waste, real spend, and safe chaos tests across AWS, GCP, and Azure. Inventories resources, reads actual spend, applies confirmed cost actions, and scales instance groups.",
-    "language": "Go",
-    "link": "https://github.com/AndrewGrayYouNeeK/Cloudripper",
-    "sites": [
-      {
-        "url": "https://cloudripper.youneek.dev",
-        "label": "cloudripper.youneek.dev"
-      }
-    ],
-    "image": "/projects/cloudripper-front.jpg",
-    "backImage": "/projects/cloudripper-back.jpg",
-    "stars": 1,
-    "updated": "2026-11-15"
-  },
-  {
-    "title": "YouNeeK Pro Radar (YNK222)",
-    "repoName": "youneek-pro-radarYNK222",
-    "description": "The Pro Radar weather app on its own: radar, a 3D globe, forecasts, lightning, hurricanes, wildfires, NOAA radio, and emergency SMS drafts.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/youneek-pro-radarYNK222",
-    "sites": [
-      {
-        "url": "https://youneek-pro-radarynk222.youneekartifacts.workers.dev",
-        "label": "youneek-pro-radarynk222.youneekartifacts.workers.dev"
-      }
-    ],
-    "image": "/projects/pro-radar-ynk222-front.jpg",
-    "backImage": "/projects/pro-radar-ynk222-back.jpg",
-    "stars": 1,
-    "updated": "2026-11-15"
-  },
-  {
     "title": "YouNeeK Death Terminal",
     "repoName": "Death-terminal-",
     "description": "A brutalist, GPU-accelerated terminal with AI command suggestions, Vulkan rendering, SSH, and Lua config. The card links the landing page, with downloads and install commands for Windows, macOS, and Linux.",
@@ -105,23 +122,6 @@ export const REPOS = [
     "backImage": "/projects/original/death-terminal.jpg",
     "stars": 1,
     "updated": "2026-11-13"
-  },
-  {
-    "title": "10,000 The Final Boss",
-    "repoName": "10000TheFinalBoss",
-    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
-    "sites": [
-      {
-        "url": "https://www.roll10000.com",
-        "label": "www.roll10000.com"
-      }
-    ],
-    "image": "/projects/original/roll10000-logo-card.jpg",
-    "backImage": "/projects/original/roll10000-logo-card.jpg",
-    "stars": 1,
-    "updated": "2026-11-10"
   },
   {
     "title": "YouNeeK Pro Radar",
@@ -238,7 +238,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-19"
+    "updated": "2026-11-20"
   },
   {
     "title": "Unique Sky",

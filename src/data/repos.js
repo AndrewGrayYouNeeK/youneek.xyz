@@ -2,23 +2,6 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
-    "title": "10,000 The Final Boss",
-    "repoName": "10000TheFinalBoss",
-    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
-    "language": "JavaScript",
-    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
-    "sites": [
-      {
-        "url": "https://www.roll10000.com",
-        "label": "www.roll10000.com"
-      }
-    ],
-    "image": "/projects/original/roll10000-logo-card.jpg",
-    "backImage": "/projects/original/roll10000-logo-card.jpg",
-    "stars": 1,
-    "updated": "2026-11-21"
-  },
-  {
     "title": "Real Neural Forge",
     "repoName": "Real-Neural-Forge",
     "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
@@ -33,6 +16,23 @@ export const REPOS = [
     "image": "/projects/original/neural-forge-transparent.png",
     "backImage": "/projects/original/neural-forge.jpg",
     "imageTransparent": true,
+    "stars": 1,
+    "updated": "2026-11-23"
+  },
+  {
+    "title": "10,000 The Final Boss",
+    "repoName": "10000TheFinalBoss",
+    "description": "YouNeeK 10,000, a dice game with local multiplayer, story mode, a shop, and progression. Runs entirely in the browser with no account or backend.",
+    "language": "JavaScript",
+    "link": "https://github.com/AndrewGrayYouNeeK/10000TheFinalBoss",
+    "sites": [
+      {
+        "url": "https://www.roll10000.com",
+        "label": "www.roll10000.com"
+      }
+    ],
+    "image": "/projects/original/roll10000-logo-card.jpg",
+    "backImage": "/projects/original/roll10000-logo-card.jpg",
     "stars": 1,
     "updated": "2026-11-21"
   },
@@ -238,7 +238,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-21"
+    "updated": "2026-11-22"
   },
   {
     "title": "Unique Sky",

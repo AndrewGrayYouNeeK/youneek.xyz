@@ -17,7 +17,7 @@ export const REPOS = [
     "backImage": "/projects/original/neural-forge.jpg",
     "imageTransparent": true,
     "stars": 1,
-    "updated": "2026-11-23"
+    "updated": "2026-11-26"
   },
   {
     "title": "10,000 The Final Boss",
@@ -238,7 +238,7 @@ export const REPOS = [
     "image": "",
     "backImage": "",
     "stars": 1,
-    "updated": "2026-11-24"
+    "updated": "2026-11-25"
   },
   {
     "title": "Unique Sky",

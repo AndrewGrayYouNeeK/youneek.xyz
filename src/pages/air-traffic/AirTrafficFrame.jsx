@@ -64,7 +64,7 @@ export default function AirTrafficFrame({ title, description, path, children }) 
       <footer className="relative z-10 border-t border-border/30">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-mono text-xs text-muted-foreground">
-            YouNeeK · Andrew Gray · {new Date().getFullYear()}
+            YouNeeK™ · © 2026 Andrew Gray
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs">
             <Link to="/" className="text-primary hover:underline">

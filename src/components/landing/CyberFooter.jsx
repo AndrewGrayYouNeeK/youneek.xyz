@@ -8,13 +8,12 @@ export default function CyberFooter() {
           {/* Left - Attribution */}
           <div className="text-center sm:text-left">
             <p className="font-mono text-sm text-muted-foreground">
-              Built by{' '}
               <span className="text-primary font-bold neon-text">
-                Andrew Gray
+                YouNeeK™
               </span>
-              {' '}|{' '}
-              <span className="text-foreground/60">
-                {new Date().getFullYear()}
+              {' · '}
+              <span className="text-foreground/70">
+                © 2026 Andrew Gray
               </span>
             </p>
             <p className="font-mono text-xs text-muted-foreground/40 mt-1">

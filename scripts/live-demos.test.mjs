@@ -152,12 +152,13 @@ assert.equal(byName['the-architects'].extra, true);
 assert.deepEqual(siteUrls('3i-atlas-the-gameYNK'), ['https://3iatlasgame.xyz']);
 assert.deepEqual(siteUrls('YouNeeKTimeTheFinalBoss'), ['https://youneektime.com']);
 assert.deepEqual(siteUrls('youneekproradarBABY'), ['https://youneekproradar.com']);
-assert.deepEqual(siteUrls('Nous'), [
+assert.deepEqual(siteUrls('Henad'), [
   'https://nous.youneek.dev',
   'https://nous.youneek.xyz',
 ]);
-assert.equal(byName['Nous'].title, 'Nous');
-assert.match(byName['Nous'].description, /The architecture of understanding/);
+assert.equal(byName['Henad'].title, 'Nous');
+assert.match(byName['Henad'].description, /The architecture of understanding/);
+assert.equal(byName['Nous'], undefined, 'GitHub repo Nous was renamed to Henad; the card title stays Nous');
 assert.equal(byName['Real-Neural-Forge'], undefined, 'Real-Neural-Forge was renamed to Nous');
 assert.deepEqual(siteUrls('lilly-s-appYNK222'), []);
 assert.deepEqual(siteUrls('youneek'), []);
@@ -262,9 +263,9 @@ assert.equal(byName['10000TheFinalBoss'].image, '/projects/original/roll10000-lo
 assert.equal(byName['10000TheFinalBoss'].backImage, '/projects/original/roll10000-logo-card.jpg');
 assert.equal(byName['used-artifacts'].image, '/projects/original/used-artifacts-logo.png', 'Used Artifacts uses the official transparent logo');
 assert.equal(byName['used-artifacts'].imageTransparent, true);
-assert.equal(byName['Nous'].image, '/projects/original/nous-wordmark.webp');
-assert.equal(byName['Nous'].imageTransparent, true, 'Nous card renders the wordmark with no fill behind the logo');
-assert.equal(byName['Nous'].backImage, '/projects/original/nous-wordmark-card.webp');
+assert.equal(byName['Henad'].image, '/projects/original/nous-wordmark.webp');
+assert.equal(byName['Henad'].imageTransparent, true, 'Nous card renders the wordmark with no fill behind the logo');
+assert.equal(byName['Henad'].backImage, '/projects/original/nous-wordmark-card.webp');
 assert.equal(byName['used-artifacts'].backImage, '/projects/original/used-artifacts-logo-card.jpg');
 assert.deepEqual(siteUrls('used-artifacts'), ['https://usedartifacts.com']);
 assert.match(byName['used-artifacts'].description, /coming soon/i);

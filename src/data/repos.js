@@ -3,10 +3,10 @@
 export const REPOS = [
   {
     "title": "Nous",
-    "repoName": "Nous",
+    "repoName": "Henad",
     "description": "The architecture of understanding. Forecasts your numbers, weather, and markets, and talks back.",
     "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Nous",
+    "link": "https://github.com/AndrewGrayYouNeeK/Henad",
     "sites": [
       {
         "url": "https://nous.youneek.dev",

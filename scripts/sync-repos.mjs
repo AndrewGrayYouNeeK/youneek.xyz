@@ -3,6 +3,8 @@
  * Build src/data/repos.js from the public GitHub API plus sites.config.json.
  * Forks, template repositories, empty repositories, and skipRepos names are omitted.
  * A Visit site link is written only after scripts/verify-url.mjs marks it live.
+ * repoAliases in sites.config.json maps an old GitHub repo name to the current
+ * card entry (for example Nous → Henad) so a mid-rename sync still applies it.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,6 +16,7 @@ const configPath = path.join(root, 'sites.config.json');
 const target = path.join(root, 'src/data/repos.js');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const owner = config.owner;
+const repoAliases = config.repoAliases || {};
 const skipRepos = new Set(config.skipRepos || []);
 const denyHosts = new Set((config.denyHosts || []).map((host) => host.toLowerCase()));
 // URLs linked by the last committed sync. A Cloudflare bot challenge hides
@@ -211,9 +214,10 @@ async function main() {
 
   const out = [];
   for (const repo of kept) {
-    const entry = config.repos?.[repo.name] || {};
+    const canonical = repoAliases[repo.name] || repo.name;
+    const entry = config.repos?.[canonical] || config.repos?.[repo.name] || {};
     const githubDescription = cleanDescription(repo.description || '');
-    const title = entry.title || titleize(repo.name);
+    const title = entry.title || titleize(canonical);
     let readme = '';
     if (!entry.description && githubDescription.length < 24) {
       readme = await fetchReadme(repo.name);
@@ -222,10 +226,10 @@ async function main() {
     const sites = await verifiedSites(entry.sites);
     out.push({
       title,
-      repoName: repo.name,
+      repoName: entry.repoName || canonical,
       description: descriptionFor(repo, entry.description, readme),
       language: repo.language || 'Code',
-      link: repo.html_url,
+      link: entry.link || (canonical !== repo.name ? `https://github.com/${owner}/${canonical}` : repo.html_url),
       sites,
       image: entry.image || '',
       backImage: entry.backImage || '',

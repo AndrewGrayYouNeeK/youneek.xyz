@@ -77,3 +77,5 @@ npm run dev
 | `npm run lint`     | Run ESLint                           |
 | `npm run typecheck`| Run the TypeScript checker           |
 | `npm run deploy`   | Build, replace the broken apex DNS, and deploy to youneek.xyz |
+
+YouNeeK™ · © 2026 Andrew Gray

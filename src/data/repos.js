@@ -2,19 +2,23 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
-    "title": "Real Neural Forge",
-    "repoName": "Real-Neural-Forge",
-    "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+    "title": "Nous",
+    "repoName": "Nous",
+    "description": "The architecture of understanding. Forecasts your numbers, weather, and markets, and talks back.",
     "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Real-Neural-Forge",
+    "link": "https://github.com/AndrewGrayYouNeeK/Nous",
     "sites": [
       {
-        "url": "https://real-neural-forge-api.youneekartifacts.workers.dev",
-        "label": "real-neural-forge-api.youneekartifacts.workers.dev"
+        "url": "https://nous.youneek.dev",
+        "label": "nous.youneek.dev"
+      },
+      {
+        "url": "https://nous.youneek.xyz",
+        "label": "nous.youneek.xyz"
       }
     ],
-    "image": "/projects/original/neural-forge-transparent.png",
-    "backImage": "/projects/original/neural-forge.jpg",
+    "image": "/projects/original/nous-wordmark.webp",
+    "backImage": "/projects/original/nous-wordmark-card.webp",
     "imageTransparent": true,
     "stars": 1,
     "updated": "2026-11-26"
@@ -279,7 +283,7 @@ export const REPOS = [
   {
     "title": "youneek dev",
     "repoName": "youneek-dev",
-    "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker.",
+    "description": "YouNeeK tools: CloudRipper, Death Terminal, Nous, and Starlit Tracker.",
     "language": "HTML",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-dev",
     "sites": [],

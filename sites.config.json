@@ -19,7 +19,7 @@
     "roll10000.com currently answers with a Cloudflare Access login page and online.roll10000.com answers 404, so the verifier leaves them off. www.roll10000.com serves the game. They link automatically once they answer without a login.",
     "lillysapp.com answers with Cloudflare error 1000, so lilly-s-appYNK222 has no sites entry.",
     "youneekcare.com does not resolve, so the youneek repo has no sites entry.",
-    "forge.youneek.xyz and w.youneek.xyz currently serve this portfolio instead of their own Workers, so Real-Neural-Forge links the workers.dev forecast and Death Terminal links its landing page at terminal.youneek.dev, which has downloads and install commands for Windows, macOS, and Linux (the Windows zip comes from the dt-windows-download Worker).",
+    "Nous lives at https://nous.youneek.dev and https://nous.youneek.xyz. The old forge.youneek.dev and forge.youneek.xyz hostnames 301 there, so the card links the nous hosts rather than the redirects. w.youneek.xyz currently serves this portfolio instead of its own Worker. Death Terminal links its landing page at terminal.youneek.dev, which has downloads and install commands for Windows, macOS, and Linux (the Windows zip comes from the dt-windows-download Worker).",
     "The Architects GM (the-architects-gm) is an owner desk, not a public project, so it has no card.",
     "apex-controlYNK222 (Apex Control) and atc222trainer (ATC222 Trainer) are extra ATC games. They stay in skipRepos so a later sync leaves them off even if the public API lists them again. YNKAIRTRAFFICGAME and unique-sky (YouNeeK Stars) stay on the site.",
     "YNKAIRTRAFFICGAME links https://youneek.xyz/air-traffic, the iPhone game page. Privacy is https://youneek.xyz/air-traffic/privacy and support is https://youneek.xyz/air-traffic/support. Those pages ship with this site. A Cloudflare challenge on youneek.xyz still counts that link as live.",
@@ -75,15 +75,16 @@
       "image": "/projects/original/pro-radar-neon.webp",
       "backImage": "/projects/original/pro-radar-neon.webp"
     },
-    "Real-Neural-Forge": {
-      "title": "Real Neural Forge",
-      "description": "A transformer pipeline for time-series prediction built with PyTorch, CUDA, and FastAPI, with a REST API for predictions and training and a forecast dashboard.",
+    "Nous": {
+      "title": "Nous",
+      "description": "The architecture of understanding. Forecasts your numbers, weather, and markets, and talks back.",
       "sites": [
-        "https://real-neural-forge-api.youneekartifacts.workers.dev"
+        "https://nous.youneek.dev",
+        "https://nous.youneek.xyz"
       ],
-      "image": "/projects/original/neural-forge-transparent.png",
+      "image": "/projects/original/nous-wordmark.webp",
       "imageTransparent": true,
-      "backImage": "/projects/original/neural-forge.jpg"
+      "backImage": "/projects/original/nous-wordmark-card.webp"
     },
     "Death-terminal-": {
       "title": "YouNeeK Death Terminal",
@@ -95,7 +96,7 @@
       "backImage": "/projects/original/death-terminal.jpg"
     },
     "youneek-dev": {
-      "description": "YouNeeK tools: CloudRipper, Death Terminal, Neural Forge, and Starlit Tracker."
+      "description": "YouNeeK tools: CloudRipper, Death Terminal, Nous, and Starlit Tracker."
     },
     "youneek.xyz": {
       "title": "youneek.xyz",

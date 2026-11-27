@@ -2,23 +2,23 @@
 // Edit sites.config.json to add a repository site, then run npm run sync:repos.
 export const REPOS = [
   {
-    "title": "Nous",
-    "repoName": "Nous",
+    "title": "Henad",
+    "repoName": "Henad",
     "description": "The architecture of understanding. Forecasts your numbers, weather, and markets, and talks back.",
     "language": "Python",
-    "link": "https://github.com/AndrewGrayYouNeeK/Nous",
+    "link": "https://github.com/AndrewGrayYouNeeK/Henad",
     "sites": [
       {
-        "url": "https://nous.youneek.dev",
-        "label": "nous.youneek.dev"
+        "url": "https://henad.youneek.dev",
+        "label": "henad.youneek.dev"
       },
       {
-        "url": "https://nous.youneek.xyz",
-        "label": "nous.youneek.xyz"
+        "url": "https://henad.youneek.xyz",
+        "label": "henad.youneek.xyz"
       }
     ],
-    "image": "/projects/original/nous-wordmark.webp",
-    "backImage": "/projects/original/nous-wordmark-card.webp",
+    "image": "/projects/original/henad-wordmark.webp",
+    "backImage": "/projects/original/henad-wordmark-card.webp",
     "imageTransparent": true,
     "stars": 1,
     "updated": "2026-11-26"
@@ -283,7 +283,7 @@ export const REPOS = [
   {
     "title": "youneek dev",
     "repoName": "youneek-dev",
-    "description": "YouNeeK tools: CloudRipper, Death Terminal, Nous, and Starlit Tracker.",
+    "description": "YouNeeK tools: CloudRipper, Death Terminal, Henad, and Starlit Tracker.",
     "language": "HTML",
     "link": "https://github.com/AndrewGrayYouNeeK/youneek-dev",
     "sites": [],

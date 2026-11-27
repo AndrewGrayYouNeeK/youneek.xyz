@@ -1,5 +1,8 @@
 {
   "owner": "AndrewGrayYouNeeK",
+  "repoAliases": {
+    "Nous": "Henad"
+  },
   "skipRepos": [
     "nextjs-with-supabase",
     "fastapi",
@@ -19,7 +22,7 @@
     "roll10000.com currently answers with a Cloudflare Access login page and online.roll10000.com answers 404, so the verifier leaves them off. www.roll10000.com serves the game. They link automatically once they answer without a login.",
     "lillysapp.com answers with Cloudflare error 1000, so lilly-s-appYNK222 has no sites entry.",
     "youneekcare.com does not resolve, so the youneek repo has no sites entry.",
-    "Nous lives at https://nous.youneek.dev and https://nous.youneek.xyz. The old forge.youneek.dev and forge.youneek.xyz hostnames 301 there, so the card links the nous hosts rather than the redirects. w.youneek.xyz currently serves this portfolio instead of its own Worker. Death Terminal links its landing page at terminal.youneek.dev, which has downloads and install commands for Windows, macOS, and Linux (the Windows zip comes from the dt-windows-download Worker).",
+    "Henad lives at https://henad.youneek.dev and https://henad.youneek.xyz. The GitHub repo is https://github.com/AndrewGrayYouNeeK/Henad, renamed from Nous; the old GitHub URL redirects there. repoAliases maps the previous GitHub name Nous to Henad so a sync still applies this card if the public API still lists the old name. The card links the henad hosts, not nous.* or the older forge.* redirects. w.youneek.xyz currently serves this portfolio instead of its own Worker. Death Terminal links its landing page at terminal.youneek.dev, which has downloads and install commands for Windows, macOS, and Linux (the Windows zip comes from the dt-windows-download Worker).",
     "The Architects GM (the-architects-gm) is an owner desk, not a public project, so it has no card.",
     "apex-controlYNK222 (Apex Control) and atc222trainer (ATC222 Trainer) are extra ATC games. They stay in skipRepos so a later sync leaves them off even if the public API lists them again. YNKAIRTRAFFICGAME and unique-sky (YouNeeK Stars) stay on the site.",
     "YNKAIRTRAFFICGAME links https://youneek.xyz/air-traffic, the iPhone game page. Privacy is https://youneek.xyz/air-traffic/privacy and support is https://youneek.xyz/air-traffic/support. Those pages ship with this site. A Cloudflare challenge on youneek.xyz still counts that link as live.",
@@ -75,16 +78,16 @@
       "image": "/projects/original/pro-radar-neon.webp",
       "backImage": "/projects/original/pro-radar-neon.webp"
     },
-    "Nous": {
-      "title": "Nous",
+    "Henad": {
+      "title": "Henad",
       "description": "The architecture of understanding. Forecasts your numbers, weather, and markets, and talks back.",
       "sites": [
-        "https://nous.youneek.dev",
-        "https://nous.youneek.xyz"
+        "https://henad.youneek.dev",
+        "https://henad.youneek.xyz"
       ],
-      "image": "/projects/original/nous-wordmark.webp",
+      "image": "/projects/original/henad-wordmark.webp",
       "imageTransparent": true,
-      "backImage": "/projects/original/nous-wordmark-card.webp"
+      "backImage": "/projects/original/henad-wordmark-card.webp"
     },
     "Death-terminal-": {
       "title": "YouNeeK Death Terminal",
@@ -96,7 +99,7 @@
       "backImage": "/projects/original/death-terminal.jpg"
     },
     "youneek-dev": {
-      "description": "YouNeeK tools: CloudRipper, Death Terminal, Nous, and Starlit Tracker."
+      "description": "YouNeeK tools: CloudRipper, Death Terminal, Henad, and Starlit Tracker."
     },
     "youneek.xyz": {
       "title": "youneek.xyz",

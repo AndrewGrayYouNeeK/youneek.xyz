@@ -152,13 +152,24 @@ assert.equal(byName['the-architects'].extra, true);
 assert.deepEqual(siteUrls('3i-atlas-the-gameYNK'), ['https://3iatlasgame.xyz']);
 assert.deepEqual(siteUrls('YouNeeKTimeTheFinalBoss'), ['https://youneektime.com']);
 assert.deepEqual(siteUrls('youneekproradarBABY'), ['https://youneekproradar.com']);
-assert.deepEqual(siteUrls('Nous'), [
-  'https://nous.youneek.dev',
-  'https://nous.youneek.xyz',
+const henad = byName.Henad;
+assert.ok(henad, 'Henad card exists');
+assert.equal(henad.title, 'Henad');
+assert.equal(henad.repoName, 'Henad');
+assert.equal(henad.link, 'https://github.com/AndrewGrayYouNeeK/Henad');
+assert.match(henad.description, /The architecture of understanding/);
+assert.equal(byName.Nous, undefined, 'Nous was renamed to Henad');
+assert.equal(byName['Real-Neural-Forge'], undefined, 'Real-Neural-Forge was renamed to Henad');
+const henadConfigured = (config.repos.Henad?.sites || []).map((spec) => (typeof spec === 'string' ? spec : spec.url));
+assert.deepEqual(henadConfigured, [
+  'https://henad.youneek.dev',
+  'https://henad.youneek.xyz',
 ]);
-assert.equal(byName['Nous'].title, 'Nous');
-assert.match(byName['Nous'].description, /The architecture of understanding/);
-assert.equal(byName['Real-Neural-Forge'], undefined, 'Real-Neural-Forge was renamed to Nous');
+// Hosts may still be coming up, so a sync can leave the card with no live link.
+for (const url of siteUrls('Henad')) {
+  assert.ok(henadConfigured.includes(url), `unexpected Henad site ${url}`);
+}
+assert.equal(config.repoAliases?.Nous, 'Henad');
 assert.deepEqual(siteUrls('lilly-s-appYNK222'), []);
 assert.deepEqual(siteUrls('youneek'), []);
 assert.deepEqual(siteUrls('youneek-time'), [
@@ -179,6 +190,8 @@ for (const forbidden of [
   'youneekcare.com',
   'forge.youneek.xyz',
   'forge.youneek.dev',
+  'nous.youneek.dev',
+  'nous.youneek.xyz',
   'real-neural-forge-api.youneekartifacts.workers.dev',
   'Real-Neural-Forge',
   'Real Neural Forge',
@@ -262,9 +275,14 @@ assert.equal(byName['10000TheFinalBoss'].image, '/projects/original/roll10000-lo
 assert.equal(byName['10000TheFinalBoss'].backImage, '/projects/original/roll10000-logo-card.jpg');
 assert.equal(byName['used-artifacts'].image, '/projects/original/used-artifacts-logo.png', 'Used Artifacts uses the official transparent logo');
 assert.equal(byName['used-artifacts'].imageTransparent, true);
-assert.equal(byName['Nous'].image, '/projects/original/nous-wordmark.webp');
-assert.equal(byName['Nous'].imageTransparent, true, 'Nous card renders the wordmark with no fill behind the logo');
-assert.equal(byName['Nous'].backImage, '/projects/original/nous-wordmark-card.webp');
+assert.equal(byName.Henad.image, '/projects/original/henad-wordmark.webp');
+assert.equal(byName.Henad.imageTransparent, true, 'Henad card renders the wordmark with no fill behind the logo');
+assert.equal(byName.Henad.backImage, '/projects/original/henad-wordmark-card.webp');
+assert.equal(
+  REPOS.some((repo) => /Nous/i.test(`${repo.title} ${repo.repoName} ${repo.description} ${repo.link} ${repo.image || ''} ${repo.backImage || ''}`)),
+  false,
+  'no leftover Nous name, link, or image on a card'
+);
 assert.equal(byName['used-artifacts'].backImage, '/projects/original/used-artifacts-logo-card.jpg');
 assert.deepEqual(siteUrls('used-artifacts'), ['https://usedartifacts.com']);
 assert.match(byName['used-artifacts'].description, /coming soon/i);
